@@ -35,7 +35,7 @@
                     <div class="single-effect">
                         <figure class="wpf-blog">
                             <a href=""><img
-                                    src="{{ asset('') }}home_asset/images/CV3_1.jpg" alt="img" class="CV_image" style="height: 637.72px;"></a>
+                                    src="{{ asset('') }}home_asset/images/CV3_1.jpg" alt="img" class="CV_image"></a>
                             <figcaption class="view-caption">
                                 <a href="{{ url('home/ChosenColor') }}" target="_blank"
                                     class="centered" id="cv3">Use this template</a>
