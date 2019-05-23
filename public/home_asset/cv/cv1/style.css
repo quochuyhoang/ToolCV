@@ -1,0 +1,171 @@
+/* Header */
+.bgCV {
+	background-color: rgb(245,244,244);
+}
+.header {
+	text-align: center;
+	position: relative;
+}
+.bgHeader {
+	background-color: rgb(49,118,188);
+}
+.name {
+	margin-top: 30px;
+	color: white;
+	font-size: 50px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+.job_name {
+	color: rgb(164,184,223);
+	text-transform: uppercase;
+	letter-spacing: 5px;
+	font-weight: bold;
+	font-size: 15px;
+}
+.job_describe {
+	color: white;
+	margin: 40px 150px;
+}
+.image {
+	width: 190px;
+	height: 190px;
+	border-radius: 50%;
+	border: 10px solid white;
+	background-color: gray;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -100px 50px -100px;
+}
+/* Education */
+.education {
+	padding: 10px auto;
+	background-color: rgb(245,244,244);
+}
+.software_skill {
+	float: left;
+	margin: 75px 40px;
+}
+.skill_name_icon {
+	width: 75px;
+	height: 75px;
+	border-radius: 50%;
+	border: 5px solid gray;
+}
+img {
+	width: 75px;
+	height: 75px;
+	border-radius: 50%;
+}
+.index {
+	margin-top: 15px;
+	margin-left: 4px;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	border: 2px solid black;
+	float: left;
+}
+.index.current {
+	background-color: black;
+}
+.skill_ability {
+	margin: 30px 20px 0 0;
+}
+.skill_ability span {
+	text-transform: uppercase;
+	font-weight: bold;
+}
+.skill {
+	padding-bottom: 50px;
+}
+/* Experience */
+.experience {
+	position: relative;
+	border-radius: 10px;
+}
+.col-lg-2 {
+	background-color: rgb(49,118,188);
+}
+.col-lg-5 {
+	background-color: white;
+}
+.col-lg-10 {
+	margin: 25px 0;
+	background-color: white;
+}
+.topic p {
+	position: absolute;
+	font-size: 50px;
+	color: white;
+	text-transform: uppercase;
+	left: 98px;
+	top: 250px;
+	border-top-right-radius: 10px; 
+	text-align: center;
+	transform:  translateX(-50%) translateY(-50%) rotate(-90deg);
+}
+.topic.rotate p {
+	font-size: 40px; 
+	margin-top: 50px !important;
+}
+/* experience */
+.job-header {
+	display: flex;
+	justify-content: space-between;
+}
+.test {
+	margin-left: 40px;
+	padding-left: 80px;
+	border-left: 2px solid black;
+}
+.last-job {
+	margin: 20px;
+}
+.last-job.next {
+	padding-top: 20px;
+}
+.circle {
+	width: 13px;
+	height: 13px;
+	background-color: white;	
+	border: 2px solid rgb(49,118,188);
+	border-radius: 50%;
+	position: absolute;
+	left: 50px;
+}
+.job-describe {
+	color: rgb(109,110,112);
+}
+.split {
+	background-color: rgb(245,244,244);
+	height: 30px;
+}
+.contact_info {
+	margin: 40px;
+}
+.topic.name_topic {
+	top: 145px!important;
+	left: 48px!important;
+}
+.contact,
+.hobbies {
+	background-color: white;
+}
+.hobbies_content {
+	margin-top: 19px;
+    padding: 50px;
+    text-align: center;
+}
+.icon_hobbies {
+	color: rgb(49,118,188);
+}
+h5 {
+	color: rgb(49,118,188);
+}
+h6 {
+	padding-top: 5px;
+	text-transform: uppercase;
+}
+

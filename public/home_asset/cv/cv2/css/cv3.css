@@ -1,0 +1,133 @@
+.container {
+	padding: 20px;
+}
+
+.template {
+	border: 1px solid black;
+	border-radius: 10px;
+}
+.header {
+	background-color: rgb(253,237,139);
+	background-size: cover;
+	border-radius: 10px;
+}
+
+.avatar {
+	display: flex;
+	justify-content: center;
+	padding: 40px 0 0 0;
+}
+.cricle {
+	margin-top: 20px;
+	margin-top: 0px;
+	width: 150px;
+	height: 150px;
+}
+.cricle img{
+	border-radius: 50%;
+	height: 100%;
+}
+.header .name {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 50px;
+	letter-spacing: 20px;
+	margin: 0 40px;
+	border-bottom:  2px solid black;
+
+}
+.resume {
+	position: absolute;
+	bottom: -20px;
+	padding-left: 20px;
+	font-size:25px;
+	background-color: black;
+	border-radius: 20px;
+}
+.resume span {
+	color: white;
+}
+.job-name {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	background :none;
+	padding: 30px 30px 0 30px;
+}
+.job-name span{
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 25px;
+	letter-spacing: 20px;
+
+}
+
+.job-demo {
+	padding: 10px 40px;
+	text-align: center;
+}
+.contact {
+	display: flex;
+	justify-content: space-between;
+	padding: 20px;
+	border-bottom: 2px solid black;
+	margin: 20px;
+}
+.item-contact .fas{
+	font-size: 60px;
+	padding-top: 10px;
+}
+.item-contact {
+	display: flex;
+	justify-content: flex-start;
+}
+.contact-title{
+	padding:  20px;
+}
+.exp {
+	text-transform: uppercase;
+	top: 0px;
+	letter-spacing: 10px;
+}
+.test {
+	margin-left: 50px;
+	padding-left: 0;
+	border: none;
+	margin-bottom: 30px;
+}
+.job-left {
+	width: 30%;
+	float: left;
+	margin-top: 5px;
+}
+.job-describer {
+	padding: 0 20px;
+}
+.job-left .name{
+	text-transform: capitalize;
+	padding: 0;
+	position: relative;
+}
+.job-right {
+	width: 70%;
+	float: right;
+}
+.last-job {
+	margin-top: 20px;
+}
+.col-md-5 .test {
+	padding-right: 40px;
+}
+.job-body .job-describer{
+	padding: 0;
+}
+.job-header {
+	text-transform: uppercase;
+	font-weight: bold;
+}
+.job-body{
+	text-transform: capitalize;
+}
