@@ -10,11 +10,11 @@ use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
- public function __construct()
-	{
+//  public function __construct()
+// 	{
 
-		$this->middleware('auth:web')->only('index');
-    }
+// 		$this->middleware('auth:web')->only('index');
+//     }
 	
 	// public function index(){
 
