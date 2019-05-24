@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Responsive Resume CV Template</title>
+    <title>CV Tool</title>
 
     <!-- Bootstrap -->
     <link href="{{asset('') }}home_asset/css/bootstrap.min.css" rel="stylesheet">
@@ -41,12 +41,12 @@
 
 </head>
     <style>
-        body {
-            background-image: url('https://img2.thuthuatphanmem.vn/uploads/2018/12/30/background-dep-lam-khung-anh_110637533.jpg');
-            background-size: contain;
+        .preview-banner {
+            background: url('https://images.wallpaperscraft.com/image/laptop_smartphone_technology_110789_1366x768.jpg');
+            background-size: cover;
         }
         .btn {
-            background-color: white;
+            background-color: blanchedalmond;
             margin: .2rem;
             padding: .8rem 1.5rem;
             font-size: 20px;
@@ -56,11 +56,12 @@
             background-color: #0fa482;
             color: white;
         }
+
     </style>
 <body>
 
     <!--Loader-->
-    <div id="loader">
+    {{-- <div id="loader">
         <div class="loader">
             <div class="loader__bar"></div>
             <div class="loader__bar"></div>
@@ -69,20 +70,23 @@
             <div class="loader__bar"></div>
             <div class="loader__ball"></div>
         </div>
-    </div>
+    </div> --}}
     <!-- Loader end -->
 
     <!-- Page Banner -->
     <section class="preview-banner" style="padding-top: 50px; padding-bottom: 100px;">
         <div class="container">
             <div class="row">
-                <div class="col-md-12 text-center">
+                <div class="col-md-12 col-sm-12 text-center">
                     <div class="gradient-banner-detail padding-60-b text-primary">
-                        <h2 style="color: seashell;">Resume CV Template</h2>
-                        <h4 style="color: seashell;">Set up a professional CV resume. Broaden the chance of finding a great job with this well balanced cv template.</h4>
-                        <a href="{{ route('home.register') }}"
-                            target="_blank" class="btn">Register</a>
-                        <a href="{{ route('home.login') }}" class="btn">Sign In</a>
+                        <h2>Resume CV Template</h2>
+                        <p>Set up a professional CV resume. Broaden the chance of finding a great job with this well balanced cv template.</p>
+                        <div>
+                            <a href="{{ route('home.register') }}"
+                                target="_blank" class="btn">Register</a>
+                            <a href="{{ route('home.login') }}" class="btn">Sign In</a>
+                        </div>
+                        
                     </div>
                 </div>
 
@@ -95,9 +99,9 @@
         <div class="container">
             <div class="domain_search domain_search_bgw text-center">
                 <div class="col-md-12 text-center heading">
-                    <h2>Make Your Resume More Modern!</h2>
+                    <h2 style="padding-bottom: 2rem;">Make Your Resume More Modern!</h2>
                 </div>
-                <h3>Talent Wins Dev Team offers a great variety of different elements to enhance your resume.</h3>
+                <p class="content-heading" style="font-size: 20px;">Talent Wins Dev Team offers a great variety of different elements to enhance your resume.</p>
             </div>
         </div>
     </div>

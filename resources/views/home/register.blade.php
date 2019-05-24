@@ -18,7 +18,7 @@
 <style>
 	body {
 		background-color: #8EC5FC; 
-		background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+		background-image: url('https://images.wallpaperscraft.com/image/night_city_aerial_view_buildings_140989_1366x768.jpg');
 	}
 	span {
 		width: 42px;

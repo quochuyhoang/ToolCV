@@ -227,3 +227,7 @@ Route::prefix('home')->group(function (){
     Route::get('ChosenColor','Home\HomeController@ChosenColor')->name('home.chosen');
 
 });
+
+// Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');
