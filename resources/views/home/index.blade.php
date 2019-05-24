@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Responsive Resume CV Template</title>
+    <title>CV Tool</title>
 
     <!-- Bootstrap -->
     <link href="{{asset('') }}home_asset/css/bootstrap.min.css" rel="stylesheet">
@@ -42,11 +42,11 @@
 </head>
     <style>
         .preview-banner {
-            background: url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/SsLYSh45lizrfzvep/videoblocks-young-woman-make-some-medical-notes-in-notebook-from-here-laptop-top-view-white-background_rjxzdu3rg_thumbnail-full01.png') no-repeat center center;
+            background: url('https://images.wallpaperscraft.com/image/laptop_smartphone_technology_110789_1366x768.jpg');
             background-size: cover;
         }
         .btn {
-            background-color: white;
+            background-color: blanchedalmond;
             margin: .2rem;
             padding: .8rem 1.5rem;
             font-size: 20px;

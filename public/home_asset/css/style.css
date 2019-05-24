@@ -637,6 +637,9 @@ a.back-to, .short-msg a.short-topup:hover{
    padding: 15px 0;
    letter-spacing: 2px;
 }
+img.CV_image {
+    height: 640px;
+}
 /*Transitions*/
 a, #search, .owl-page, nav.navbar.bootsnav, .plans_details, button, .price-table{
     -webkit-transition: all 0.4s ease-in;
@@ -2717,7 +2720,7 @@ ul.cart-list > li .price {
 /* ---------- Footer CSS ----------- */
 /* ================================= */
 .site-footer{
-    background:#0fb78c;
+    background: dimgray;
 }
 .site-footer, .footer_cols{
     position: relative;
