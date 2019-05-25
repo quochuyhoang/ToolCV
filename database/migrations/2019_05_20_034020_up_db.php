@@ -136,6 +136,8 @@ class UpDb extends Migration
             $table->string('spe');
             $table->string('time');
         });
+
+
     }
 
     /**

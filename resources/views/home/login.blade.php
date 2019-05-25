@@ -1,74 +1,95 @@
-
-
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-	<title>Login Page</title>
-	<!--Bootsrap 4 CDN-->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-	<!--Fontawesome CDN-->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-		integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-	<!--Custom styles-->
-	<link rel="stylesheet" type="text/css" href="{{ asset("") }}/home_asset/css_form/styles.css">
-</head>
-	<style>
-		body {
-			width: 100%;
-			height: 100%;
-			background-color: #8EC5FC; 
-			background-image: url('https://images.wallpaperscraft.com/image/night_city_aerial_view_buildings_140989_1366x768.jpg');
-		}
-		a:hover {
-			text-decoration: none;
-		}
-	</style>
-<body>
-	<div class="container">
-		<div class="d-flex justify-content-center h-100 mt-5">
-			<div class="card">
-				<div class="card-header">
-					<h3>Sign In</h3>
-					<div class="d-flex justify-content-end social_icon"></div>
-				</div>
-				<div class="card-body">
-					<form action="{{ route('home.post') }}" method="post">
-						{!! csrf_field() !!}
-						<div class="input-group form-group">
-							<div class="input-group-prepend">
-								<span class="input-group-text"><i class="fas fa-user"></i></span>
-							</div>
-							<input type="email" name="email" id="email" class="form-control" placeholder="Email">
+	<title>Material Login Form a Responsive Widget Template :: w3layouts</title>
+	<!-- meta tags -->
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="keywords" content="Art Sign Up Form Responsive Widget, Audio and Video players, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates,
+		Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design"
+	/>
+	<!-- /meta tags -->
+	<!-- custom style sheet -->
+	<link href="{{asset('login')}}/css/style4.css" rel="stylesheet" type="text/css" />
+	<!-- /custom style sheet -->
+	<!-- fontawesome css -->
+	<link href="{{asset('login')}}/css/fontawesome-all.css" rel="stylesheet" />
+	<!-- /fontawesome css -->
+	<!-- google fonts-->
+	<link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+		  rel="stylesheet">
+	<!-- /google fonts-->
 
-						</div>
-						<div class="input-group form-group">
-							<div class="input-group-prepend">
-								<span class="input-group-text"><i class="fas fa-key"></i></span>
-							</div>
-							<input type="password" name="password" id="password" class="form-control" placeholder="Password">
-						</div>
-						<div class="form-group">
-							<input type="submit" value="Login" class="btn float-right login_btn">
-						</div>
-					</form>
-				</div>
-				<div class="card-footer">
-					<div class="d-flex justify-content-center links">
-						Don't have an account?&nbsp;<a href="#">Sign Up</a>
-					</div>
-					<div class="d-flex justify-content-center">
-						<a href="#">Forgot your password?</a>
-					</div>
-				</div>
+</head>
+
+
+<body>
+<h1></h1>
+<div class=" w3l-login-form">
+	<h2>Login Here</h2>
+	<form action="{{ route('home.post') }}" method="post">
+		@csrf
+		<div class=" w3l-form-group">
+			<label>Username:</label>
+			<div class="group">
+				<i class="fas fa-user"></i>
+				<input type="text" name="email" id="email" class="form-control" placeholder="Email" onchange="checkEmail()">
 			</div>
 		</div>
-	</div>
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<div class=" w3l-form-group">
+			<label>Password:</label>
+			<div class="group">
+				<i class="fas fa-unlock"></i>
+				<input type="password" name="password" id="password" class="form-control" placeholder="Password">
+			</div>
+		</div>
+		<div class="forgot">
+			<a href="#">Forgot Password?</a>
+			<p><input type="checkbox">Remember Me
+				<input type="checkbox" onclick="showPass()">Show Password</p>
+			<script>
+				function showPass() {
+					var x= document.getElementById('password');
+
+					if( x.type === 'password'){
+						x.type = 'text';
+					}
+					else{
+						x.type = 'password';
+					}
+
+				}
+				function checkEmail(obj) {
+					var x= obj.value;
+
+					var vitri = x.search("@");
+					if(vitri === 0){
+						alert('"@" cannot be at the beginning of the string');
+						obj.focus();
+					}
+					else if(vitri === x.length-1){
+						alert('"@" cannot be at the the end of the string');
+						obj.focus();
+					}
+					else if(vitri === -1){
+						alert('Please include "@" in the email address');
+						obj.focus();
+					}
+					else {
+
+					}
+				}
+			</script>
+		</div>
+		<button type="submit">Login</button>
+	</form>
+	<p class=" w3l-register-p">Don't have an account?<a href="{{ route('home.register.get') }}" class="register"> Register</a></p>
+</div>
+<footer>
+	<p class="copyright-agileinfo"> &copy; 2018 Material Login Form. All Rights Reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+</footer>
+
 </body>
 
 </html>

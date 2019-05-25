@@ -12,9 +12,57 @@
 */
 
 // home.login
+
+Route::get('/', 'HomeController@index')->name('home');
+Route::prefix('home')->group(function (){
+
+    Route::get('/', 'Home\HomeController@index')->name('home.index');
+    Route::get('/', 'Home\HomeController@index1')->name('home.index1');
+
+
+//show cv
+    Route::get('/show', 'Home\HomeController@ShowCvs')->name('home.show');
+    Route::get('/show1', 'Home\HomeController@ShowCvs1')->name('home.show1');
+
+    // Route::get('Register', 'Home\HomeController@register')->name('home.register');
+
+    Route::get('Login','Home\ClientController@Login')->name('home.login');
+    Route::get('logout','Home\ClientController@Logout')->name('home.logout');
+    Route::get('register','Home\ClientController@regisster')->name('home.register.get');
+
+
+    Route::post('Login','Home\ClientController@PostLogin')->name('home.post');
+    Route::post('register','Home\ClientController@PostLogin')->name('home.register.post');
+
+
+    Route::prefix('Register')->group(function(){
+
+        Route::get('/', 'Backend\UserController@Register')->name('home.register');
+
+
+//->middleware('verify')
+//Register
+        Route::get('Create', 'Backend\UserController@Create')->name('user.create');
+        Route::post('Create', 'Backend\UserController@PostCreate1')->name('user.postcreate1');
+
+
+    });
+//->middleware('verify')
+//form
+    Route::prefix('Create')->group(function(){
+
+        Route::get('/', 'Home\CvsController@Create')->name('home.createcv');
+
+        Route::post('Create/{id}', 'Home\CvsController@CVCreate')->name('home.postcv');
+
+    });
+
+    Route::get('ChosenColor/{name}','Home\HomeController@ChosenColor')->name('home.chosen');
+
+});
 Auth::routes();
 
-/*Route::get('/home', 'HomeController@index')->name('home');*/
+
 
 
 
@@ -186,47 +234,6 @@ Route::prefix('backend')->group(function (){
 });
 
 
-Route::prefix('home')->group(function (){
-
-    Route::get('/', 'Home\HomeController@index')->name('home.index');
-    Route::get('/', 'Home\HomeController@index1')->name('home.index1');
-
-
-//show cv
-    Route::get('/show', 'Home\HomeController@ShowCvs')->name('home.show');
-    Route::get('/show1', 'Home\HomeController@ShowCvs1')->name('home.show1');
-
-    // Route::get('Register', 'Home\HomeController@register')->name('home.register');
-
-    Route::get('Login','Home\HomeController@Login')->name('home.login');
-    Route::post('Login','Home\HomeController@PostLogin')->name('home.post');
-
-
-    Route::prefix('Register')->group(function(){
-
-        Route::get('/', 'Backend\UserController@Register')->name('home.register');
-
-
-//->middleware('verify')
-//Register
-        Route::get('Create', 'Backend\UserController@Create')->name('user.create');
-        Route::post('Create', 'Backend\UserController@PostCreate1')->name('user.postcreate1');
-        
-
-    });
-//->middleware('verify')
-//form
-    Route::prefix('Create')->group(function(){
-
-        Route::get('/', 'Home\HomeController@Create')->name('home.createcv');
-
-        Route::post('Create/{id}', 'Home\HomeController@CVCreate')->name('home.postcv');
-
-    });
-
-    Route::get('ChosenColor','Home\HomeController@ChosenColor')->name('home.chosen');
-
-});
 
 // Auth::routes();
 

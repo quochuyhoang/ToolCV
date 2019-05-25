@@ -82,9 +82,20 @@
                         <h2>Resume CV Template</h2>
                         <p>Set up a professional CV resume. Broaden the chance of finding a great job with this well balanced cv template.</p>
                         <div>
-                            <a href="{{ route('home.register') }}"
-                                target="_blank" class="btn">Register</a>
-                            <a href="{{ route('home.login') }}" class="btn">Sign In</a>
+
+
+                            @guest
+                                <a href="{{ route('home.login') }}" class="btn">Sign In</a>
+                                @if (Route::has('register'))
+                                    <a href="{{ route('home.register') }}" target="_blank" class="btn">Register</a>
+                                @endif
+                            @else
+
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        {{ Auth::user()->name }} <span class="caret"></span>
+                                    </a>
+                                <a href="{{ route('home.logout') }}" class="btn">Log Out</a>
+                            @endguest
                         </div>
                         
                     </div>

@@ -108,7 +108,7 @@
             <div class="col-lg-1"></div>
             <div class="col-lg-4">
                 <div class="single-effect" style="margin-left: 10%;">
-                    <img src="{{ asset('') }}home_asset/images/CV1_1.jpg" alt="img" id="imageCV" class="displayImg">
+                    <img src="{{ asset('') }}home_asset/images/cv/{{ $name }}_1.png" alt="img" id="imageCV" class="displayImg">
                 </div>
             </div>
             <div class="col-lg-1"></div>
@@ -170,7 +170,7 @@
         colorCV[i].onclick = function()
         {
             console.log(colorCV[i]);
-            imgCV.src ="{{ asset('') }}home_asset/images/CV1_"+[i+1]+".jpg";
+            imgCV.src ="{{ asset('') }}home_asset/images/cv/{{ $name }}_"+[i+1]+".png";
         }
     }
 

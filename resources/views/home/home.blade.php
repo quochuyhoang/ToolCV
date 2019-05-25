@@ -8,10 +8,10 @@
                 <div class="col-md-offset-1 col-md-5 col-sm-6 col-xs-12 text-center">
                     <div class="single-effect">
                         <figure class="wpf-blog">
-                            <a href=""><img src="{{ asset('') }}home_asset/images/CV1_1.jpg"
+                            <a href=""><img src="{{ asset('') }}home_asset/images/cv/CV1_1.png"
                                     alt="img" class="CV_image"></a>
                             <figcaption class="view-caption">
-                                <a href="{{ url('home/ChosenColor') }}" target="_blank"
+                                <a href="{{ url('home/ChosenColor/CV1') }}" target="_blank"
                                     class="centered" id="cv1">Use this template</a>
                             </figcaption>
                         </figure>
@@ -21,10 +21,10 @@
                 <div class="col-md-5 col-sm-6 col-xs-12 text-center">
                     <div class="single-effect">
                         <figure class="wpf-blog">
-                            <a href=""><img src="{{ asset('') }}home_asset/images/CV2_1.jpg"
+                            <a href=""><img src="{{ asset('') }}home_asset/images/cv/CV2_1.png"
                                     alt="img" class="CV_image"></a>
                             <figcaption class="view-caption">
-                                <a href="{{ url('home/ChosenColor') }}" target="_blank"
+                                <a href="{{ url('home/ChosenColor/CV2') }}" target="_blank"
                                     class="centered" id="cv2">Use this template</a>
                             </figcaption>
                         </figure>
@@ -35,9 +35,9 @@
                     <div class="single-effect">
                         <figure class="wpf-blog">
                             <a href=""><img
-                                    src="{{ asset('') }}home_asset/images/CV3_1.jpg" alt="img" class="CV_image"></a>
+                                    src="{{ asset('') }}home_asset/images/cv/CV3_1.png" alt="img" class="CV_image"></a>
                             <figcaption class="view-caption">
-                                <a href="{{ url('home/ChosenColor') }}" target="_blank"
+                                <a href="{{ url('home/ChosenColor/CV3') }}" target="_blank"
                                     class="centered" id="cv3">Use this template</a>
                             </figcaption>
                         </figure>
@@ -48,9 +48,9 @@
                     <div class="single-effect">
                         <figure class="wpf-blog">
                             <a href=""><img
-                                    src="{{ asset('') }}home_asset/images/CV4_2.jpg" alt="img" class="CV_image"></a>
+                                    src="{{ asset('') }}home_asset/images/cv/CV4_2.png" alt="img" class="CV_image"></a>
                             <figcaption class="view-caption">
-                                <a href="{{ url('home/ChosenColor') }}" target="_blank"
+                                <a href="{{ url('home/ChosenColor/CV4') }}" target="_blank"
                                     class="centered" id="cv4">Use this template</a>
                             </figcaption>
                         </figure>
@@ -62,7 +62,7 @@
             <div class="col-md-offset-1 col-md-5 col-sm-6 col-xs-12 text-center">
                 <div class="single-effect">
                     <figure class="wpf-blog">
-                        <a href=""><img src="{{ asset('') }}/home_asset/images/CV1_1.jpg"
+                        <a href=""><img src="{{ asset('') }}/home_asset/images/cv/CV1_1.png"
                                 alt="img" class="CV_image"></a>
                         <figcaption class="view-caption">
                             <a href="" target="_blank"
@@ -75,7 +75,7 @@
             <div class="col-md-5 col-sm-6 col-xs-12 text-center">
                 <div class="single-effect">
                     <figure class="wpf-blog">
-                        <a href=""><img src="{{ asset('') }}/home_asset/images/CV2_2.jpg"
+                        <a href=""><img src="{{ asset('') }}/home_asset/images/cv/CV2_2.png"
                                 alt="img"></a>
                         <figcaption class="view-caption">
                             <a href="" target="_blank"
@@ -89,7 +89,7 @@
                 <div class="single-effect">
                     <figure class="wpf-blog">
                         <a href=""><img
-                                src="{{ asset('') }}/home_asset/images/home_2.jpg" alt="img"></a>
+                                src="{{ asset('') }}/home_asset/images/cv/home_2.png" alt="img"></a>
                         <figcaption class="view-caption">
                             <a href="" target="_blank"
                                 class="centered">Use this template</a>
@@ -102,7 +102,7 @@
                 <div class="single-effect">
                     <figure class="wpf-blog">
                         <a href=""><img
-                                src="{{ asset('') }}/home_asset/images/home_4.jpg" alt="img"></a>
+                                src="{{ asset('') }}/home_asset/images/cv/home_4.png" alt="img"></a>
                         <figcaption class="view-caption">
                             <a href="" target="_blank"
                                 class="centered">Use this template</a>
@@ -116,7 +116,7 @@
             <div class="col-md-offset-1 col-md-5 col-sm-6 col-xs-12 text-center">
                 <div class="single-effect">
                     <figure class="wpf-blog">
-                        <a href=""><img src="{{ asset('') }}/home_asset/images/CV1_1.jpg"
+                        <a href=""><img src="{{ asset('') }}/home_asset/images/cv/CV1_1.png"
                                 alt="img"></a>
                         <figcaption class="view-caption">
                             <a href="" target="_blank"
@@ -129,7 +129,7 @@
             <div class="col-md-5 col-sm-6 col-xs-12 text-center">
                 <div class="single-effect">
                     <figure class="wpf-blog">
-                        <a href=""><img src="{{ asset('') }}/home_asset/images/CV2_2.jpg"
+                        <a href=""><img src="{{ asset('') }}/home_asset/images/cv/CV2_2.png"
                                 alt="img"></a>
                         <figcaption class="view-caption">
                             <a href="" target="_blank"
@@ -143,7 +143,7 @@
                 <div class="single-effect">
                     <figure class="wpf-blog">
                         <a href=""><img
-                                src="{{ asset('') }}/home_asset/images/home_2.jpg" alt="img"></a>
+                                src="{{ asset('') }}/home_asset/images/cv/home_2.png" alt="img"></a>
                         <figcaption class="view-caption">
                             <a href="" target="_blank"
                                 class="centered">Use this template</a>
@@ -156,7 +156,7 @@
                 <div class="single-effect">
                     <figure class="wpf-blog">
                         <a href=""><img
-                                src="{{ asset('') }}/home_asset/images/home_4.jpg" alt="img"></a>
+                                src="{{ asset('') }}/home_asset/images/cv/home_4.png" alt="img"></a>
                         <figcaption class="view-caption">
                             <a href="" target="_blank"
                                 class="centered">Use this template</a>
@@ -170,7 +170,7 @@
             <div class="col-md-offset-1 col-md-5 col-sm-6 col-xs-12 text-center">
                 <div class="single-effect">
                     <figure class="wpf-blog">
-                        <a href=""><img src="{{ asset('') }}/home_asset/images/CV1_1.jpg"
+                        <a href=""><img src="{{ asset('') }}/home_asset/images/cv/CV1_1.png"
                                 alt="img"></a>
                         <figcaption class="view-caption">
                             <a href="" target="_blank"
@@ -183,7 +183,7 @@
             <div class="col-md-5 col-sm-6 col-xs-12 text-center">
                 <div class="single-effect">
                     <figure class="wpf-blog">
-                        <a href=""><img src="{{ asset('') }}/home_asset/images/CV2_2.jpg"
+                        <a href=""><img src="{{ asset('') }}/home_asset/images/cv/CV2_2.png"
                                 alt="img"></a>
                         <figcaption class="view-caption">
                             <a href="" target="_blank"
@@ -197,7 +197,7 @@
                 <div class="single-effect">
                     <figure class="wpf-blog">
                         <a href=""><img
-                                src="{{ asset('') }}/home_asset/images/home_2.jpg" alt="img"></a>
+                                src="{{ asset('') }}/home_asset/images/cv/home_2.png" alt="img"></a>
                         <figcaption class="view-caption">
                             <a href="" target="_blank"
                                 class="centered">Use this template</a>
@@ -210,7 +210,7 @@
                 <div class="single-effect">
                     <figure class="wpf-blog">
                         <a href=""><img
-                                src="{{ asset('') }}/home_asset/images/home_4.jpg" alt="img"></a>
+                                src="{{ asset('') }}/home_asset/images/cv/home_4.png" alt="img"></a>
                         <figcaption class="view-caption">
                             <a href="" target="_blank"
                                 class="centered">Use this template</a>
@@ -224,7 +224,7 @@
             <div class="col-md-offset-1 col-md-5 col-sm-6 col-xs-12 text-center">
                 <div class="single-effect">
                     <figure class="wpf-blog">
-                        <a href=""><img src="{{ asset('') }}/home_asset/images/CV1_1.jpg"
+                        <a href=""><img src="{{ asset('') }}/home_asset/images/cv/CV1_1.png"
                                 alt="img"></a>
                         <figcaption class="view-caption">
                             <a href="" target="_blank"
@@ -237,7 +237,7 @@
             <div class="col-md-5 col-sm-6 col-xs-12 text-center">
                 <div class="single-effect">
                     <figure class="wpf-blog">
-                        <a href=""><img src="{{ asset('') }}/home_asset/images/CV2_2.jpg"
+                        <a href=""><img src="{{ asset('') }}/home_asset/images/cv/CV2_2.png"
                                 alt="img"></a>
                         <figcaption class="view-caption">
                             <a href="" target="_blank"
@@ -251,7 +251,7 @@
                 <div class="single-effect">
                     <figure class="wpf-blog">
                         <a href=""><img
-                                src="{{ asset('') }}/home_asset/images/home_2.jpg" alt="img"></a>
+                                src="{{ asset('') }}/home_asset/images/cv/home_2.png" alt="img"></a>
                         <figcaption class="view-caption">
                             <a href="" target="_blank"
                                 class="centered">Use this template</a>
@@ -264,7 +264,7 @@
                 <div class="single-effect">
                     <figure class="wpf-blog">
                         <a href=""><img
-                                src="{{ asset('') }}/home_asset/images/home_4.jpg" alt="img"></a>
+                                src="{{ asset('') }}/home_asset/images/cv/home_4.png" alt="img"></a>
                         <figcaption class="view-caption">
                             <a href="" target="_blank"
                                 class="centered">Use this template</a>

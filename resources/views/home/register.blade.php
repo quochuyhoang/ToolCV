@@ -82,8 +82,9 @@
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
 							<input type="file" id="avatar" name="avatar" placeholder="Avatar" class="form-control" onchange="fileValidation()">
-							<div id="imagePreview">								
-							</div>
+
+						</div>
+						<div id="imagePreview" style="margin: 0 auto;">
 						</div>
 						<div class="input-group form-group">
 
@@ -107,8 +108,51 @@
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class="fas fa-key"></i></span>
 							</div>
-							<input type="password" id="password" name="password" class="form-control" placeholder="password">
+							<input type="password" id="password" name="password" class="form-control" placeholder="password" onchange="lengthPasswword()">
+
 						</div>
+						<p id="lengthpass" style="color: red; font-size: 15px"></p>
+						<script>
+							function lengthPasswword() {
+								var x= document.getElementById('password').value;
+
+
+
+								if(x.length < 8){
+									document.getElementById('lengthpass').style.display = 'block';
+									document.getElementById('lengthpass').innerHTML = '<span>Password length must be greater than or equal to 8 characters</span>';
+								}
+								else
+								{
+									document.getElementById('lengthpass').style.display = 'none';
+
+								}
+							}
+						</script>
+						<div class="input-group form-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
+							<input type="password" id="confirmPassword" name="confirmPassword" class="form-control" placeholder="confirmPassword" onchange="confirmPasswword()">
+						</div>
+						<p id="errorpass" style="color: red; font-size: 15px"></p>
+						<script>
+								function confirmPasswword() {
+									var x= document.getElementById('password').value;
+									var y= document.getElementById('confirmPassword').value;
+
+
+									if(x != y){
+										document.getElementById('errorpass').style.display = 'block';
+										document.getElementById('errorpass').innerHTML = '<span>Confirm Pass word ís not correct</span>';
+										}
+									else
+										{
+										document.getElementById('errorpass').style.display = 'none';
+
+										}
+								}
+						</script>
 						<div class="card-footer">
 							<div class="form-group">
 								<input type="submit" value="Back" class="btn float-left login_btn">
@@ -140,7 +184,7 @@ if(!allowedExtensions.exec(filePath)){
 if (fileInput.files && fileInput.files[0]) {
 	var reader = new FileReader();
 	reader.onload = function(e) {
-		document.getElementById('imagePreview').innerHTML = '<img style="width:25%;" src="'+e.target.result+'"/>';
+		document.getElementById('imagePreview').innerHTML = '<img style="width:100px;" src="'+e.target.result+'"/>';
 	};
 	reader.readAsDataURL(fileInput.files[0]);
 }
