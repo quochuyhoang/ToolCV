@@ -22,14 +22,22 @@ class HomeController extends Controller
  //    }
 
     public function index1(){
+        $data['imageCVs']=DB::table('imageCVs')->paginate(4);
 
-        return view('home.home');
+        return view('home.home',$data);
+
     }
 
-    public function ChosenColor($name)
+    public function ChosenColor($id)
     {
-        /*$data['name']= DB::table('')*/
-        $data['name']= $name;
+        $data['imageCVs']=DB::table('imageCVs')->find($id);
+
+        $data['colors']= DB::table('colorcv')
+            ->select('colors.id as colorId', 'colors.name as colorName')
+            ->join('colors','colors.id','=','colorcv.color_id')
+            ->where('imageCV_id',$data['imageCVs']->id)->get();
+
+
         return view('home.chosencolor', $data);
     }
 

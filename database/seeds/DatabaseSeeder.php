@@ -32,6 +32,30 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
+        for($i=1; $i<=20; $i++){
+            DB::table('imageCVs')->insert([
+                'name' => 'CV'.$i
+            ]);
+        }
+
+        $location = "Red,Blue,Green,Purple,Orange,Yellow";
+        $explode = explode(',',$location);
+        $j=1;
+        foreach($explode as $ex)
+        {
+            DB::table('colors')->insert([
+                'name' => $ex,
+            ]);
+            $j++;
+        }
+        for($x=1; $x<$i; $x++){
+            for($y=1; $y<$j; $y++){
+                DB::table('colorCV')->insert([
+                    'imageCV_id' => $x,
+                    'color_id' => $y,
+                ]);
+            }
+        }
 
 
 
