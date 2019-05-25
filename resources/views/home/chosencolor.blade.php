@@ -107,38 +107,20 @@
         <div class="row">
             <div class="col-lg-1"></div>
             <div class="col-lg-4">
-                <div class="single-effect" style="margin-left: 10%;">
-                    <img src="{{ asset('') }}home_asset/images/cv/{{ $name }}_1.png" alt="img" id="imageCV" class="displayImg">
+                <div class="single-effect" style="margin-left: 10%;" >
+                    <img src="{{ asset('') }}home_asset/images/cv/{{ $imageCVs->name }}_1.png" alt="img" id="imageCV" class="displayImg" alt="this color doesn't exist">
                 </div>
             </div>
             <div class="col-lg-1"></div>
             <div class="col-lg-5 text-center">
                 <h2>Set Color</h2>
                 <div class="row">
-                    <div class="col-lg-4 text-center choose">
-                        <div class="chosenColor" id="red"></div>
-                        <span class="chosenNameColor">Red</span>
-                    </div>
-                    <div class="col-lg-4 text-center choose">
-                        <div class="chosenColor" id="blue"></div>
-                        <span class="chosenNameColor">Blue</span>
-                    </div>
-                    <div class="col-lg-4 text-center choose">
-                        <div class="chosenColor" id="green"></div>
-                        <span class="chosenNameColor">Green</span>
-                    </div>
-                    <div class="col-lg-4 text-center choose">
-                        <div class="chosenColor" id="purple"></div>
-                        <span class="chosenNameColor">Purple</span>
-                    </div>
-                    <div class="col-lg-4 text-center choose">
-                        <div class="chosenColor" id="orange"></div>
-                        <span class="chosenNameColor">Orange</span>
-                    </div>
-                    <div class="col-lg-4 text-center choose">
-                        <div class="chosenColor" id="yellow"></div>
-                        <span class="chosenNameColor">Yellow</span>
-                    </div>
+                    @foreach($colors as $color)
+                        <div class="col-lg-4 text-center choose" >
+                            <div class="chosenColor" style="background-color: {{$color->colorName}}" onclick="chon({{ $color->colorId }})"></div>
+                            <span class="chosenNameColor">{{$color->colorName}}</span>
+                        </div>
+                    @endforeach
                 </div>
                 <div class="col-lg-12">
                     <div class="ColorSet">
@@ -161,7 +143,12 @@
 
  <script language="javascript"> 
 
-    var colorCV = document.querySelectorAll('.chosenColor');
+    function chon(obj) {
+        var imgCV = document.querySelector('#imageCV');
+        imgCV.src ="{{ asset('') }}home_asset/images/cv/{{ $imageCVs->name }}_"+obj+".png";
+     }
+     
+    /*var colorCV = document.querySelectorAll('.chosenColor');
     var imgCV = document.querySelector('#imageCV');
     var createCV = document.querySelector('.create_cv');
 
@@ -170,9 +157,9 @@
         colorCV[i].onclick = function()
         {
             console.log(colorCV[i]);
-            imgCV.src ="{{ asset('') }}home_asset/images/cv/{{ $name }}_"+[i+1]+".png";
+            imgCV.src ="{{ asset('') }}home_asset/images/cv/{{ $imageCVs->name }}_"+[i+1]+".png";
         }
-    }
+    }*/
 
 </script>
 

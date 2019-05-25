@@ -16,7 +16,7 @@
 Route::get('/', 'HomeController@index')->name('home');
 Route::prefix('home')->group(function (){
 
-    Route::get('/', 'Home\HomeController@index')->name('home.index');
+    /*Route::get('/', 'Home\HomeController@index')->name('home.index');*/
     Route::get('/', 'Home\HomeController@index1')->name('home.index1');
 
 
@@ -57,7 +57,7 @@ Route::prefix('home')->group(function (){
 
     });
 
-    Route::get('ChosenColor/{name}','Home\HomeController@ChosenColor')->name('home.chosen');
+    Route::get('ChosenColor/{id}','Home\HomeController@ChosenColor')->name('home.chosen');
 
 });
 Auth::routes();
