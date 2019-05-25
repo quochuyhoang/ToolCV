@@ -27,13 +27,12 @@ class DatabaseSeeder extends Seeder
     	]);
 
 
-    	$password = '12345678';
-    	$hashedPassword = Hash::make($password);
+
 
     	DB::table('admins')->insert([
     		'name' => 'hoang',
     		'email' => '1@gmail.com',
-    		'password' =>$hashedPassword,
+    		'password' =>bcrypt('12345678'),
     		'role_id' => '1',
     	]);
 
