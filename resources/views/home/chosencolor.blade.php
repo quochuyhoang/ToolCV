@@ -147,7 +147,7 @@
         var imgCV = document.querySelector('#imageCV');
         imgCV.src ="{{ asset('') }}home_asset/images/cv/{{ $imageCVs->name }}_"+obj+".png";
      }
-     
+
     /*var colorCV = document.querySelectorAll('.chosenColor');
     var imgCV = document.querySelector('#imageCV');
     var createCV = document.querySelector('.create_cv');
