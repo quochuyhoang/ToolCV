@@ -26,9 +26,11 @@ class HomeController extends Controller
         return view('home.home');
     }
 
-    public function ChosenColor()
+    public function ChosenColor($name)
     {
-        return view('home.chosencolor');
+        /*$data['name']= DB::table('')*/
+        $data['name']= $name;
+        return view('home.chosencolor', $data);
     }
 
 
