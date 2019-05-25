@@ -2,8 +2,8 @@
 @section('content')
 <div class="col-lg-12">
 
-	<div class="table-data__tool" >
-		<a class="btn btn-secondary" href="{{ route('admin.create') }}">Add admin</a>
+	<div class="table-data__tool create" >
+		<a class="btn btn-secondary " href="{{ route('admin.create') }}">Add admin</a>
 	</div>
 	@if(session('success'))
 				<div class = "alert alert-success">{{ session('success') }}</div>
@@ -17,8 +17,8 @@
 					<th>ID</th>
 					<th>Name</th>
 					<th>Email</th>
-					<th>Role_id</th>					
-					<th>Action</th>
+					<th>Role</th>
+					<th class="edit">Action</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -29,7 +29,7 @@
 						<td>{{ $admin->name }}</td>
 						<td>{{ $admin->email }}</td>
 						<td>{{ $admin->role_id }}</td>
-						<td>
+						<td class="edit">
 							<a class="far fa-edit"  href="{{route('admin.edit', ['id'=>$admin->id])}}"></a>&nbsp;
 							<a class="far fa-trash-alt" href="{{ url('backend/admin/Delete/'.$admin->id) }}" onclick="return confirmAction()"></a>
 						</td>

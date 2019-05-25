@@ -3,7 +3,7 @@
 <div class="col-lg-12">
 
 
-	<div class="table-data__tool" >
+	<div class="table-data__tool create" >
 		<a class="btn btn-secondary" href="{{ route('skill.create') }}">Add Skill</a>
 	</div>
 	@if(session('success'))
@@ -17,7 +17,7 @@
 					<th>ID</th>
 					<th>Name</th>
 					<th>Level</th>
-					<th>Action</th>
+					<th class="edit">Action</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -27,10 +27,10 @@
 					<td>{{ $skill->id }}</td>
 					<td>{{ $skill->name }}</td>
 					<td>{{ $skill->level }}%</td>
-{{-- 					<td>
+ 					<td class="edit">
 						<a class="far fa-edit"  href="{{route('skill.edit', ['id'=>$skill->id])}}"></a>&nbsp;
 						<a class="far fa-trash-alt" href="{{ url('backend/skill/Delete/'.$skill->id) }}" onclick="return confirmAction()"></a>
-					</td> --}}
+					</td>
 				</tr>
 				@endforeach
 			</tbody>

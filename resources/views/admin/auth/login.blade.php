@@ -1,60 +1,3 @@
-{{--
-@section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Login Admin</div>
-
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('admin.auth.loginAdmin') }}">
-                            @csrf
-
-                            <div class="form-group row">
-                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
-
-                                    @if ($errors->has('email'))
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                    @if ($errors->has('password'))
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-
-                            <div class="form-group row mb-0">
-                                <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Login Admin') }}
-                                    </button>
-
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-@endsection--}}
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -92,7 +35,7 @@
             <label>{{ __('E-Mail Address') }}</label>
             <div class="group">
                 <i class="fas fa-user"></i>
-                <input id="email" type="text" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="Email" name="email" required autofocus />
+                <input id="email" type="text" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="Email" name="email" required autofocus onchange="checkEmail(this)"/>
 
                 @if ($errors->has('email'))
                     <span class="invalid-feedback" role="alert">
@@ -105,7 +48,7 @@
             <label>{{ __('Password') }}</label>
             <div class="group">
                 <i class="fas fa-unlock"></i>
-                <input id="password" type="password" placeholder="Password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                <input id="password" type="password" placeholder="Password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required >
 
                 @if ($errors->has('password'))
                     <span class="invalid-feedback" role="alert">
@@ -115,13 +58,12 @@
             </div>
         </div>
         <div class="forgot">
-            <a href="#">Forgot Password?</a>
             <p>
-                <input type="checkbox">Remember Me
-                <input type="checkbox"  onclick="hien()">Show password
+
+                <input type="checkbox"  onclick="showPass()">Show password
             </p>
             <script>
-                function hien() {
+                function showPass() {
                     var x= document.getElementById('password');
 
                     if( x.type === 'password'){
@@ -131,6 +73,26 @@
                         x.type = 'password';
                     }
 
+                }
+                function checkEmail(obj) {
+                    var x= obj.value;
+
+                    var vitri = x.search("@");
+                    if(vitri === 0){
+                        alert('"@" cannot be at the beginning of the string');
+                        obj.focus();
+                    }
+                    else if(vitri === x.length-1){
+                        alert('"@" cannot be at the the end of the string');
+                        obj.focus();
+                    }
+                    else if(vitri === -1){
+                        alert('Please include "@" in the email address');
+                        obj.focus();
+                    }
+                    else {
+
+                    }
                 }
             </script>
         </div>

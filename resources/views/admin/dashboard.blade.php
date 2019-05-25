@@ -96,10 +96,10 @@
           <a class="dropdown-item" href="{{ route('user') }}">User</a>
         </div>
       </li>
-      <li class="nav-item">
+      <li class="nav-item create">
         <a class="nav-link" href="{{ route('cv') }}">
           <i class="fas fa-fw fa-chart-area"></i>
-          <span>VC</span></a>
+          <span>CV</span></a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -167,6 +167,7 @@
           </div>
         </div>
       </div>
+      <input type="hidden" value="{{ Auth::user()->role_id }}" id="role"/>
     </div>
 
     <!-- Bootstrap core JavaScript-->
@@ -185,7 +186,29 @@
     <script type="text/javascript">
       $(function () {
         $('#tabledata').DataTable();
-      })
+      });
+
+      $(document).ready(function(){
+        var role= document.getElementById('role').value;
+        switch (role) {
+          case "1":
+          {
+            $(".edit").hide();
+            $(".create").hide();
+            $('.createAccount').hide();
+            break;
+          }
+          case "2":
+          {
+            $('.createAccount').hide();
+            break;
+          }
+          default:
+          {
+            break;
+          }
+        }
+      });
     </script>
 
 

@@ -41,7 +41,7 @@ class AdminController extends Controller
 		DB::table('admins')->insert([
 			'name' 		=> $req->name,
 			'email' 	=> $req->email,
-			'password'	=> $req->password,
+			'password'	=> bcrypt($req->password),
 			'role_id'	=> $req->role_id,   
 		]);
 
@@ -79,7 +79,7 @@ class AdminController extends Controller
 		DB::table('admins')->where('id',$id)->update([
 			'name' 		=> $req->name,
 			'email' 	=> $req->email,
-			'password'	=> $req->password,
+			'password'	=> bcrypt($req->password),
 			'role_id'	=> $req->role_id
 		]);
 

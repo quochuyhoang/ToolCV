@@ -3,7 +3,7 @@
 <div class="col-lg-12">
 
 
-	<div class="table-data__tool" >
+	<div class="table-data__tool create" >
 		<a class="btn btn-secondary" href="{{ route('location.create') }}">Add Location</a>
 	</div>
 
@@ -14,7 +14,7 @@
 					<th></th>
 					<th>ID</th>
 					<th>Name</th>
-					<th>Action</th>
+					<th class="edit">Action</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -23,7 +23,7 @@
 					<td>{{ $n }}</td>
 					<td>{{ $location->id }}</td>
 					<td>{{ $location->name }}</td>
-					<td>
+					<td class="edit">
 						<a class="far fa-edit"  href="{{route('location.edit', ['id'=>$location->id])}}"></a>&nbsp;
 						<a class="far fa-trash-alt" href="{{ url('backend/location/Delete/'.$location->id) }}" onclick="return confirmAction()"></a>
 					</td>
