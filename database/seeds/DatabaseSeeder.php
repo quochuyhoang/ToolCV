@@ -22,19 +22,24 @@ class DatabaseSeeder extends Seeder
     	}
 
 
-    	DB::table('roles')->insert([
-    		'name' => 'roles',
-    	]);
+
+        $location = "Collaborators, Editor, Admin";
+        $explode = explode(',',$location);
+        foreach($explode as $ex)
+        {
+            DB::table('roles')->insert([
+                'name' => $ex
+            ]);
+        }
 
 
-    	$password = '12345678';
-    	$hashedPassword = Hash::make($password);
+
 
     	DB::table('admins')->insert([
-    		'name' => 'hoang',
+    		'name' => 'admin',
     		'email' => '1@gmail.com',
-    		'password' =>$hashedPassword,
-    		'role_id' => '1',
+    		'password' =>bcrypt('12345678'),
+    		'role_id' => '3',
     	]);
 
 
@@ -44,7 +49,7 @@ class DatabaseSeeder extends Seeder
             'phone' => '02312321',
             'address'=> 'asd',
             'email' => '1@gmail.com',
-            'password' =>$hashedPassword,
+            'password' =>bcrypt('12345678'),
             'location_id' => '1',
         ]);
     }

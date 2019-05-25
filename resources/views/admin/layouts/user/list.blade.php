@@ -2,7 +2,7 @@
 @section('content')
 <div class="col-lg-12">
 
-	<div class="table-data__tool" >
+	<div class="table-data__tool create" >
 		<a class="btn btn-secondary" href="{{ route('user.create') }}">Add user</a>
 	</div>
 	@if(session('success'))
@@ -22,7 +22,7 @@
 					<th>Phone</th>
 					<th>Address</th>
 					<th>Location</th>
-					<th>Action</th>
+					<th class="edit">Action</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -37,7 +37,7 @@
 						<td>{{ $user->phone }}</td>
 						<td>{{ $user->address }}</td>
 						<td>{{ $user->location_id }}</td>
-						<td>
+						<td class="edit">
 							<a class="far fa-edit"  href="{{route('user.edit', ['id'=>$user->id])}}"></a>&nbsp;
 							<a class="far fa-trash-alt" href="{{ url('backend/user/Delete/'.$user->id) }}" onclick="return confirmAction()"></a>
 						</td>
