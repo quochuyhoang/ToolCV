@@ -29,4 +29,21 @@ class ClientController extends Controller
 
         return view('home.register', $data);
     }
+    public function PostLogin(Request $req){
+
+        $email 		= $req->input('email');
+        $password 	= $req->input('password');
+
+        if(Auth::guard('web')-> attempt(['email' => $req->email, 'password' => $req->password], $req -> remember)){
+
+            //nếu thành công thì chuyển hướng về view dashboard của admin
+            return redirect()-> intended(route('home.index1'));
+
+        }
+        else {
+
+            //thất bại
+            return redirect()->back()->withInput($req->only('email', 'remember'));
+        }
+    }
 }
