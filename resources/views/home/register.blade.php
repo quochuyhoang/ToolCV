@@ -35,7 +35,7 @@
 					<div class="d-flex justify-content-end social_icon"></div>
 				</div>
 				<div class="card-body">
-					<form action="{{ route('user.postcreate1') }}" method="POST">
+					<form action="{{ route('home.register.post') }}" method="POST" enctype="multipart/form-data">
 						{!! csrf_field() !!}
 						@if(count($errors)>0)
 						<div class="alert alert-danger">
@@ -166,8 +166,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 
 	<script type="text/javascript">
 		function fileValidation(){
@@ -190,7 +189,9 @@ if (fileInput.files && fileInput.files[0]) {
 }
 }
 }
-</script>  
+</script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </body>
 

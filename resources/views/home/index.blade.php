@@ -87,7 +87,7 @@
                             @guest
                                 <a href="{{ route('home.login') }}" class="btn">Sign In</a>
                                 @if (Route::has('register'))
-                                    <a href="{{ route('home.register') }}" target="_blank" class="btn">Register</a>
+                                    <a href="{{ route('home.register.get') }}" target="_blank" class="btn">Register</a>
                                 @endif
                             @else
 
