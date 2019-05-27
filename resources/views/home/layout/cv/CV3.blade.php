@@ -64,7 +64,7 @@
 
 					<div class="media-body ">
 						<h2 class="mt-0"><i class="fas fa-quote-left color"></i>about us</h2>
-						<textarea name="" cols="60" rows="5" placeholder="About You"></textarea>
+						<textarea name="" cols="60" rows="5"  class="ckeditor" placeholder="About You"></textarea>
 					</div>
 				</div>
 			</div>
