@@ -13,7 +13,10 @@
 
 // home.login
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'Home\HomeController@index1')->name('home');
+Route::get('/cv', function (){
+  return view('home.layout.cv.CV3');
+});
 Route::prefix('home')->group(function (){
 
     /*Route::get('/', 'Home\HomeController@index')->name('home.index');*/
@@ -28,11 +31,11 @@ Route::prefix('home')->group(function (){
 
     Route::get('Login','Home\ClientController@Login')->name('home.login');
     Route::get('logout','Home\ClientController@Logout')->name('home.logout');
-    Route::get('register','Home\ClientController@regisster')->name('home.register.get');
+    Route::get('register','Home\ClientController@register')->name('home.register.get');
 
 
     Route::post('Login','Home\ClientController@PostLogin')->name('home.post');
-    Route::post('register','Home\ClientController@PostLogin')->name('home.register.post');
+    Route::post('register','Home\ClientController@store')->name('home.register.post');
 
 
     Route::prefix('Register')->group(function(){
@@ -54,6 +57,7 @@ Route::prefix('home')->group(function (){
         Route::get('/', 'Home\CvsController@Create')->name('home.createcv');
 
         Route::post('Create/{id}', 'Home\CvsController@CVCreate')->name('home.postcv');
+        Route::post('CreateCV', 'Home\CvsController@color')->name('home.color');
 
     });
 

@@ -11,7 +11,7 @@ class UserController extends Controller
     public function __construct()
 	 {
 
-		$this->middleware('auth:admin');
+		$this->middleware('auth:admin')->except('Register', 'Create','PostCreate1');
 	}
 
 	public function Register(){
@@ -91,6 +91,8 @@ class UserController extends Controller
 
 
 	public function PostCreate1(Request $req){
+//        $input=$req->all();
+////        dd($input);
 
 		$this->validate($req,[
 			'name'		=>'required',
@@ -112,26 +114,25 @@ class UserController extends Controller
 			'location_id.required'	=>'Location is not defined',
 		]);
 
- if ($req->hasFile('avatar')) {
+        if ($req->hasFile('avatar')) {
 
             $file = $req->file('avatar');
 
             $name = $file->getClientOriginalName();
             $avatar = str_random(4) . "_avatar_" . $name;
-            while (file_exists('assets/img/' . $avatar)) {
+            while (file_exists('assets/img/avatar/' . $avatar)) {
                 $Hinh = str_random(4) . "_avatar_" . $name;
             }
-            $file->move('assets/img/', $avatar);
+            $file->move('assets/img/avatar/', $avatar);
             $file_name = $avatar;
 
-        // } else {
-            /* return Redirect('admin/CVs')->with('thongbao','You have not uploaded your CV');*/
-
-            // $file_name = $input['old-file'];
+            echo "ok";
          }
          else{
          	$file_name=null;
+         	echo "ko ok";
          }
+         die();
 
 		DB::table('users')->insert([
 			'name' 			=> $req->name,
@@ -140,7 +141,7 @@ class UserController extends Controller
 			'avatar'		=> $file_name,
 			'address' 		=> $req->address,
 			'email' 		=> $req->email,
-			'password' 		=> bcrypt($req->password),   
+			'password' 		=> bcrypt($req->confirmPassword),
 			'location_id'	=> $req->location_id, 
 		]);
 

@@ -128,10 +128,14 @@
                             <i class="fas fa-long-arrow-alt-left"></i>
                             <span>Back</span>
                         </button>
-                        <button id="button" class="btn btn-success btn-lg create_cv" >
-                         <a href="{{ url('home/Create') }}" style="color: white;">Create Resume</a>
+                        <form action="{{ route('home.color') }}" method="post">
+                            @csrf
+                            <input type="hidden" name="CVname" value="{{ $imageCVs->name }}" />
+                            <input type="hidden" name="CVcolor" id="CVcolor" value="1"/>
+                        <button id="button" class="btn btn-success btn-lg create_cv" >Create Resume
                          <i class="fas fa-long-arrow-alt-right"></i>
                      </button>
+                        </form>
                  </div>
              </div>
          </div>
@@ -146,20 +150,11 @@
     function chon(obj) {
         var imgCV = document.querySelector('#imageCV');
         imgCV.src ="{{ asset('') }}home_asset/images/cv/{{ $imageCVs->name }}_"+obj+".png";
-     }
 
-    /*var colorCV = document.querySelectorAll('.chosenColor');
-    var imgCV = document.querySelector('#imageCV');
-    var createCV = document.querySelector('.create_cv');
+        var color= document.getElementById('CVcolor');
+        color.value=obj;
 
-    for (let i=0; i<colorCV.length; i++)
-    {
-        colorCV[i].onclick = function()
-        {
-            console.log(colorCV[i]);
-            imgCV.src ="{{ asset('') }}home_asset/images/cv/{{ $imageCVs->name }}_"+[i+1]+".png";
-        }
-    }*/
+    }
 
 </script>
 

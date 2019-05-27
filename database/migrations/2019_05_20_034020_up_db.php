@@ -42,7 +42,7 @@ class UpDb extends Migration
         Schema::create('skills', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->integer('level');
+
             $table->timestamps();
         });
 
@@ -61,6 +61,7 @@ class UpDb extends Migration
                 ->references('id')
                 ->on('skills')
                 ->onDelete('cascade');
+            $table->integer('level');
         });
 
 

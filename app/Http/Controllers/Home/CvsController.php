@@ -99,5 +99,13 @@ class CvsController extends Controller
 
 
     }
+    public function color(Request $request){
+        $input= $request->all();
+        $color = DB::table('colors')->find($input['CVcolor']);
+        $users= DB::table('users')->select('id', 'name', DB::raw('(SELECT COUNT(*) FROM user_cvs WHERE user_id=users.id) as count'))
+            ->get();
+
+        return view('home.layout.cv.'.$input['CVname'], compact('color','users'));
+    }
 
 }
