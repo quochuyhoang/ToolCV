@@ -38,7 +38,7 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        $location = "Red,Blue,Green,Purple,Orange,Yellow";
+        $location = "red,blue,green,purple,orange,yellow,black";
         $explode = explode(',',$location);
         $j=1;
         foreach($explode as $ex)
@@ -56,7 +56,6 @@ class DatabaseSeeder extends Seeder
                 ]);
             }
         }
-
 
 
     	DB::table('admins')->insert([
