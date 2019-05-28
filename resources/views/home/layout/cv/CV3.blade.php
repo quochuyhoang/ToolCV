@@ -9,9 +9,11 @@
 
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/cv') }}/cv2.css">
 	<style type="text/css">
+		
 		.color{
 			color: {{ $color->name }};
 		}
@@ -22,7 +24,7 @@
 </head>
 <body>
 <form name="create" method="post" action="#">
-	<div class="container template">
+	<div class="container template" id="pdf">
 		<div class="header" >
 			<div class="row row-1">
 				<div class="col-md-6 name">
@@ -40,7 +42,7 @@
 			<div class="row">
 				<div class="col-md-6 info">
 					<div class="media">
-					  <img class="mr-3" src="{{ asset('assets/img/avatar/'.Auth::user()->avatar) }}" alt="Generic placeholder image">
+					  <img class="mr-3" src="{{ asset('assets/img/avatar/'.Auth::user()->avatar) }}" width="100%" alt="Generic placeholder image">
 
 					</div>
 					<ul>
@@ -244,9 +246,10 @@
 			<div class="test" style="margin-top: 30px">
 				<div class="title">
 					<div class="cricle backgroundColor">
-						<i class="fa fa-heart" aria-hidden="true"></i>/i>
+						<i class="fa fa-heart" aria-hidden="true"></i>
 					</div>
 				</div>
+
 				<h2 class="exp">OTHER SKILLS</h2>
 						<div class="hobby">
 							<ul>
@@ -354,6 +357,33 @@
 		</div>
 		</div>
 		</div>
+	<div style="text-align: center;">
+		<input type="submit" class="btn backgroundColor" " value="Lưu" />
+		<a href="#" class="btn backgroundColor" id="btn-print" onclick=""><i class="fa fa-download"></i> Xuất PDF</a>
+	</div>
+	<script>
+		$(document).ready(function(){
+			var area_print = $('#area-print');
+
+			var a4 =[ 595.28, 841.89];
+			$('#btn-print').on('click',function(){
+				print();
+			});
+			function print() {
+				html2canvas(document.getElementById('pdf'), {
+
+					onrendered: function(canvas){
+						var img= canvas.toDataURL("image/png");
+						doc = new jsPDF();
+						doc.addImage(img,'JPEG',0,0,210, 297);
+						doc.save('CV.pdf');
+					}
+				});
+			}
+		});
+	</script>
+	<script src="{{ asset('js/pdf/html2canvas.js') }}"></script>
+	<script src="{{ asset('js/pdf/jspdf.js') }}"></script>
 </form>
 
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
