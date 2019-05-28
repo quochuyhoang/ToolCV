@@ -65,7 +65,6 @@ class UpDb extends Migration
             $table->timestamps();
         });
 
-
         Schema::create('skills', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
@@ -97,6 +96,7 @@ class UpDb extends Migration
             $table->string('target');
             $table->integer('salary');
             $table->string('hobbies');
+            $table->string('image');
             $table->bigInteger('user_id')->unsigned();
             $table
                 ->foreign('user_id')
