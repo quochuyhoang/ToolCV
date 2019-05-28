@@ -104,7 +104,7 @@
                 <div class="col-lg-1"></div>
                 <div class="col-lg-4">
                     <div class="single-effect" style="margin-left: 10%;">
-                        <img src="{{ asset('') }}home_asset/images/cv/{{ $imageCVs->name }}_1.png" alt="img" id="imageCV" class="displayImg" alt="this color doesn't exist">
+                        <img src="{{ asset('') }}home_asset/images/cv/{{ $imageCVs->name }}_red.png" alt="img" id="imageCV" class="displayImg" alt="this color doesn't exist">
                     </div>
                 </div>
                 <div class="col-lg-1"></div>
@@ -113,7 +113,7 @@
                     <div class="row">
                         @foreach($colors as $color)
                         <div class="col-lg-4 text-center choose">
-                            <div class="chosenColor" style="background-color: {{$color->colorName}}" onclick="chon({{ $color->colorId }})"></div>
+                            <div class="chosenColor" style="background-color: {{$color->colorName}}" onclick="chon('{{ $color->colorName}}')"></div>
                             <span class="chosenNameColor">{{$color->colorName}}</span>
                         </div>
                         @endforeach
@@ -127,7 +127,7 @@
                             <form action="{{ route('home.color') }}" method="post">
                                 @csrf
                                 <input type="hidden" name="CVname" value="{{ $imageCVs->name }}" />
-                                <input type="hidden" name="CVcolor" id="CVcolor" value="1" />
+                                <input type="hidden" name="CVcolor" id="CVcolor" value="red" />
                                 <button id="button" class="btn btn-success btn-lg create_cv">Create Resume
                                     <i class="fas fa-long-arrow-alt-right"></i>
                                 </button>
@@ -138,9 +138,9 @@
                 <div class="col-lg-1"></div>
             </div>
         </div>
-
         <script language="javascript">
             function chon(obj) {
+
                 var imgCV = document.querySelector('#imageCV');
                 imgCV.src = "{{ asset('') }}home_asset/images/cv/{{ $imageCVs->name }}_" + obj + ".png";
 
