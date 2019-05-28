@@ -83,7 +83,7 @@
 
     <body>
         <!--Loader-->
-        {{-- <div id="loader">
+        {-- <div id="loader">
             <div class="loader">
                 <div class="loader__bar"></div>
                 <div class="loader__bar"></div>
@@ -92,12 +92,12 @@
                 <div class="loader__bar"></div>
                 <div class="loader__ball"></div>
             </div>
-        </div> --}}
+        </div> --}
         <!-- Loader end -->
 
         <!-- Page Banner -->
         <section class="preview-banner" style="padding-top: 50px; padding-bottom: 100px;">
-            <div class="pull-right display">
+            <div class="pull-right display" style="height:60px;">
                 @guest
                 <a href="{{ route('home.login') }}" class="btn">Sign In</a>
                 @if (Route::has('register'))
@@ -106,8 +106,8 @@
                 @else
                 <span style="font-size:20px;color:white;margin-right:.7rem;">Welcome, {{ Auth::user()->name}}</span>
                 <div class="dropdown" style="margin-right:50px;display:inline-block">
-                    <div class="avatar" style="width:50px;height:50px;border-radius:50%;background-color:black;padding:15px 0;">
-                        <img src="{{ asset('assets/img/avatar/'.Auth::user()->avatar)}}" alt="">
+                    <div class="avatar">
+                        <img class="media-middle" src="{{ asset('assets/img/avatar/'.Auth::user()->avatar)}}" alt="" style="display:block; margin: 0 auto;width:60px;height:60px;border-radius:50%;">
                     </div>
 
                     <div class="dropdown-content">
