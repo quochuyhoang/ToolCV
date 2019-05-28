@@ -11,9 +11,9 @@
 
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/cv') }}/cv2.css">
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/cv') }}/cv22.css">
 	<style type="text/css">
-		
+
 		.color{
 			color: {{ $color->name }};
 		}
@@ -98,7 +98,7 @@
 										+'<input name="ex_name'+dem+'" type="text" placeholder="Name Company">'
 										+'</h3>'
 										+'<h4 class="time">'
-										+'<input name="ex_time'+dem+'" type="text" placeholder="Time">'
+										+'<input name="ex_time'+dem+'" class="color" type="text" placeholder="Time">'
 										+'</h4>'
 										+'</div>'
 										+'<div class="job-body">'
@@ -127,8 +127,8 @@
 								<h3 class="name">
 									<input name="ex_name1" type="text" placeholder="Name Company">
 								</h3>
-								<h4 class="time">
-									<input name="ex_time1" type="text" placeholder="Time">
+								<h4 class="time ">
+									<input name="ex_time1" type="text" class="color" placeholder="Time">
 								</h4>
 							</div>
 							<div class="job-body">
@@ -191,7 +191,7 @@
 									+'<h3 class="name">'
 									+'<input name="aw_name'+dem+'"  type="text" placeholder="Name">'
 									+'</h3>'
-									+'<h4 class="time">	<input name="aw_time'+dem+'"  type="text" placeholder="Year"></h4>'
+									+'<h4 class="time">	<input name="aw_time'+dem+'" class="color" type="text" placeholder="Year"></h4>'
 									+'</div>'
 									+'<div class="job-describer">'
 									+'<input name="aw_describe'+dem+'"  type="text" placeholder="Describe">'
@@ -212,7 +212,7 @@
 							<h3 class="name">
 								<input name="aw_name1"  type="text" placeholder="Name">
 							</h3>
-							<h4 class="time">	<input name="aw_time1"  type="text" placeholder="Year"></h4>
+							<h4 class="time">	<input name="aw_time1"  class="color" type="text" placeholder="Year"></h4>
 						</div>
 						<div class="job-describer">
 							<input name="aw_describe1"  type="text" placeholder="Describe">
@@ -290,7 +290,7 @@
 								+'<h3 class="name">'
 								+'<input name="ed_name'+dem+'" type="text" placeholder="Desired Salary">'
 								+'</h3>'
-								+'<h4 class="time"><input name="ed_time'+dem+' type="text" placeholder="Time"></h4>'
+								+'<h4 class="time"><input name="ed_time'+dem+' class="color" type="text" placeholder="Time"></h4>'
 								+'</div>'
 								+'<div class="job-describer">'
 								+'<input name="ed_spe'+dem+'" type="text" placeholder="Speciality">'
@@ -309,7 +309,7 @@
 								<h3 class="name">
 									<input name="ed_name1" type="text" placeholder="Desired Salary">
 								</h3>
-								<h4 class="time"><input name="ed_time1" type="text" placeholder="Time"></h4>
+								<h4 class="time"><input name="ed_time1" class="color" type="text" placeholder="Time"></h4>
 							</div>
 
 							<div class="job-describer">
