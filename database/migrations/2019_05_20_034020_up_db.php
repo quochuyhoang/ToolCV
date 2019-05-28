@@ -13,17 +13,44 @@ class UpDb extends Migration
      */
     public function up()
     {
+        Schema::create('imageCVs', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name');
+
+        });
+
+        Schema::create('colors', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name');
+        });
+
+        Schema::create('colorCV', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->bigInteger('imageCV_id')->unsigned();
+            $table
+                ->foreign('imageCV_id')
+                ->references('id')
+                ->on('imageCVs')
+                ->onDelete('cascade');
+            $table->bigInteger('color_id')->unsigned();
+            $table
+                ->foreign('color_id')
+                ->references('id')
+                ->on('colors')
+                ->onDelete('cascade');
+        });
+
         Schema::create('locations', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
         });
-        
+
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->date('birth');
             $table->string('phone');
-            $table->string('address');          
+            $table->string('address');
             $table->string('avatar')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
@@ -76,6 +103,11 @@ class UpDb extends Migration
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
+            $table->bigInteger('colorcv_id')->unsigned();
+            $table
+                ->foreign('colorcv_id')
+                ->references('id')
+                ->on('colorCV');
         });
 
 
@@ -95,7 +127,7 @@ class UpDb extends Migration
                 ->foreign('user_cv_id')
                 ->references('id')
                 ->on('user_cvs');
-            
+
         });
 
 
@@ -105,6 +137,8 @@ class UpDb extends Migration
             $table->string('position');
             $table->string('describe');
             $table->string('achi');
+            $table->string('reference');
+            $table->string('rf_phone');
             $table->string('time');
             $table->bigInteger('user_id')->unsigned();
             $table
@@ -136,30 +170,6 @@ class UpDb extends Migration
             $table->string('name');
             $table->string('spe');
             $table->string('time');
-        });
-        Schema::create('imageCVs', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name');
-
-        });
-        Schema::create('colors', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name');
-        });
-        Schema::create('colorCV', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('imageCV_id')->unsigned();
-            $table
-                ->foreign('imageCV_id')
-                ->references('id')
-                ->on('imageCVs')
-                ->onDelete('cascade');
-            $table->bigInteger('color_id')->unsigned();
-            $table
-                ->foreign('color_id')
-                ->references('id')
-                ->on('colors')
-                ->onDelete('cascade');
         });
 
     }

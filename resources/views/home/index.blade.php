@@ -83,7 +83,7 @@
 
     <body>
         <!--Loader-->
-        <div id="loader">
+        {{-- <div id="loader">
             <div class="loader">
                 <div class="loader__bar"></div>
                 <div class="loader__bar"></div>
@@ -92,7 +92,7 @@
                 <div class="loader__bar"></div>
                 <div class="loader__ball"></div>
             </div>
-        </div>
+        </div> --}}
         <!-- Loader end -->
 
         <!-- Page Banner -->
