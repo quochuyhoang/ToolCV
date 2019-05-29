@@ -23,12 +23,18 @@ class CvsController extends Controller
 
     public function CVCreate(Request $request, $id){
 
+
         $this->validate($request, [
             'name' => 'required',
             'target' => 'required',
             'salary' => 'required',
         ]);
         $input= $request->all();
+        $idCV= DB::table('colorcv')
+            ->where([
+            ['imageCV_id', $input['imageCV']],
+            ['color_id', $input['colorCV']]
+        ])->first();
 
         $users= DB::table('users')->where('id','=', $id)->first();
         $data['skills'] = DB::table('skills')
@@ -43,14 +49,45 @@ class CvsController extends Controller
 
         $count= DB::table('user_cvs')->WHERE('user_id',"=",$id)->count();
         if($count<4){
+            if ($request->hasFile('newImage')) {
 
+                $file = $request->file('newImage');
+
+
+                $name = $file->getClientOriginalName();
+                $avatar = str_random(4) . "_avatar_" . $name;
+                while (file_exists('home_asset/cv/cvimages/' . $avatar)) {
+                    $Hinh = str_random(4) . "_avatar_" . $name;
+                }
+                $file->move('home_asset/cv/cvimages', $avatar);
+                $file_name=$avatar;
+
+            } else {
+                $file_name = 0;
+            }
 
             DB::table('user_cvs')->insert([
                 'user_id'=> $id,
+                'user_name'=> $input['name'],
+                'user_address'=> $input['address'],
+                'job_name'=> $input['job-name'],
+                'user_phone'=> $input['phone'],
+                'user_email'=> $input['email'],
                 'target'=> $input['target'],
                 'hobbies'=>$input['hobbies'],
-                'salary'=> $input['salary']
+                'image'=>$file_name,
+                'salary'=> $input['salary'],
+                'colorcv_id'=> $idCV->id
             ]);
+                  if($input['skill-level-num']!=null) {
+                      for ($i = 1; $i < $input['skill-level-num']; $i++) {
+                          DB::table('user_skill')->insert([
+                              'user_id' => $id,
+                              'skill_id' => $input['skill-name' . $i],
+                              'level' => $input['skill-level' . $i],
+                          ]);
+                      }
+                  }
 
             $cv_ids= DB::table('user_cvs')->select('id')->where('user_id','=',$id)->get();
             foreach ($cv_ids as $cv_id) {
@@ -84,10 +121,11 @@ class CvsController extends Controller
                     'describe'=>$input['ex_describe'.$i],
                     'achi'=>$input['ex_achiment'.$i],
                     'time'=>$input['ex_time'.$i],
+                    'reference'=>$input['ex_reference'.$i],
+                    'rf_phone'=>$input['ex_rf_phone'.$i],
                 ]);
             }
-            return view('home.layout.show1',compact('input'));
-            return Redirect('home/show1')->with('Success','Create CV  Success');
+            return Redirect('home')->with('Success','Create CV  Success');
 
         }
         else
@@ -99,13 +137,18 @@ class CvsController extends Controller
 
 
     }
-    public function color(Request $request){
-        $input= $request->all();
-        $color = DB::table('colors')->where('name',$input['CVcolor'])->first();
+    public function color($name,$color){
+
+        $cv=DB::table('imagecvs')->where('name',$name)->first();
+        $color = DB::table('colors')->where('name',$color)->first();
         $users= DB::table('users')->select('id', 'name', DB::raw('(SELECT COUNT(*) FROM user_cvs WHERE user_id=users.id) as count'))
             ->get();
+        $skills = DB::table('skills')->get();
 
-        return view('home.layout.cv.'.$input['CVname'], compact('color','users'));
+
+        return view('home.layout.cv.'.$name, compact('color','users','skills','cv'));
     }
+
+
 
 }

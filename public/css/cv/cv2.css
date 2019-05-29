@@ -38,6 +38,7 @@ input,textarea,select{
 	margin-left: 10px;
 }
 .job-name {
+
 	position: absolute;
 	font-weight: bold;
 	font-size: 25px;

@@ -124,14 +124,12 @@
                                 <i class="fas fa-long-arrow-alt-left"></i>
                                 <span>Back</span>
                             </button>
-                            <form action="{{ route('home.color') }}" method="post">
-                                @csrf
+
                                 <input type="hidden" name="CVname" value="{{ $imageCVs->name }}" />
                                 <input type="hidden" name="CVcolor" id="CVcolor" value="red" />
-                                <button id="button" class="btn btn-success btn-lg create_cv">Create Resume
+                                <a id="chosenlink" href="" class="btn btn-success btn-lg create_cv">Create Resume
                                     <i class="fas fa-long-arrow-alt-right"></i>
-                                </button>
-                            </form>
+                                </a>
                         </div>
                     </div>
                 </div>
@@ -144,8 +142,8 @@
                 var imgCV = document.querySelector('#imageCV');
                 imgCV.src = "{{ asset('') }}home_asset/images/cv/{{ $imageCVs->name }}_" + obj + ".png";
 
-                var color = document.getElementById('CVcolor');
-                color.value = obj;
+                var color = document.getElementById('chosenlink');
+                color.href = "{{ url('home/Create/CreateCV/'.$imageCVs->name) }}"+"/"+obj;
             }
 
         </script>
