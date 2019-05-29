@@ -33,7 +33,7 @@
     </head>
     <style>
         .preview-banner {
-            background: url('https://images.wallpaperscraft.com/image/laptop_smartphone_technology_110789_1366x768.jpg');
+            background: url("{{ asset('home_asset/background/laptop1.PNG') }}");
             background-size: cover;
         }
 
@@ -83,7 +83,7 @@
 
     <body>
         <!--Loader-->
-        {{-- <div id="loader">
+        <div id="loader">
             <div class="loader">
                 <div class="loader__bar"></div>
                 <div class="loader__bar"></div>
@@ -92,7 +92,7 @@
                 <div class="loader__bar"></div>
                 <div class="loader__ball"></div>
             </div>
-        </div> --}}
+        </div>
         <!-- Loader end -->
 
         <!-- Page Banner -->

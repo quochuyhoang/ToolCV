@@ -28,6 +28,11 @@ class CvsController extends Controller
             'name' => 'required',
             'target' => 'required',
             'salary' => 'required',
+            'job-name' => 'required',
+            'address' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
+            'hobbies' => 'required',
         ]);
         $input= $request->all();
         $idCV= DB::table('colorcv')
