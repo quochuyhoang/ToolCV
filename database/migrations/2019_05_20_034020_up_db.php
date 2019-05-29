@@ -96,6 +96,7 @@ class UpDb extends Migration
             $table->string('target');
             $table->integer('salary');
             $table->string('hobbies');
+            $table->string('job_name');
             $table->string('image');
             $table->bigInteger('user_id')->unsigned();
             $table
@@ -103,6 +104,10 @@ class UpDb extends Migration
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
+            $table->string('user_name');
+            $table->string('user_address');
+            $table->string('user_phone');
+            $table->string('user_email');
             $table->bigInteger('colorcv_id')->unsigned();
             $table
                 ->foreign('colorcv_id')
