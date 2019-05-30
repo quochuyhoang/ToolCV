@@ -75,5 +75,13 @@ class DatabaseSeeder extends Seeder
             'password' =>bcrypt('12345678'),
             'location_id' => '1',
         ]);
+        $location = "PHP, PHP Laravel, Css, JavaScript, Node.js";
+        $explode = explode(',',$location);
+        foreach($explode as $ex)
+        {
+            DB::table('skills')->insert([
+                'name' => $ex
+            ]);
+        }
     }
 }
