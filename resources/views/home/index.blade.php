@@ -61,6 +61,12 @@
             padding: 12px 16px;
             text-decoration: none;
             display: block;
+            border-radius:5px;
+        }
+        .dropdown-content a:hover {
+            background-color:pink;
+            padding-left:30px;
+            transition: 1s;
         }
 
         .dropdown:hover .dropdown-content {
@@ -97,20 +103,20 @@
 
         <!-- Page Banner -->
         <section class="preview-banner" style="padding-top: 50px; padding-bottom: 100px;">
-            <div class="pull-right display">
+            <div class="pull-right" style="height:60px;">
                 @guest
                 <a href="{{ route('home.login') }}" class="btn">Sign In</a>
                 @if (Route::has('register'))
                 <a href="{{ route('home.register') }}" target="_blank" class="btn" style="margin-right:20px;">Register</a>
                 @endif
                 @else
-                <span style="font-size:20px;color:white;margin-right:.7rem;">Welcome, {{ Auth::user()->name}}</span>
+                <span style="font-size:20px;color:white;margin-right:.7rem;vertical-align: 80%;">Welcome, {{ Auth::user()->name}}</span>
                 <div class="dropdown" style="margin-right:50px;display:inline-block">
-                    <div class="avatar" style="width:50px;height:50px;border-radius:50%;background-color:black;padding:15px 0;">
-                        <img src="{{ asset('assets/img/avatar/'.Auth::user()->avatar)}}" alt="">
+                    <div class="avatar">
+                        <img class="media-middle" src="{{ asset('assets/img/avatar/'.Auth::user()->avatar)}}" alt="" style="display:block; margin: 0 auto;width:60px;height:60px;border-radius:50%;">
                     </div>
 
-                    <div class="dropdown-content">
+                    <div class="dropdown-content" style="border-radius:5px;">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             Profile</a>
                         <a href="{{ route('home.logout') }}">Log Out</a>
