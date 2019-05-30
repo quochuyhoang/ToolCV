@@ -61,6 +61,12 @@
             padding: 12px 16px;
             text-decoration: none;
             display: block;
+            border-radius:5px;
+        }
+        .dropdown-content a:hover {
+            background-color:pink;
+            padding-left:30px;
+            transition: 1s;
         }
 
         .dropdown:hover .dropdown-content {
@@ -110,7 +116,7 @@
                         <img class="media-middle" src="{{ asset('assets/img/avatar/'.Auth::user()->avatar)}}" alt="" style="display:block; margin: 0 auto;width:60px;height:60px;border-radius:50%;">
                     </div>
 
-                    <div class="dropdown-content">
+                    <div class="dropdown-content" style="border-radius:5px;">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             Profile</a>
                         <a href="{{ route('home.logout') }}">Log Out</a>
