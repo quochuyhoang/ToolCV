@@ -1,0 +1,264 @@
+.col-md-4 {
+	background-color: black;
+	display: flex;
+	flex-direction: column;
+	color: white;
+}
+.col-md-4 .textarea p{
+	margin-bottom: 0;
+}
+.avatar {
+	margin-top: 50px;
+	display: flex;
+	flex-direction: column;
+}
+.cricle {
+	position: relative;
+	margin-top: 50px;
+	width: 150px;
+	height: 150px;
+	margin: auto;
+}
+.cricle img{
+	border-radius: 50%;
+	height: 100%;
+	width: 100%;
+	top: 0;
+}
+.name {
+	position: relative;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	padding: 30px 0;
+}
+.name div{
+	margin: auto;
+	text-align: center;
+}
+.first-name .textarea{
+	text-align: center;
+	color: white;
+	font-size: 25px;
+
+}
+.last-name .textarea{
+	font-size: 25px;
+	text-align: center;
+	color: white;
+}
+.job-name {
+	text-transform: uppercase;
+	font-size: 15px;
+	font-weight: 500;
+	bottom: -15px;
+	border: 1px solid blue;
+	background :none;
+	margin: auto;
+	position: relative;
+	letter-spacing: 5px;
+}
+.job-name p{ 
+	margin-bottom: 0px;
+ }
+.info-cv {
+	margin-top: 10px;
+	font-size: 20px;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: 600;
+	text-align: center;
+}
+.info-title {
+	font-size: 20px;
+}
+.info-title span{
+	border-bottom: 1px solid blue;
+}
+.info-content .textarea{
+	text-transform: capitalize; ;
+	color: white;
+	overflow: visible;
+	font-size: 16px;
+	margin-top: 20px;
+	margin-bottom: 0px;
+	padding: 0 20px;
+}
+.info-content span {
+	margin-top: 10px;
+}
+.col-md-8 {
+	padding: 0 40px;
+}
+.left {
+	margin-bottom: 20px;
+}
+.left-title {
+	text-align: center;
+	text-transform: uppercase;
+	border-bottom: 1px solid black;
+	padding: 0 40px;
+	letter-spacing: 5px;
+}
+.left-content {
+	margin-top: 20px;
+
+}
+.left-content h4{
+	text-transform: uppercase;
+	margin-top: 10px;
+}
+.left-content h5{
+	text-transform: capitalize;
+	letter-spacing: 5px;
+}
+.skils {
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+	top: -60px;
+	left: -40px;
+}
+
+.radialProgressBar {
+ 	
+  border-radius: 50%;
+  -webkit-transform: translate(50%, 50%);
+          transform: translate(50%, 50%);
+  width: 120px;
+  height: 120px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: #ddd;
+  margin: 20px;
+}
+.radialProgressBar .overlay {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  background: #fff;
+  text-align: center;
+  padding-top: 20%;
+}
+.progress-25 {
+  background-image: -webkit-linear-gradient(36deg, #ddd 50%, transparent 50%), -webkit-linear-gradient(left, #0fa085 50%, #ddd 50%);
+  background-image: linear-gradient(0deg, #ddd 50%, transparent 50%), linear-gradient(90deg, #0fa085 50%, #ddd 50%);
+}
+.progress-50 {
+  background-image: -webkit-linear-gradient(36deg, #ddd 50%, transparent 50%), -webkit-linear-gradient(left, #0fa085 50%, #ddd 50%);
+  background-image: linear-gradient(-90deg, #ddd 50%, transparent 50%), linear-gradient(90deg, #0fa085 50%, #ddd 50%);
+}
+.progress-75 {
+    background-image: -webkit-linear-gradient(left, #0fa085 50%, transparent 50%), -webkit-linear-gradient(72deg, #0fa085 50%, #ddd 50%);
+    background-image: linear-gradient(90deg, #0fa085 50%, transparent 50%), linear-gradient(0deg, #0fa085 50%, #ddd 50%);
+}
+.progress-100 {
+    background-image: -webkit-linear-gradient(left, #0fa085 50%, transparent 50%), -webkit-linear-gradient(72deg, #0fa085 50%, #ddd 50%);
+    background-image: linear-gradient(90deg, #0fa085 50%, transparent 50%), linear-gradient(-90deg, #0fa085 50%, #ddd 50%);
+}
+.left .hobby {
+	margin-top: 20px;
+	margin-bottom: 50px;
+}
+.item {
+	text-align: center;
+}
+.item > span{
+	margin-top: 20px;
+	font-weight: bold;
+	text-transform: capitalize;
+	text-align: center;
+}
+.template .input1 {
+	border: none;
+	width: 100%;
+	text-transform: uppercase;
+}
+.template .input2 {
+	border: none;
+	width: 100%;
+	text-transform: capitalize;
+	letter-spacing: 5px;
+}
+
+.template textarea{
+	border: none;
+}
+.textarea {
+    color: #2a2e2e;
+    cursor: text;
+    resize: none;
+    border: 0px solid;
+    display: block;
+    padding: 0px;
+    margin: 0;
+    width: 100%;
+    min-height: 44px;
+    height: auto;
+    line-height: 1.4;
+    font-size: 15px;
+    overflow-y: scroll;
+    transition: all .15s ease-in-out;
+}
+
+
+.avatar-upload {
+  position: relative;
+  max-width: 205px;
+  margin: 50px auto;
+}
+.avatar-upload .avatar-edit {
+  position: absolute;
+  right: 12px;
+  z-index: 1;
+  top: 10px;
+}
+.avatar-upload .avatar-edit input {
+  display: none;
+}
+.avatar-upload .avatar-edit input + label {
+  display: inline-block;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 0;
+  border-radius: 100%;
+  background: #FFFFFF;
+  border: 1px solid transparent;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  font-weight: normal;
+  transition: all 0.2s ease-in-out;
+}
+.avatar-upload .avatar-edit input + label:hover {
+  background: #f1f1f1;
+  border-color: #d6d6d6;
+}
+.avatar-upload .avatar-edit input + label:after {
+  content: "\f040";
+  font-family: 'FontAwesome';
+  color: #757575;
+  position: absolute;
+  top: 5px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin: auto;
+}
+.avatar-upload .avatar-preview {
+  width: 192px;
+  height: 192px;
+  position: relative;
+  border-radius: 100%;
+  border: 6px solid #F8F8F8;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+}
+.avatar-upload .avatar-preview > div {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}

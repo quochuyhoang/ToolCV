@@ -22,7 +22,8 @@ class CvsController extends Controller
     }
 
     public function CVCreate(Request $request, $id){
-
+/*$input =$request->all();
+dd($input);*/
 
         $this->validate($request, [
             'name' => 'required',
