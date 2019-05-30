@@ -50,7 +50,7 @@
     }
 
 </script>
-<script type="text/javascript" src="{{ asset("") }}/home_asset/chosen/js/app.js"></script>
+<script type="text/javascript" src="{{ asset('') }}/home_asset/chosen/js/app.js"></script>
 
 <!-- /#Demo -->
 @endsection
