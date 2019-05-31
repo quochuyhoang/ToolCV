@@ -108,4 +108,29 @@ class CvsController extends Controller
         return view('home.layout.cv.'.$input['CVname'], compact('color','users'));
     }
 
+        public function showcv($id)
+    {
+        $user_cvs = DB::table('user_cvs')->find($id);
+
+        $imagecvs = DB::table('colorcv')
+        ->select('imagecvs.name as CVname', 'colors.name as colorCv')
+        ->join('imagecvs', 'imagecvs.id', '=' ,'colorcv.imageCV_id')
+        ->join('colors', 'colors.id', '=', 'colorcv.color_id')
+        ->where('colorcv.id', '=', $user_cvs->colorcv_id)->first();
+
+        $experience = DB::table('experience')->where('user_cv_id', '=' ,$id)->get();
+        $education = DB::table('education')->where('user_cv_id', '=' ,$id)->get();
+
+        $user_skill = DB::table('user_skill')
+        ->select('user_skill.level','skills.name')
+        ->join('skills', 'skills.id', '=', 'user_skill.skill_id')
+        ->where('user_skill.user_id' ,'=', $id)->get();
+
+        
+
+        // dd($education);
+
+        return view('home.show.'.$imagecvs->CVname, compact('user_cvs','imagecvs'));
+    }
+
 }

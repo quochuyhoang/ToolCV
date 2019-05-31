@@ -23,6 +23,7 @@ class HomeController extends Controller
 
     public function index1(){
         $data['imageCVs']=DB::table('imageCVs')->paginate(4);
+        $data['user_cvs'] = DB::table('user_cvs')->get();
 
         return view('home.home',$data);
 
