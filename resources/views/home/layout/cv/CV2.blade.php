@@ -96,7 +96,7 @@
 @endif
 <form name="create" method="post" action="{{ url('home/Create/Create/'.Auth::user()->id) }}" enctype="multipart/form-data">
 	@csrf
-<div class="container">
+<div class="container" id="pdf">
 	<div class="template">
 
 			<div class="header backgroundColor" style="">
