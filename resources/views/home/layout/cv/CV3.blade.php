@@ -4,18 +4,13 @@
 	<title>cv thu 2</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
-
-
-
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/cv') }}/cv22.css">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css') }}/bootstrap-tagsinput/bootstrap-tagsinput.css" />
     <link href="{{ asset('home_asset/css/plugins/chosen/chosen.css') }}" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
 	<style type="text/css">
 
 		.color{
@@ -371,7 +366,7 @@
 								+'<h3 class="name">'
 								+'<input name="ed_name'+dem+'" type="text" placeholder="Desired Salary">'
 								+'</h3>'
-								+'<h4 class="time"><input name="ed_time'+dem+' class="color" type="text" placeholder="Time"></h4>'
+								+'<h4 class="time"><input name="ed_time'+dem+'" class="color" type="text" placeholder="Time"></h4>'
 								+'</div>'
 								+'<div class="job-describer">'
 								+'<input name="ed_spe'+dem+'" type="text" placeholder="Speciality">'
@@ -386,13 +381,11 @@
 					<input name="edu-number" type="hidden" id="edu-number" value="1">
 					<div id="edu-tag1">
 							<div class="job-header">
-
 								<h3 class="name">
 									<input name="ed_name1" type="text" placeholder="Desired Salary">
 								</h3>
 								<h4 class="time"><input name="ed_time1" class="color" type="text" placeholder="Time"></h4>
 							</div>
-
 							<div class="job-describer">
 								<input name="ed_spe1" type="text" placeholder="Speciality">
 							</div>
@@ -428,6 +421,7 @@
 					</div>
 				</div>
 				<h2 class="exp">PRO SKILLS</h2>
+				<input id="skill-level-num" name="skill-level-num" type="hidden" value="0">
                 <select data-placeholder="Choose a Skill..." id="select-skill"  class="chosen-select" multiple style="width:350px;" tabindex="4" onchange="chon(this)">
                     <p style="color: red" id="show_message"></p>
                     @foreach($skills as $skill)
@@ -435,9 +429,6 @@
                     @endforeach
 
                 </select>
-				<div class="progress" style="margin: 10px 0;">
-					<input type="range" min="1" max="100" value="50" class="slider" id="myRange" style="width: 410px;">
-				</div>
                 <div id="result">
 
                 </div>
@@ -454,22 +445,9 @@
                         for (var i = 0; i < options.length; i++){
                             if (options[i].selected){
                                 html += '<h4>'+options[i].text+'</h4>'
-                                        +'<input type="hidden" name="skill-name'+number+'" value="'+options[i].value+'">'
-                                    +' <select id="skill-level" name="skill-level'+number+'" onchange="an(this)">' +
-                                    '<option value="10" >10%</option>' +
-                                    '<option value="20" >20%</option>' +
-                                    '<option value="30" >30%</option>' +
-                                    '<option value="40" >40%</option>' +
-                                    '<option value="50" >50%</option>' +
-                                    '<option value="60" >60%</option>' +
-                                    '<option value="70" >70%</option>' +
-                                    '<option value="80" >80%</option>' +
-                                    '<option value="90" >90%</option>' +
-                                    '<option value="100" >100%</option>' +
-                                    '</select><br>'
-                                /* +'<div class="progress">'
-                                    +'<div class="progress-bar backgroundColor" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>'
-                                    +'</div><br>'*/
+									+'<input type="hidden" name="skill-name'+number+'" value="'+options[i].value+'">'
+                                    +' <input type="range" name="skill-level'+number+'" min="1" max="100" value="50" class="slider" id="myRange" style="width: 410px;">'
+
                                 number++;
                             }
                         }
