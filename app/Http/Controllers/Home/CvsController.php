@@ -36,8 +36,8 @@ class CvsController extends Controller
     }
 
     public function CVCreate(Request $request, $id){
-/*$input =$request->all();
-dd($input);*/
+// $input =$request->all();
+// dd($input);
 
         $this->validate($request, [
             'name' => 'required',
@@ -176,6 +176,32 @@ dd($input);*/
         }
     }
 
+        public function showcv($id)
+    {
+        $user_cvs = DB::table('user_cvs')->find($id);
 
+
+        $imagecvs = DB::table('colorcv')
+        ->select('imagecvs.name as CVname', 'colors.name as colorCv')
+        ->join('imagecvs', 'imagecvs.id', '=' ,'colorcv.imageCV_id')
+        ->join('colors', 'colors.id', '=', 'colorcv.color_id')
+        ->where('colorcv.id', '=', $user_cvs->colorcv_id)->first();
+
+        $experience = DB::table('experience')->where('user_cv_id', '=' ,$id)->get();
+        $education = DB::table('education')->where('user_cv_id', '=' ,$id)->get();
+        $awards = DB::table('awards')->where('user_cv_id','=',$id)->get();
+
+        $user_skill = DB::table('user_skill')
+        ->select('user_skill.level','skills.name')
+        ->join('skills', 'skills.id', '=', 'user_skill.skill_id')
+        ->where('user_skill.user_id' ,'=', $user_cvs->user_id)->get();
+
+
+
+
+        // dd($education);
+
+        return view('home.show.'.$imagecvs->CVname, compact('user_cvs','imagecvs','experience','education','user_skill','awards'));
+    }
 
 }

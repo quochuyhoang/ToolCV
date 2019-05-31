@@ -63,6 +63,9 @@ Route::prefix('home')->group(function (){
 
     Route::get('ChosenColor/{id}','Home\CvsController@ChosenColor')->name('home.chosen');
 
+    //showCV
+    Route::get('ShowCV/{id}','Home\CvsController@showcv');
+
 });
 Auth::routes();
 
