@@ -103,7 +103,7 @@
 						</li>
 						<li class="userInfor">
 							<i class="fa fa-envelope color" aria-hidden="true"></i>
-							<input name="email" placeholder="Your Address" value="{{ Auth::user()->email }}">
+                                <input name="email" placeholder="Your Address" value="{{ Auth::user()->email }}">
 						</li>
                         <li class="userInfor">
                             <i class="fas fa-money color" aria-hidden="true"></i>
@@ -233,6 +233,7 @@
 						function hideEX() {
 							var get= document.getElementById('ex-number');
 							var parent = document.getElementById("ex");
+							var child = document.getElementById('ex-tag'+get.value);
 							var child = document.getElementById('ex-tag'+get.value);
 							parent.removeChild(child);
 
