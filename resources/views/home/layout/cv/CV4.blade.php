@@ -35,7 +35,8 @@
 		}
 	</style>
 </head>
-<body>@if($errors->any())
+<body>
+@if($errors->any())
 	<div class="alert alert-danger">
 		<ul>
 			@foreach($errors->all() as $error)
@@ -129,7 +130,7 @@
 				<input name="ex-number" type="hidden" id="ex-number" value="1" />
 
 				<div class="left-content" id="ex">
-					<div id="ex-tag'+dem+'">
+					<div id="ex-tag1">
 					<h4><input name="ex_name1" type="text" placeholder="Name Company"></h4>
 					<h5><input name="ex_time1" type="text" class="color" placeholder="Time"></h5>
 					<h6><input name="ex_position1" type="text" placeholder="Position"></h6>
@@ -252,11 +253,11 @@
 					</div>
 				</div>
 				<div class="plus-buttom" id="aw-hide" hidden>
-					<a  onclick="hideEdu()" title="Hide this Education">
+					<a  onclick="hideAw()" title="Hide this Education">
 						<i class="fa fa-times"></i>
 					</a>
 					<script>
-						function hideEdu() {
+						function hideAw() {
 							var get= document.getElementById('aw-number');
 							var parent = document.getElementById("aw");
 							var child = document.getElementById('aw-tag'+get.value);

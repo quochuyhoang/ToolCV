@@ -1,0 +1,236 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+input{
+    border: none;
+    background: none;
+}
+textarea{
+    border: none;
+    background: none;
+}
+.steven {
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+    font-family: "Intro";
+    padding-top: 40px;
+}
+.images {
+    width: 249px;
+    height: 249px;
+    border-radius: 50%;
+    margin: 0 auto;
+    background: #414142;
+}
+
+.images img {
+    width: 249px;
+    height: 249px;
+}
+
+.graphic {
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+}
+.icon span{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #414142;
+    margin: 0 10px;
+}
+.icon {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+.myname {
+    font-size: 20px;
+     padding: 0 40px;
+    text-align: center;
+    font-family: "Lato-Regular";
+}
+.canvas {
+    width: 0;
+    height: 0;
+    border-left: 190px solid transparent;
+    border-right: 190px solid transparent;
+    border-top: 100px solid #f6eb14;
+    opacity: 0.6;
+}
+
+.contact {
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    padding: 25px;
+    font-family: "Intro";
+}
+.layer {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #414142;
+    overflow: hidden;
+    display: flex;
+    margin: auto;
+    margin-bottom: 15px;
+}
+
+.layer img {
+    width: 26px;
+    height: 23px;
+    margin: auto;  
+}
+.layer1 img{
+    width: 21px;
+    height: 30px;
+}
+span.text_layer {
+    font-size: 20px;
+    font-family: "Lato-Black";
+}
+
+span.sdt {
+    font-size: 22px;
+    font-family: "Lato-Black";
+}
+.icon_left2{
+    text-align: center;
+    padding: 30px;
+}
+.canvas1 {
+    width: 0;
+    height: 0;
+    border-bottom: 60px solid #f6eb14;
+    border-right: 100px solid transparent;
+    opacity: 0.6;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.right.col-md-8 {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.experience{
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.canvas2 {
+    width: 0;
+    height: 0;
+    border-top: 80px solid #f6eb14;
+    border-left: 150px solid transparent;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.layer01{
+    display: inline-flex;
+    background: #f6eb14;
+}
+.icon.icon01 {
+    display: inline-flex;
+}
+
+.content {
+    padding-left: 34px;
+    font-family: "Lato-Regular";
+}
+
+.contant1 {
+    padding-left: 34px;
+    font-family: "Lato-Regular";
+}
+
+span.nam {display: inline;border-left: 2px solid #414142;padding-left: 10px;margin-left: 10px;font-size: 18px;font-family: "Lato-Regular";}
+
+.right1 {
+    margin-bottom: 50px;
+}
+.text_expres {
+    padding-bottom: 20px;
+}
+.right2 {
+    margin-bottom: 50px;
+}
+
+span.list {
+    font-size: 23px;
+    font-weight: bold;
+    font-family: "Lato-black";
+}
+
+p.text_max {
+    font-size: 25px;
+}
+
+p.text_min {
+    font-size: 20px;
+}
+
+.start {
+    font-size: 20px;
+    font-family: "Lato-Regular";
+}
+
+.exsion {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 30px;
+}
+
+.rating {
+    float: left;
+    width: 200px
+}
+.rating span { float:right; position:relative; }
+.rating span input {
+    position:absolute;
+    top:0px;
+    left:0px;
+    opacity:0;a
+}
+.rating span label {
+    display:inline-block;
+    width:20px;
+    height:20px;
+    text-align:center;
+    color:#FFF;
+    background:#ccc;
+    font-size:30px;
+    margin-right: 5px;
+    line-height:30px;
+    border-radius:50%;
+    -webkit-border-radius:50%;
+    margin: 5px 5px 0 0 ;
+}
+.rating span:hover ~ span label,
+.rating span:hover label,
+.rating span.checked label,
+.rating span.checked ~ span label {
+    background:#f6eb14;
+    color:#FFF;
+}
+.right3{
+    padding-bottom: 30px
+}
+.nam1{
+    font-size: 18px;
+    font-family: "Lato-Regular";
+}
+.canvas3 {
+    width: 0;
+    height: 0;
+    border-bottom: 100px solid #f6eb14;
+    border-left: 150px solid transparent;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
