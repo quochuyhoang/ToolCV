@@ -2,6 +2,7 @@
 @section('content1')
 
 <!-- Page HOME -->
+
 <div class="demo-section padding-bottom bglight">
     <div class="container">
         <div class="row page" id="page1" style="display: block;">
@@ -11,7 +12,7 @@
                     <figure class="wpf-blog">
                         <a href=""><img src="{{ asset('') }}home_asset/images/cv/{{ $imageCV->name }}_red.png" alt="img" class="CV_image"></a>
                         <figcaption class="view-caption">
-                            <a href="{{ url('home/ChosenColor/'.$imageCV->id) }}" target="_blank" class="centered" id="cv1">Use this template</a>
+                            <a href="{{ url('home/ChosenColor/'.$imageCV->id) }}" target="_blank" class="centered" id="cv1" >Use this template</a>
                         </figcaption>
                     </figure>
                     <h3>Creative Resume Templates</h3>
@@ -19,6 +20,9 @@
             </div>
             @endforeach
         </div>
+        <script type="javascript">
+
+        </script>
 
         <div class="col-lg-12 text-center">
             <nav aria-label="Page navigation example">

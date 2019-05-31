@@ -57,11 +57,11 @@ Route::prefix('home')->group(function (){
         Route::get('/', 'Home\CvsController@Create')->name('home.createcv');
 
         Route::post('Create/{id}', 'Home\CvsController@CVCreate')->name('home.postcv');
-        Route::get('CreateCV/{name}/{color}', 'Home\CvsController@color')->name('home.color');
+        Route::get('CreateCV', 'Home\CvsController@color')->name('home.color');
 
     });
 
-    Route::get('ChosenColor/{id}','Home\HomeController@ChosenColor')->name('home.chosen');
+    Route::get('ChosenColor/{id}','Home\CvsController@ChosenColor')->name('home.chosen');
 
     //showCV
     Route::get('ShowCV/{id}','Home\CvsController@showcv');

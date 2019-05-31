@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Http\Middleware\RedirectIfAuthenticated;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -29,18 +30,7 @@ class HomeController extends Controller
 
     }
 
-    public function ChosenColor($id)
-    {
-        $data['imageCVs']=DB::table('imageCVs')->find($id);
 
-        $data['colors']= DB::table('colorcv')
-            ->select('colors.id as colorId', 'colors.name as colorName')
-            ->join('colors','colors.id','=','colorcv.color_id')
-            ->where('imageCV_id',$data['imageCVs']->id)->get();
-
-
-        return view('home.chosencolor', $data);
-    }
 
 
 

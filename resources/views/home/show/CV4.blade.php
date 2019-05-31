@@ -29,125 +29,155 @@
 	</style>
 </head>
 <body>
+	<div class="container template" id="pdf">
+		<div class="row ">
+			<div class="col-md-4 backgroundColor" id="right">
 
-	<form>
-		<div class="container template" id="pdf">
-			<div class="row ">
-				<div class="col-md-4 backgroundColor" id="right">
+				<div class="avatar-upload">
+					<div class="avatar-preview">
+						@if($user_cvs->image==0)
+							<div id="imagePreview" style="background-image:url({{asset('assets/img/avatar/'.Auth::user()->avatar)}});">
+							</div>
 
-					<div class="avatar-upload">
-						<div class="avatar-preview">
-							<div id="imagePreview" style="background-image:url({{asset('assets/img/avatar/'.'user_cvs->image')}});">
+						@else
+							<div id="imagePreview" style="background-image:url({{asset('home_asset/cv/cvimages/'.$user_cvs->image)}});">
 							</div>
-						</div>
-					</div>
-					<div class="name">
-						<div  class="last-name">
-							{{ $user_cvs->user_name }}<br>
-							{{ $user_cvs->job_name }}<br>
-							{{ $user_cvs->salary }}
-						</div>
-					</div>
-					<div class="info-cv">
-						<div class="info-title">
-							<span>about me</span>
-						</div>
-						<div class="info-content">
-							{{ $user_cvs->target }}
-						</div>
-					</div>
-					<div class="info-cv">
-						<div class="info-title">
-							<span>contact me</span>
-						</div>
-						<div class="info-content">
-							<div>
-								{{ $user_cvs->user_address }}
-							</div><br>
-							<div>
-								{{ $user_cvs->user_phone }}
-							</div><br>
-							<div>
-								{{ $user_cvs->user_email }}
-							</div>
-						</div>
+						@endif
+
 					</div>
 				</div>
-				<div class="col-md-8">
-					<div class="left">
-						<div class="left-title">
-							<h3 class="color">work experience</h3>
-						</div>
-						<div class="left-content" id="ex">
-							@foreach($experience as $ex)
-							<div id="ex-tag'+dem+'">
-								<h4>{{ $ex->name }}</h4>
-								<h5>{{ $ex->time }}</h5>
-								<h6>{{ $ex->position }}</h6>
-								{{ $ex->describe }}
-								{{ $ex->achi }}<br/>
-								<i>{{ $ex->reference }}</i>
-								<span> {{ $ex->rf_phone }}</span>
-							</div>
-							@endforeach
-						</div>
+				<div class="name">
+					<div  class="last-name">
+						{{ $user_cvs->user_name }}<br>
+						{{ $user_cvs->job_name }}<br>
+						{{ $user_cvs->salary }}
 					</div>
-					<div class="left">
-						<div class="left-title">
-							<h3 class="color">education</h3>
-						</div>
-
-						<div class="left-content" id="edu">
-							@foreach($education as $ed)
-									<div id="edu-tag1">
-										<h4>{{ $ed->name }}</h4>
-										<h5>{{ $ed->time }}</h5>
-										<h6>{{ $ed->spe }}</h6>
-									</div>
-							@endforeach
-						</div>
-					</div>
-					<div class="left">
-						<div class="left-title">
-							<h3 class="color">Awards</h3>
-						</div>
-
-						<div class="left-content" id="aw">
-							@foreach($awards as $aw)
-									<div id="aw-tag1">
-										<h4>{{ $aw->name }}</h4>
-										<h5>{{ $aw->year }}</h5>
-										<h6>{{ $aw->describe }}</h6>
-									</div>
-							@endforeach							
-						</div>
-					</div>
-					<div class="left">
-						<div class="left-title">
-							<h3 class="color">persional skills</h3>
-							@foreach($user_skill as $skill)
-							<option value="">{{ $skill->name }}</option>
-							@endforeach
-
 				</div>
-				<div class="" id="result">
-
+				<div class="info-cv">
+					<div class="info-title">
+						<span>about me</span>
+					</div>
+					<div class="info-content">
+						{{ $user_cvs->target }}
+					</div>
+				</div>
+				<div class="info-cv">
+					<div class="info-title">
+						<span>contact me</span>
+					</div>
+					<div class="info-content">
+						<div>
+							{{ $user_cvs->user_address }}
+						</div><br>
+						<div>
+							{{ $user_cvs->user_phone }}
+						</div><br>
+						<div>
+							{{ $user_cvs->user_email }}
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="left">
-				<div class="left-title">
-					<h3 class="color">interes/hobby</h3>
+			<div class="col-md-8">
+				<div class="left">
+					<div class="left-title">
+						<h3 class="color">work experience</h3>
+					</div>
+					<div class="left-content" id="ex">
+						@foreach($experience as $ex)
+						<div id="ex-tag'+dem+'">
+							<h4>{{ $ex->name }}</h4>
+							<h5>{{ $ex->time }}</h5>
+							<h6>{{ $ex->position }}</h6>
+							{{ $ex->describe }}
+							{{ $ex->achi }}<br/>
+							<i>{{ $ex->reference }}</i>
+							<span> {{ $ex->rf_phone }}</span>
+						</div>
+						@endforeach
+					</div>
 				</div>
-				<div class="left-content hobby">
-					{{ $user_cvs->hobbies }}
+				<div class="left">
+					<div class="left-title">
+						<h3 class="color">education</h3>
+					</div>
+
+					<div class="left-content" id="edu">
+						@foreach($education as $ed)
+								<div id="edu-tag1">
+									<h4>{{ $ed->name }}</h4>
+									<h5>{{ $ed->time }}</h5>
+									<h6>{{ $ed->spe }}</h6>
+								</div>
+						@endforeach
+					</div>
+				</div>
+				<div class="left">
+					<div class="left-title">
+						<h3 class="color">Awards</h3>
+					</div>
+
+					<div class="left-content" id="aw">
+						@foreach($awards as $aw)
+								<div id="aw-tag1">
+									<h4>{{ $aw->name }}</h4>
+									<h5>{{ $aw->year }}</h5>
+									<h6>{{ $aw->describe }}</h6>
+								</div>
+						@endforeach
+					</div>
+				</div>
+				<div class="left">
+					<div class="left-title">
+						<h3 class="color">persional skills</h3>
+					</div>
+						@foreach($user_skill as $skill)
+							<h4>{{ $skill->name }}</h4>
+							{{$skill->level}}%
+							<input type="range"  min="1" max="100" value="{{$skill->level}}" class="slider" id="myRange" style="width: 410px;">
+						@endforeach
 				</div>
 
+				<div class="left">
+					<div class="left-title">
+						<h3 class="color">interes/hobby</h3>
+					</div>
+					<div class="left-content hobby">
+						{{ $user_cvs->hobbies }}
+					</div>
+
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
+	<div style="text-align: center;">
+	<a href="#" class="btn backgroundColor" id="btn-print" onclick=""><i class="fa fa-download"></i> Xuất PDF</a>
+	</div>
 
-</form>
+</body>
+<script type="javascript">
+	$(document).ready(function(){
+		var area_print = $('#area-print');
+
+		var a4 =[ 595.28, 841.89];
+		$('#btn-print').on('click',function(){
+			print();
+		});
+		function print() {
+			html2canvas(document.getElementById('pdf'), {
+
+				onrendered: function(canvas){
+					var img= canvas.toDataURL("image/png");
+					doc = new jsPDF();
+					doc.addImage(img,'JPEG',0,0,210, 297);
+					doc.save('CV.pdf');
+				}
+			});
+		};
+
+	});
+</script>
+
 <script src="{{ asset('js/pdf/html2canvas.js') }}"></script>
 <script src="{{ asset('js/pdf/jspdf.js') }}"></script>
 
@@ -161,5 +191,4 @@ crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 <script src="{{ asset('home_asset/js/plugins/chosen/chosen.jquery.js')}}"></script>
 
-</body>
 </html>

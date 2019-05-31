@@ -79,15 +79,17 @@
 
 <body>
 
-	<form >
 		<div class="container" id="pdf">
 			<div class="template">
 
 				<div class="header backgroundColor" style="">
 					<div class="avatar">
 						<div class="cricle">
-							<img class="mr-3" src="{{ asset('assets/img/avatar/'.'user_cvs->image') }}" width="100%" alt="Generic placeholder image">
-						</div>
+							@if($user_cvs->image==0)
+								<img class="mr-3" src="{{ asset('assets/img/avatar/'.Auth::user()->avatar) }}" width="100%" alt="Generic placeholder image">
+							@else
+								<img class="mr-3" src="{{ asset('home_asset/cv/cvimages/'.$user_cvs->image) }}" width="100%" alt="Generic placeholder image">
+							@endif						</div>
 					</div>
 
 					<div class="name">
@@ -210,7 +212,9 @@
 							<div class="test" style="margin-bottom: 50px" >
 								<h2 class="exp color">PRO SKILLS</h2>
 								@foreach($user_skill as $skill)
-								{{ $skill->name }}
+									<h4>{{ $skill->name }}</h4>
+									{{$skill->level}}%
+									<input type="range"  min="1" max="100" value="{{$skill->level}}" class="slider" id="myRange" style="width: 410px;" readonly>
 								@endforeach
 							</div>
 							<div class="test">
@@ -223,10 +227,33 @@
 			</div>
 
 		</div>
-
-	</form>
+		<div style="text-align: center;">
+		<a href="#" class="btn backgroundColor" id="btn-print" onclick=""><i class="fa fa-download"></i> Xuất PDF</a>
+		</div>
 
 </body>
+<script type="javascript">
+	$(document).ready(function(){
+		var area_print = $('#area-print');
+
+		var a4 =[ 595.28, 841.89];
+		$('#btn-print').on('click',function(){
+			print();
+		});
+		function print() {
+			html2canvas(document.getElementById('pdf'), {
+
+				onrendered: function(canvas){
+					var img= canvas.toDataURL("image/png");
+					doc = new jsPDF();
+					doc.addImage(img,'JPEG',0,0,210, 297);
+					doc.save('CV.pdf');
+				}
+			});
+		};
+
+	});
+</script>
 
 <script src="{{ asset('js/pdf/html2canvas.js') }}"></script>
 <script src="{{ asset('js/pdf/jspdf.js') }}"></script>
