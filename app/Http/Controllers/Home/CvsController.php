@@ -22,8 +22,8 @@ class CvsController extends Controller
     }
 
     public function CVCreate(Request $request, $id){
-$input =$request->all();
-dd($input);
+// $input =$request->all();
+// dd($input);
 
         $this->validate($request, [
             'name' => 'required',
@@ -155,7 +155,6 @@ dd($input);
         return view('home.layout.cv.'.$name, compact('color','users','skills','cv'));
     }
 
-<<<<<<< HEAD
         public function showcv($id)
     {
         $user_cvs = DB::table('user_cvs')->find($id);
@@ -168,20 +167,18 @@ dd($input);
 
         $experience = DB::table('experience')->where('user_cv_id', '=' ,$id)->get();
         $education = DB::table('education')->where('user_cv_id', '=' ,$id)->get();
+        $awards = DB::table('awards')->where('user_cv_id','=',$id)->get();
 
         $user_skill = DB::table('user_skill')
         ->select('user_skill.level','skills.name')
         ->join('skills', 'skills.id', '=', 'user_skill.skill_id')
         ->where('user_skill.user_id' ,'=', $id)->get();
 
-        
+
 
         // dd($education);
 
-        return view('home.show.'.$imagecvs->CVname, compact('user_cvs','imagecvs'));
+        return view('home.show.'.$imagecvs->CVname, compact('user_cvs','imagecvs','experience','education','user_skill','awards'));
     }
-=======
-
->>>>>>> bd1fba40536f7f9431de084f9f90697f65c95046
 
 }
