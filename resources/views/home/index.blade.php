@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="zxx">
 
+<<<<<<< HEAD
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -119,6 +120,128 @@
                     @endforeach
                     
                     <a href="{{ route('home.logout') }}">Log Out</a>
+=======
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>CV Tool</title>
+
+        <!-- Bootstrap -->
+        <link href="{{asset('') }}home_asset/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Font-awesome -->
+        <link href="{{asset('') }}home_asset/css/font-awesome.min.css" rel="stylesheet">
+        <!-- Bootsnav -->
+        <link href="{{asset('') }}home_asset/css/bootsnav.css" rel="stylesheet">
+        <!-- OWL-Carousel -->
+        <link href="{{asset('') }}home_asset/css/owl.carousel.css" rel="stylesheet">
+        <link href="{{asset('') }}home_asset/css/owl.transitions.css" rel="stylesheet">
+        <link href="{{asset('') }}home_asset/css/animate.min.css" rel="stylesheet">
+        <!-- Fancybox -->
+        <link rel="stylesheet" type="text/css" href="{{asset('') }}home_asset/css/jquery.fancybox.css">
+        <!-- Calander -->
+        <link rel="stylesheet" type="text/css" href="{{asset('') }}home_asset/css/datepicker.css">
+        <!-- Slider -->
+        <link rel="stylesheet" type="text/css" href="{{asset('') }}home_asset/css/settings.css">
+        <!-- Flip-Pricing -->
+        <link rel="stylesheet" type="text/css" href="{{asset('') }}home_asset/css/flip-pricing.css">
+        <!-- Custom Style Sheet -->
+        <link rel="stylesheet" type="text/css" href="{{asset('') }}home_asset/css/style.css">
+
+        <link rel="shortcut icon" href="{{asset('') }}home_asset/images/short_icon.html">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    </head>
+    <style>
+        .preview-banner {
+            background: url("{{ asset('home_asset/background/laptop1.PNG') }}");
+            background-size: cover;
+        }
+
+        .btn {
+            font-size: 20px;
+            color: white;
+        }
+
+        .btn:hover {
+            color: #0fa784;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0px;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            border-radius:5px;
+        }
+        .dropdown-content a:hover {
+            background-color:pink;
+            padding-left:30px;
+            transition: 1s;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .display {
+            align-items: center;
+        }
+
+        .avatar:hover {
+            cursor: pointer;
+        }
+
+        a {
+            color: white;
+        }
+
+    </style>
+
+    <body>
+        <!--Loader-->
+        <div id="loader">
+            <div class="loader">
+                <div class="loader__bar"></div>
+                <div class="loader__bar"></div>
+                <div class="loader__bar"></div>
+                <div class="loader__bar"></div>
+                <div class="loader__bar"></div>
+                <div class="loader__ball"></div>
+            </div>
+        </div>
+        <!-- Loader end -->
+
+        <!-- Page Banner -->
+        <section class="preview-banner" style="padding-top: 50px; padding-bottom: 100px;">
+            <div class="pull-right" style="height:60px;">
+                @guest
+                <a href="{{ route('home.login') }}" class="btn">Sign In</a>
+                @if (Route::has('register'))
+                <a href="{{ route('home.register') }}" target="_blank" class="btn" style="margin-right:20px;">Register</a>
+                @endif
+                @else
+                <span style="font-size:20px;color:white;margin-right:.7rem;vertical-align: 80%;">Welcome, {{ Auth::user()->name}}</span>
+                <div class="dropdown" style="margin-right:50px;display:inline-block">
+                    <div class="avatar">
+                        <img class="media-middle" src="{{ asset('assets/img/avatar/'.Auth::user()->avatar)}}" alt="" style="display:block; margin: 0 auto;width:60px;height:60px;border-radius:50%;">
+                    </div>
+
+                    <div class="dropdown-content" style="border-radius:5px;">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            Profile</a>
+                        <a href="{{ route('home.logout') }}">Log Out</a>
+                    </div>
+>>>>>>> bd1fba40536f7f9431de084f9f90697f65c95046
                 </div>
             </div>
             @endguest
