@@ -1,175 +1,252 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>cv thu 2</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+	<title>cv thu 2</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/cv') }}/cv22.css">
+	<link rel="stylesheet" type="text/css" href="{{ asset('css') }}/bootstrap-tagsinput/bootstrap-tagsinput.css" />
+	<link href="{{ asset('home_asset/css/plugins/chosen/chosen.css') }}" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<style type="text/css">
+		.color{
+			color: {{ $imagecvs->colorCv }};
+		}
+		.backgroundColor{
+			background-color: {{ $imagecvs->colorCv }};
+		}
+		.slider {
+			-webkit-appearance: none;
+			width: 100%;
+			height: 15px;
+			border-radius: 5px;   
+			background: #d3d3d3;
+			outline: none;
+			opacity: 0.7;
+			-webkit-transition: .2s;
+			transition: opacity .2s;
+		}
+		.slider:hover {
+			opacity: 1;
+		}
 
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+		.slider::-webkit-slider-thumb {
+			-webkit-appearance: none;
+			appearance: none;
+			width: 15px;
+			height: 15px;
+			border-radius: 50%; 
+			background: black;
+			cursor: pointer;
+		}
+
+		.slider::-moz-range-thumb {
+			width: 15px;
+			height: 15px;
+			border-radius: 50%;
+			background: #4CAF50;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	@if($errors->any())
+	<div class="alert alert-danger">
+		<ul>
+			@foreach($errors->all() as $error)
+			<li>{{$error}}</li>
+
+			@endforeach
+		</ul>
+	</div>
+	@endif
+	<form>
+		<div class="container template" id="pdf">
+			<div class="header" >
+				<div class="row row-1">
+					<div class="col-md-6 name">
+						<div class="name">
+							{{ $user_cvs->user_name }}
+						</div>
+						<span class="job-name backgroundColor">
+							{{ $user_cvs->job_name }}<br>
+						</span>
+					</div>
+					<div class="col-md-6 contact-header">
+
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 info">
+						<div class="media" id="imagePreview">
+							<img class="mr-3" src="{{ asset('assets/img/avatar/'.'user_cvs->image') }}" width="100%" alt="Generic placeholder image">
+						</div>
+
+						<ul>
+							<li class="userInfor">
+								<i class="fa fa-map-marker color" aria-hidden="true"></i>
+								{{ $user_cvs->user_address }}
+							</li>
+							<li class="userInfor">
+								<i class="fa fa-mobile color" aria-hidden="true"></i>
+								{{ $user_cvs->user_phone }}
+							</li>
+							<li class="userInfor">
+								<i class="fa fa-envelope color" aria-hidden="true"></i>
+								{{ $user_cvs->user_email }}
+							</li>
+							<li class="userInfor">
+								<i class="fas fa-money color" aria-hidden="true"></i>
+								{{ $user_cvs->salary }}
+							</li>
+
+						</ul>
+
+					</div>
+					<div class="col-md-6 ">
+
+						<div class="media-body ">
+							<h2 class="mt-0"><i class="fas fa-quote-left color"></i>about us</h2>
+							{{ $user_cvs->target }}
+						</div>
+					</div>
+					
+				</div>
+
+			</div>
+			<div class="row">
+				<div class="col-md-7">
+					<div class="test">
+						<div class="title ">
+							<div class="cricle backgroundColor">
+								<i class="fas fa-shopping-bag"></i>
+							</div>
+						</div>
+						<h2 class="exp">EXPERIENCE</h2>
+						<div class="last-job" id="ex">
+							@foreach($experience as $ex)
+							
+							<div id="ex-tag1">
+								<div class="job-header">
+									<h3 class="name">
+										{{ $ex->name }}
+									</h3>
+									<h4 class="time ">
+										{{ $ex->time }}
+									</h4>
+								</div>
+								<div class="job-body">
+									<h4 class="job-location">
+										{{ $ex->position }}
+									</h4>
+								</div>
+								<div class="job-describer">
+									{{ $ex->describe }}
+									{{ $ex->achi }}
+								</div>
+								<div class="job-describer">
+									{{ $ex->reference }}
+									{{ $ex->rf_phone }}
+								</div>
+							</div>
+							@endforeach
+
+						</div>
+					</div>
 
 
-        <link rel="stylesheet" type="text/css" href="{{asset('home_asset/cv/cv2/css/cv2.css')}}">
-        <style type="text/css">
-            .color {
-                color: {
-                        {
-                        $imagecvs->colorCv
-                    }
-                }
+					<div class="test">
+						<div class="title">
+							<div class="cricle backgroundColor">
+								<i class="fa fa-gift" aria-hidden="true"></i>
+							</div>
+						</div>
+						<h2 class="exp">Awards</h2>
+						<div class="last-job" id="aw">
+							@foreach($awards as $aw)
+							<div id="aw-tag1">
+								<div class="job-header">
+									<h3 class="name">
+										{{ $aw->name }}
+									</h3>
+									<h4 class="time">{{ $aw->year }}</h4>
+								</div>
+								<div class="job-describer">
+									{{ $aw->describe }}
+								</div>
+							</div>
+							@endforeach	
+						</div>
+					</div>
 
-                ;
-            }
+					<div class="test" style="margin-top: 30px">
+						<div class="title">
+							<div class="cricle backgroundColor">
+								<i class="fa fa-heart" aria-hidden="true"></i>
+							</div>
+						</div>
 
-            .backgroundColor {
-                background-color: {
-                        {
-                        $imagecvs->colorCv
-                    }
-                }
+						<h2 class="exp">Hobbies</h2>
+						{{ $user_cvs->hobbies }}
 
-                ;
-            }
+					</div>
 
-        </style>
-    </head>
+				</div>
+				<div class="col-md-5">
+					<div class="test">
+						<div class="title">
+							<div class="cricle backgroundColor">
+								<i class="fa fa-graduation-cap" aria-hidden="true" style="padding-left:5%;"></i>
+							</div>
+						</div>
+						<h2 class="exp">EDUCATION</h2>
+						<div class="last-job" id="edu">
+							<input name="edu-number" type="hidden" id="edu-number" value="1">
+							<div id="edu-tag1">
+								@foreach($education as $ed)						
+								<div class="job-header">
+									<h3 class="name">
+										{{ $ed->name }}
+									</h3>
+									<h4 class="time">{{ $ed->time }}</h4>
+								</div>
 
-    <body>
-        <div class="container template">
-            <div class="header" style="background-image: url('{{ asset('home_asset/cv/cv2/images/background_cv2.JPG') }}');">
-                <div class="row row-1">
-                    <div class="col-md-6 name">
+								<div class="job-describer">
+									{{ $ed->spe }}
+								</div>
+								@endforeach
+							</div>
 
-                        <span class="first-name">{{ $imagecvs->CVname }}</span>
-                        <span class="job-name backgroundColor" >CREATIVE DESIGN{{ $user_cvs->id }}</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-8 info">
-                        <div class="media">
-                            <img class="mr-3" src="{{ asset('home_asset/cv/cvimages/'.$user_cvs->image) }}" alt="Generic placeholder image">
-                            <div class="media-body">
-                                <h2 class="mt-0"><i class="fas fa-quote-left color"></i>about us</h2>
-                                <span>{{ $user_cvs->target }}</span>
-                            </div>
-                        </div>
+						</div>
+					</div>
 
-                    </div>
-                    <div class="col-md-4 info-right">
-                        <div>
-                            <img src="images/location.png" alt="" class="location">
-                            <span>{{ $user_cvs->user_email }}</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="row">
-                <div class="col-md-7">
-                    <div class="test ">
-                        <div class="title">
-                            <div class="backgroundColor cricle">
-                                <img src="images/icon-exp.png" alt="">
-                            </div>
-                        </div>
-                        <h2 class="exp">EXPERIENCE</h2>
-                        <div class="last-job">
-                            {{-- @foreach ($user_cvs->target as $item)
-                            <div class="job-header">
-                                <div class="cricle backgroundColor"></div>
-                                <h3 class="name">PROJECT MANAGER</h3>
-                                <h4 class="time color">2019 to 2020</h4>
-                            </div>
-                            <div class="job-body">
-                                <h4 class="job-location">124 - New York</h4>
-                            </div>
-                            <div class="job-describer">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi deleniti quidem delectus sed debitis, alias omnis dolores voluptate libero totam laudantium et, quaerat odit! Quidem quos magnam velit dolores quam!
-                            </div>
-                            @endforeach --}}
-                        </div>
+					<div class="test" class="test" style="margin-top: 30px">
+						<div class="title">
+							<div class="cricle backgroundColor">
+								<i class="fa fa-bolt" aria-hidden="true" style="padding-left:24%"></i>
+							</div>
+						</div>
+						<h2 class="exp">PRO SKILLS</h2>
+						@foreach($user_skill as $skill)
+						<option value="">{{ $skill->name }}</option>
+						@endforeach
+					</div>
+				</div>
+			</div>
+		</div>
 
 
-                    </div>
-                    <div class="test" style="margin-top: 30px">
-                        <div class="title">
-                            <div class="cricle backgroundColor">
-                                <img src="images/icon-exp.png" alt="">
-                            </div>
-                        </div>
-                        <h2 class="exp">OTHER SKILLS</h2>
-                        <div class="hobby">
-                            <div class="hobby-1">
-                                <div class="hobby-title">
-                                    <span>{{ $user_cvs->hobbies }}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-md-5">
-                    <div class="test">
-                        <div class="title">
-                            <div class="cricle backgroundColor">
-                                <img src="images/eduction-icon.png" alt="">
-                            </div>
-                        </div>
-                        <h2 class="exp">EDUCAITON</h2>
-                        <div class="last-job">
-                            <div class="job-header">
-                                <div class="cricle backgroundColor">
-
-                                </div>
-                                <h3 class="name">EDUCATION</h3>
-                                <h4 class="time">2019 to 2020</h4>
-                            </div>
-                            <div class="job-body">
-                                <h4 class="job-location">124 - New York</h4>
-                            </div>
-                            <div class="job-describer">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi deleniti quidem delectus sed debitis, alias omnis dolores voluptate libero totam laudantium et, quaerat odit! Quidem quos magnam velit dolores quam!
-                            </div>
-                        </div>
-
-                        <div class="last-job">
-                            <div class="job-header">
-                                <div class="cricle backgroundColor">
-                                </div>
-                                <h3 class="name">EDUCATION</h3>
-                                <h4 class="time">2019 to 2020</h4>
-                            </div>
-                            <div class="job-body">
-                                <h4 class="job-location">124 - New York</h4>
-                            </div>
-                            <div class="job-describer">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi deleniti quidem delectus sed debitis, alias omnis dolores voluptate libero totam laudantium et, quaerat odit! Quidem quos magnam velit dolores quam!
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="test" class="test" style="margin-top: 30px">
-                        <div class="title">
-                            <div class="cricle backgroundColor">
-                                <img src="images/pen-icon.png" alt="">
-                            </div>
-                        </div>
-                        <h2 class="exp">PRO SKILLS</h2>
-
-                        <h4>CSS</h4>
-                        <div class="progress">
-                            <div class="progress-bar backgroundColor" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-    </body>
+		<script src="{{ asset('js/pdf/html2canvas.js') }}"></script>
+		<script src="{{ asset('js/pdf/jspdf.js') }}"></script>
+	</form>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script src="{{ asset('home_asset/js/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js')}}"></script>
+	<script src="{{ asset('home_asset/js/plugins/chosen/chosen.jquery.js')}}"></script>
+</body>
 
 </html>
