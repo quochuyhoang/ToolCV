@@ -302,18 +302,7 @@
 								if (options[i].selected){
 									html += '<h4>'+options[i].text+'</h4>'
 											+'<input type="hidden" name="skill-name'+number+'" value="'+options[i].value+'">'
-											+' <select id="skill-level" name="skill-level'+number+'" onchange="an(this)">' +
-											'<option value="10" >10%</option>' +
-											'<option value="20" >20%</option>' +
-											'<option value="30" >30%</option>' +
-											'<option value="40" >40%</option>' +
-											'<option value="50" >50%</option>' +
-											'<option value="60" >60%</option>' +
-											'<option value="70" >70%</option>' +
-											'<option value="80" >80%</option>' +
-											'<option value="90" >90%</option>' +
-											'<option value="100" >100%</option>' +
-											'</select><br>'
+											+' <input type="range" name="skill-level'+number+'" min="1" max="100" value="50" class="slider" id="myRange" style="width: 410px;">'
 									/* +'<div class="progress">'
                                         +'<div class="progress-bar backgroundColor" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>'
                                         +'</div><br>'*/
