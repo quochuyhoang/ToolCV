@@ -17,6 +17,9 @@ Route::get('/', 'Home\HomeController@index1')->name('home');
 Route::get('/cv', function (){
   return view('home.layout.cv.CV3');
 });
+Route::get('/thu', function (){
+    return view('home.profile');
+  });
 Route::prefix('home')->group(function (){
 
     /*Route::get('/', 'Home\HomeController@index')->name('home.index');*/
