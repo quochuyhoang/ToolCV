@@ -89,7 +89,8 @@
 								<img class="mr-3" src="{{ asset('assets/img/avatar/'.Auth::user()->avatar) }}" width="100%" alt="Generic placeholder image">
 							@else
 								<img class="mr-3" src="{{ asset('home_asset/cv/cvimages/'.$user_cvs->image) }}" width="100%" alt="Generic placeholder image">
-							@endif						</div>
+							@endif						
+						</div>
 					</div>
 
 					<div class="name">
