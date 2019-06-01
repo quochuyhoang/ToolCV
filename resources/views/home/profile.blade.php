@@ -91,7 +91,7 @@
                                         <td>
                                             <button class="btn btn-danger" style="font-size: 12px;padding: 2px 10px;">
                                                 Show <img src="{{ asset('home_asset') }}/images/show.png" alt="" style="width: 17px;"></button>
-                                            <button class="btn btn-outline-light"
+                                            <button class="btn btn-light"
                                                 style="font-size: 12px;padding: 2px 10px;">
                                                 Delete <img src="{{ asset('home_asset') }}/images/delete.png" alt=""
                                                     style="width: 17px;"></button>
@@ -103,7 +103,7 @@
                                         <td>
                                             <button class="btn btn-danger" style="font-size: 12px;padding: 2px 10px;">
                                                 Show <img src="{{ asset('home_asset') }}/images/show.png" alt="" style="width: 17px;"></button>
-                                            <button class="btn btn-outline-light"
+                                            <button class="btn btn-light"
                                                 style="font-size: 12px;padding: 2px 10px;">
                                                 Delete <img src="{{ asset('home_asset') }}/images/delete.png" alt=""
                                                     style="width: 17px;"></button>
@@ -115,7 +115,7 @@
                                         <td>
                                             <button class="btn btn-danger" style="font-size: 12px;padding: 2px 10px;">
                                                 Show <img src="{{ asset('home_asset') }}/images/show.png" alt="" style="width: 17px;"></button>
-                                            <button class="btn btn-outline-light"
+                                            <button class="btn btn-light"
                                                 style="font-size: 12px;padding: 2px 10px;">
                                                 Delete <img src="{{ asset('home_asset') }}/images/delete.png" alt=""
                                                     style="width: 17px;"></button>
