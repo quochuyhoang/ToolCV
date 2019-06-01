@@ -169,7 +169,7 @@ class CvsController extends Controller
             $skills = DB::table('skills')->get();
 
 
-            return view('home.layout.cv.'.$name, compact('color','users','skills','cv'));
+            return view('home.layout.cv.'.$input['CVname'], compact('color','users','skills','cv'));
         }
         else{
             return Redirect()->back()->with('thongbao','You created three CV! You cannot create more');
