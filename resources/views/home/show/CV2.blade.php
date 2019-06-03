@@ -14,7 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/cv') }}/cv3.css">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css') }}/bootstrap-tagsinput/bootstrap-tagsinput.css" />
 	<link href="{{ asset('home_asset/css/plugins/chosen/chosen.css') }}" rel="stylesheet">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+{{--	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>--}}
 	<style type="text/css">
 		input,textarea {
 			border: none;
