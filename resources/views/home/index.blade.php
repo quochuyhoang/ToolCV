@@ -82,6 +82,12 @@
     </style>
 
     <body>
+    @if(session('thongbao'))
+        {{-- <div class = "alert alert-success">{{ session('thongbao') }}</div>--}}
+        <script>
+            alert('{{ session('thongbao') }}');
+        </script>
+    @endif
         <!--Loader-->
         <div id="loader">
             <div class="loader">
@@ -106,9 +112,9 @@
                 @else
                 <span style="font-size:20px;color:white;margin-right:.7rem;">Welcome, {{ Auth::user()->name}}</span>
                 <div class="dropdown" style="margin-right:50px;display:inline-block">
-                    <div class="avatar" style="width:50px;height:50px;border-radius:50%;background-color:black;padding:15px 0;">
-                        <img src="{{ asset('assets/img/avatar/'.Auth::user()->avatar)}}" alt="">
-                    </div>
+
+                        <img src="{{ asset('assets/img/avatar/'.Auth::user()->avatar)}}" alt="" style="width:60px;height:60px;border-radius:50%;">
+
 
                     <div class="dropdown-content" style="border-radius:5px;">
                         @foreach($user_cvs as $usercv)

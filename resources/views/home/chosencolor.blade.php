@@ -126,10 +126,7 @@
                     </div>
                     <div class="col-lg-12">
                         <div class="ColorSet">
-                            <button class="btn btn-danger btn-lg">
-                                <i class="fas fa-long-arrow-alt-left"></i>
-                                <span>Back</span>
-                            </button>
+
                             <form action="{{ route('home.color') }}" method="get">
                                 <input type="hidden" name="CVname" value="{{ $imageCVs->name }}" />
                                 <input type="hidden" name="CVcolor" id="CVcolor" value="red" />
@@ -137,6 +134,10 @@
                                 {{--<a id="chosenlink" href="" class="btn btn-success btn-lg create_cv">Create Resume
                                     <i class="fas fa-long-arrow-alt-right"></i>
                                 </a>--}}
+                                <button class="btn btn-danger btn-lg">
+                                    <i class="fas fa-long-arrow-alt-left"></i>
+                                    <span>Back</span>
+                                </button>  
                                 <input type="submit" class="btn btn-success btn-lg create_cv" value="Create Resume">
                             </form>
                         </div>
@@ -149,8 +150,11 @@
             function chon(obj) {
 
                 var imgCV = document.querySelector('#imageCV');
+
                 imgCV.src = "{{ asset('') }}home_asset/images/cv/{{ $imageCVs->name }}_" + obj + ".png";
 
+                var color = document.getElementById('CVcolor');
+                color.value=obj;
                /* var color = document.getElementById('chosenlink');
                 color.href = "{{ url('home/Create/CreateCV/'.$imageCVs->name) }}"+"/"+obj;*/
             }

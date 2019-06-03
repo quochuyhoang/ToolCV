@@ -23,6 +23,9 @@
 		.left1{
 			background: rgba(246, 235, 20, 0.6);
 		}
+		.left2{
+			color: black;
+		}
 		.color{
 			color: {{ $imagecvs->colorCv }};
 		}
@@ -80,7 +83,7 @@
 								{{ $user_cvs->target }}
 							</div>
 						</div>
-						<div class="left2 backgroundColor">
+						<div class="left2">
 							<div class="contact color">CONTACT</div>
 							<div class="icon1 icon_left2">
 								<div class="layer">
@@ -89,14 +92,14 @@
 								<span class="text_layer">{{ $user_cvs->user_address }}
 								</span>
 							</div>
-							<div class="icon2 icon_left2 backgroundColor">
+							<div class="icon2 icon_left2 ">
 								<div class="layer layer1">
 									<img src="{{ asset('css/cv/images/cv1/') }}/phone-min.png" alt="">
 								</div>
 								<span class="sdt" >{{ $user_cvs->user_phone }}</span><br>
 
 							</div>
-							<div class="icon3 icon_left2 backgroundColor">
+							<div class="icon3 icon_left2 ">
 								<div class="layer layer1">
 									<img src="{{ asset('css/cv/images/cv1/') }}/mouse-min.png" alt="">
 								</div>
@@ -228,7 +231,7 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
 		<!-- Bản js đã nén của bootstrap 4, đặt dưới cùng trước thẻ đóng body-->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
-{{-- 		<script type="text/javascript">
+ 		<script type="text/javascript">
 			$(document).ready(function(){
 		// Check Radio-box
 		$('.chosen-select').chosen({width: '100%'});
@@ -259,7 +262,7 @@
 	});
 
 
-</script> --}}
+</script>
 <script src="{{ asset('js/pdf/html2canvas.js') }}"></script>
 <script src="{{ asset('js/pdf/jspdf.js') }}"></script>
 <script src="{{ asset('home_asset/js/plugins/chosen/chosen.jquery.js')}}"></script>
