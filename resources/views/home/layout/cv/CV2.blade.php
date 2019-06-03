@@ -357,12 +357,23 @@
 						<select data-placeholder="Choose a Skill..." id="select-skill"  class="chosen-select" multiple style="width:350px;" tabindex="4" onchange="chon(this)">
 							<p style="color: red" id="show_message"></p>
 							@foreach($skills as $skill)
-								<option value="{{ $skill->id }}">{{ $skill->name }}</option>
+								<option value="{{ $skill->id }}"
+										@foreach($user_skills as $user_skill)
+										@if($skill->id== $user_skill->id)
+										selected
+										@endif
+										@endforeach>{{ $skill->name }}</option>
 							@endforeach
 
 						</select>
 						<div id="result">
-
+							@foreach($user_skills as $user_skill)
+									<h4>{{ $user_skill->name }}</h4>
+								<div class="progress">
+								<input type="text" name="skill-name'+number+'" value="{{ $user_skill->id }}">
+								<input type="range" name="skill-level'+number+'" min="1" max="100" value="{{ $user_skill->level }}" class="slider" id="myRange" style="width: 410px;">
+								</div>
+								@endforeach
 						</div>
 						<script>
 							function chon(obj)
@@ -420,8 +431,6 @@
 	$(document).ready(function(){
 
 		$('.chosen-select').chosen({width: '100%'});
-
-
 
 		var area_print = $('#area-print');
 

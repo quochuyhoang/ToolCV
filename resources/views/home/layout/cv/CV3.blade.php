@@ -115,7 +115,7 @@
 						<textarea name="target" cols="60" rows="5"  class="ckeditor" placeholder="About You"></textarea>
 					</div>
 				</div>
-                <input type="file" id="file" name="newImage" onchange="fileValidation()"/>
+                <input type="file" id="file" name="newImage" class="hide-option" onchange="fileValidation()"/>
                 <script>
                     function fileValidation(){
                         var fileInput = document.getElementById('file');
@@ -422,32 +422,46 @@
 				</div>
 				<h2 class="exp">PRO SKILLS</h2>
 				<input id="skill-level-num" name="skill-level-num" type="hidden" value="0">
-                <select data-placeholder="Choose a Skill..." id="select-skill"  class="chosen-select" multiple style="width:350px;" tabindex="4" onchange="chon(this)">
-                    <p style="color: red" id="show_message"></p>
-                    @foreach($skills as $skill)
-                        <option value="{{ $skill->id }}">{{ $skill->name }}</option>
-                    @endforeach
+				<div class="hide-option">
+				<select data-placeholder="Choose a Skill..." id="select-skill"  class="chosen-select " multiple style="width:350px;" tabindex="4" onchange="chon(this)">
+					<p style="color: red" id="show_message"></p>
+					@foreach($skills as $skill)
+						<option value="{{ $skill->id }}"
+								@foreach($user_skills as $user_skill)
+								@if($skill->id== $user_skill->id)
+								selected
+								@endif
+								@endforeach>{{ $skill->name }}</option>
+					@endforeach
 
-                </select>
-                <div id="result">
-
-                </div>
+				</select>
+				</div>
+				<div id="result">
+					@foreach($user_skills as $user_skill)
+						<h4>{{ $user_skill->name }}</h4>
+						<div class="progress">
+							<input type="range" min="1" max="100" value="{{ $user_skill->level }}" class="slider"  style="width: 410px;" onchange="hien(this)">
+						</div>
+					@endforeach
+				</div>
                 <script>
+
                     function chon(obj)
                     {
-                        var num = document.getElementById('skill-level-num');
-                        var options = obj.children;
+						var num = document.getElementById('skill-level-num');
+						var options = obj.children;
 
                         // Biến lưu trữ các chuyên mục đa chọn
                         var html = '';
-                        var number=0;
+                        var number=1;
                         // lặp qua từng option và kiểm tra thuộc tính selected
                         for (var i = 0; i < options.length; i++){
                             if (options[i].selected){
-                                html += '<h4>'+options[i].text+'</h4>'
-									+'<input type="hidden" name="skill-name'+number+'" value="'+options[i].value+'">'
-                                    +' <input type="range" name="skill-level'+number+'" min="1" max="100" value="50" class="slider" id="myRange" style="width: 410px;">'
-
+                                html += '<br><h4>'+options[i].text+' <span id="level'+number+'"></span></h4>'
+										+'<input type="hidden" name="skill-name'+number+'" value="'+options[i].value+'">'
+										+'<div class="progress hide-option">'
+										+' <input type="range" name="skill-level'+number+'" id="name-skill'+number+'" min="1" max="100" value="50" class="slider " style="width: 410px;" onchange="hien('+number+')" >'
+										+'</div>'
                                 number++;
                             }
                         }
@@ -455,7 +469,14 @@
 
                         // Gán kết quả vào div#result
                         document.getElementById('result').innerHTML = html;
-                    }
+                    };
+
+                    function hien(obj) {
+                    	var x = document.getElementById('name-skill'+obj);
+
+						var y= document.getElementById('level'+obj);
+						y.innerHTML = x.value+"%";
+					}
                 </script>
 
 
@@ -486,7 +507,10 @@
 				print();
 			});
 			function print() {
-				html2canvas(document.getElementById('pdf'), {
+				$(".hide-option").hide();
+
+
+				/*html2canvas(document.getElementById('pdf'), {
 
 					onrendered: function(canvas){
 						var img= canvas.toDataURL("image/png");
@@ -494,7 +518,7 @@
 						doc.addImage(img,'JPEG',0,0,210, 297);
 						doc.save('CV.pdf');
 					}
-				});
+				});*/
 			};
 
 

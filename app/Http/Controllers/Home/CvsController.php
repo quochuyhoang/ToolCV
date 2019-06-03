@@ -99,8 +99,10 @@ class CvsController extends Controller
                 'salary'=> $input['salary'],
                 'colorcv_id'=> $idCV->id
             ]);
+
                   if($input['skill-level-num']!=null) {
-                      for ($i = 1; $i < $input['skill-level-num']; $i++) {
+                      DB::table('user_skill')->where('user_id',$id)->delete();
+                      for ($i = 1; $i <= $input['skill-level-num']; $i++) {
                           DB::table('user_skill')->insert([
                               'user_id' => $id,
                               'skill_id' => $input['skill-name' . $i],
@@ -145,12 +147,12 @@ class CvsController extends Controller
                     'rf_phone'=>$input['ex_rf_phone'.$i],
                 ]);
             }
-            return Redirect('home')->with('Success','Create CV  Success');
+            return Redirect('home')->with('thongbao','Create CV  Success');
 
         }
         else
         {
-            return Redirect()->back()->with('Success','Three CV');
+            return Redirect()->back()->with('thongbao','Three CV');
         }
         // echo "ok";
         // die();
@@ -160,8 +162,13 @@ class CvsController extends Controller
     public function color(Request $request){
         $input = $request->all();
         $count= DB::table('user_cvs')->where('user_id',$input['user_id'])->count();
+        $user_skills= DB::table('user_skill')
+            ->select('skills.*','user_skill.level')
+            ->join('skills', 'skills.id','=','skill_id')
+            ->where('user_id',$input['user_id'])->get();
 
-        if($count<4) {
+/*dd($user_skills);*/
+        if($count<3) {
             $cv=DB::table('imagecvs')->where('name',$input['CVname'])->first();
             $color = DB::table('colors')->where('name',$input['CVcolor'])->first();
             $users= DB::table('users')->select('id', 'name', DB::raw('(SELECT COUNT(*) FROM user_cvs WHERE user_id=users.id) as count'))
@@ -169,7 +176,7 @@ class CvsController extends Controller
             $skills = DB::table('skills')->get();
 
 
-            return view('home.layout.cv.'.$input['CVname'], compact('color','users','skills','cv'));
+            return view('home.layout.cv.'.$input['CVname'], compact('color','users','skills','cv','user_skills'));
         }
         else{
             return Redirect()->back()->with('thongbao','You created three CV! You cannot create more');
