@@ -12,6 +12,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 	<style type="text/css">
+
 		.color{
 			color: {{ $color->name }};
 		}
@@ -70,16 +71,15 @@
 			<div class="row row-1">
 				<div class="col-md-6 name">
 					<div class="name">
-						<input name="name"  type="text" placeholder="Your Name" value="{{ Auth::user()->name }}" style="border:none;background-color: transparent;">
+						<input name="name"  type="text" placeholder="Your Name" value="{{ Auth::user()->name }}">
 					</div>
 					<span class="job-name backgroundColor">
-						<input name="job-name" id="jobName" placeholder="Wanted job" style="border:none;background-color: transparent;">
+						<input name="job-name" id="jobName" placeholder="Wanted job">
 					</span>
 				</div>
 				<div class="col-md-6 contact-header">
 
 				</div>
-				
 			</div>
 			<div class="row">
 				<div class="col-md-6 info">
@@ -88,21 +88,21 @@
 					</div>
 
                     <ul>
-						<li class="userInfor" style="padding-bottom: 3%;">
-							<i class="fa fa-map-marker color" aria-hidden="true" style="width: 20px;"></i>
-							<input name="address" placeholder="Your Address" value="{{ Auth::user()->address }}" style="border:none;background-color: transparent;">
+						<li class="userInfor">
+							<i class="fa fa-map-marker color" aria-hidden="true"></i>
+							<input name="address" placeholder="Your Address" value="{{ Auth::user()->address }}">
 						</li>
-						<li class="userInfor" style="padding-bottom: 3%;">
-							<i class="fa fa-mobile color" aria-hidden="true" style="width: 20px;"></i>
-							<input name="phone" placeholder="Your Phone Number" value="{{ Auth::user()->phone }}" style="border:none;background-color: transparent;">
+						<li class="userInfor">
+							<i class="fa fa-mobile color" aria-hidden="true"></i>
+							<input name="phone" placeholder="Your Phone Number" value="{{ Auth::user()->phone }}">
 						</li>
-						<li class="userInfor" style="padding-bottom: 3%;">
-							<i class="fa fa-envelope color" aria-hidden="true" style="width: 20px;"></i>
-                                <input name="email" placeholder="Your Address" value="{{ Auth::user()->email }}" style="border:none;background-color: transparent;">
+						<li class="userInfor">
+							<i class="fa fa-envelope color" aria-hidden="true"></i>
+                                <input name="email" placeholder="Your Address" value="{{ Auth::user()->email }}">
 						</li>
                         <li class="userInfor">
                             <i class="fas fa-money color" aria-hidden="true"></i>
-                            <input name="salary" type="number" placeholder="Salary" style="border:none;background-color: transparent;">
+                            <input name="salary" type="number" placeholder="Salary">
                         </li>
 
 					</ul>
@@ -112,10 +112,10 @@
 
 					<div class="media-body ">
 						<h2 class="mt-0"><i class="fas fa-quote-left color"></i>about us</h2>
-						<textarea name="target" cols="60" rows="5"  class="ckeditor" placeholder="About You" style="border:none;background-color: transparent;"></textarea>
+						<textarea name="target" cols="60" rows="5"  class="ckeditor" placeholder="About You"></textarea>
 					</div>
 				</div>
-                <input type="file" id="file" name="newImage" class="hide-option" onchange="fileValidation()"  style="border:none;background-color: transparent;padding-left: 2%"/>
+                <input type="file" id="file" name="newImage" class="hide-option" onchange="fileValidation()"/>
                 <script>
                     function fileValidation(){
                         var fileInput = document.getElementById('file');
@@ -141,7 +141,7 @@
 			</div>
 			
 		</div>
-		<div class="row border" style="margin: 0;">
+		<div class="row">
 		<div class="col-md-7">
 			<div class="test">
 				<div class="title ">
@@ -165,8 +165,8 @@
 										+'<h3 class="name">'
 										+'<input name="ex_name'+dem+'" type="text" placeholder="Name Company">'
 										+'</h3>'
-										+'<h4 class="time color">'
-										+'<input name="ex_time'+dem+'" class="color" type="text" placeholder="Time" style="width: 60%;float: right;">'
+										+'<h4 class="time">'
+										+'<input name="ex_time'+dem+'" class="color" type="text" placeholder="Time">'
 										+'</h4>'
 										+'</div>'
 										+'<div class="job-body">'
@@ -179,7 +179,7 @@
 										+'<input name="ex_achiment'+dem+'"  type="text" placeholder="Achiment">'
 										+'</div>'
 										+'<div class="job-describer">'
-										+'<input name="ex_reference'+dem+'"  type="text" placeholder="reference Name" style="margin-right: 5%;">'
+										+'<input name="ex_reference'+dem+'"  type="text" placeholder="reference Name">'
 										+'<input name="ex_rf_phone'+dem+'"  type="text" placeholder="reference phone">'
 										+'</div>'
 										+'</div>'
@@ -190,17 +190,17 @@
 						</script>
 					</div>
 				</div>
-				<h1 class="exp">EXPERIENCE</h1>
-				<div class="last-job" id="ex" style="margin-top: -5%;">
+				<h2 class="exp">EXPERIENCE</h2>
+				<div class="last-job" id="ex">
 					<input name="ex-number" type="hidden" id="ex-number" value="1" />
-						<div id="ex-tag1" >
+						<div id="ex-tag1">
 							<div class="job-header">
 
 								<h3 class="name">
-									<input name="ex_name1" type="text" placeholder="Name Company" >
+									<input name="ex_name1" type="text" placeholder="Name Company">
 								</h3>
-								<h4 class="time color">
-									<input name="ex_time1" type="text" class="color" placeholder="2019-2020" style="width: 60%;float: right;">		
+								<h4 class="time ">
+									<input name="ex_time1" type="text" class="color" placeholder="Time">
 								</h4>
 							</div>
 							<div class="job-body">
@@ -214,13 +214,13 @@
 								<input name="ex_achiment1"  type="text" placeholder="Achiment">
 							</div>
 							<div class="job-describer">
-								<input name="ex_reference1"  type="text" placeholder="reference Name" style="margin-right: 5%;">
+								<input name="ex_reference1"  type="text" placeholder="reference Name">
 								<input name="ex_rf_phone1"  type="text" placeholder="reference phone">
 							</div>
 						</div>
 
 				</div>
-				<div class="plus-buttom"  id="ex-hide" hidden >
+				<div class="plus-buttom"  id="ex-hide" hidden>
 				<a  onclick="hideEX()" title="More Experience">
 					<i class="fa fa-times"></i>
 				</a>
@@ -268,7 +268,7 @@
 									+'<h3 class="name">'
 									+'<input name="aw_name'+dem+'"  type="text" placeholder="Name">'
 									+'</h3>'
-									+'<h4 class="time color">	<input name="aw_time'+dem+'" class="color" type="text" placeholder="Year"></h4>'
+									+'<h4 class="time">	<input name="aw_time'+dem+'" class="color" type="text" placeholder="Year"></h4>'
 									+'</div>'
 									+'<div class="job-describer">'
 									+'<input name="aw_describe'+dem+'"  type="text" placeholder="Describe">'
@@ -280,7 +280,7 @@
 						}
 					</script>
 				</div>
-				<h1 class="exp">Awards</h1>
+				<h2 class="exp">Awards</h2>
 				<input name="aw-number" type="hidden" id="aw-number" value="1">
 				<div class="last-job" id="aw">
 					<div id="aw-tag1">
@@ -289,7 +289,7 @@
 							<h3 class="name">
 								<input name="aw_name1"  type="text" placeholder="Name">
 							</h3>
-							<h4 class="time color">	<input name="aw_time1"  class="color" type="text" placeholder="Year"  style="width: 60%;float: right;"></h4>
+							<h4 class="time">	<input name="aw_time1"  class="color" type="text" placeholder="Year"></h4>
 						</div>
 						<div class="job-describer">
 							<input name="aw_describe1"  type="text" placeholder="Describe">
@@ -327,7 +327,7 @@
 					</div>
 				</div>
 
-				<h1 class="exp">Hobbies</h1>
+				<h2 class="exp">Hobbies</h2>
                 <textarea name="hobbies" cols="60" rows="5"  class="ckeditor" placeholder="Yours hobbies"></textarea>
 
 				<script>
@@ -347,8 +347,8 @@
 						<i class="fa fa-graduation-cap" aria-hidden="true" style="padding-left:5%;"></i>
 					</div>
 				</div>
-				<h1 class="exp">EDUCATION</h1>
-				<div class="plus-buttom"  style="margin-top: -16%;">
+				<h2 class="exp">EDUCATION</h2>
+				<div class="plus-buttom">
 					<a  onclick="edu()" >
 						<i class="fa fa-plus"></i>
 					</a>
@@ -379,7 +379,7 @@
 				</script>
 				<div class="last-job" id="edu">
 					<input name="edu-number" type="hidden" id="edu-number" value="1">
-					<div id="edu-tag1" style="margin-top: -13%;">
+					<div id="edu-tag1">
 							<div class="job-header">
 								<h3 class="name">
 									<input name="ed_name1" type="text" placeholder="Desired Salary">
@@ -414,13 +414,13 @@
 
 			</div>
 				
-			<div class="test" class="test" style="margin-top: 88px">
+			<div class="test" class="test" style="margin-top: 30px">
 				<div class="title">
 					<div class="cricle backgroundColor">
 						<i class="fa fa-bolt" aria-hidden="true" style="padding-left:24%"></i>
 					</div>
 				</div>
-				<h1 class="exp">PRO SKILLS</h1>
+				<h2 class="exp">PRO SKILLS</h2>
 				<input id="skill-level-num" name="skill-level-num" type="hidden" value="0">
 				<div class="hide-option">
 				<select data-placeholder="Choose a Skill..." id="select-skill"  class="chosen-select " multiple style="width:350px;" tabindex="4" onchange="chon(this)">
@@ -445,6 +445,7 @@
 					@endforeach
 				</div>
                 <script>
+
                     function chon(obj)
                     {
 						var num = document.getElementById('skill-level-num');
@@ -483,12 +484,11 @@
 		</div>
 		</div>
 		</div>
-	<div style="text-align: center;" id="aaa">
+	<div style="text-align: center;">
         <input type="hidden" name="imageCV" value="{{ $cv ->id}}">
         <input type="hidden" name="colorCV" value="{{ $color->id }}">
-		<input type="submit" class="btn backgroundColor"  value="Lưu" />
-		{{-- <a href="#" class="btn backgroundColor" id="btn-print" id="aaa" onclick=""><i class="fa fa-download"></i> Xuất PDF</a> --}}
-		<a class="save1" href="">Click here to save as PDF</a>
+		<input type="submit" class="btn backgroundColor" value="Lưu" />
+		<a href="#" class="btn backgroundColor" id="btn-print" onclick=""><i class="fa fa-download"></i> Xuất PDF</a>
 	</div>
 	<script>
 		$(document).ready(function(){
@@ -524,11 +524,6 @@
 
 
 		});
-
-		$('.save1').click(function(){
-		document.getElementById('aaa').style.display = 'none';
-     	window.print();
-});
 	</script>
 	<script src="{{ asset('js/pdf/html2canvas.js') }}"></script>
 	<script src="{{ asset('js/pdf/jspdf.js') }}"></script>

@@ -440,9 +440,8 @@
         };
 
 	});
-
-
 </script>
+
 	<script src="{{ asset('js/pdf/html2canvas.js') }}"></script>
 	<script src="{{ asset('js/pdf/jspdf.js') }}"></script>
 	<script src="{{ asset('home_asset/js/plugins/chosen/chosen.jquery.js')}}"></script>

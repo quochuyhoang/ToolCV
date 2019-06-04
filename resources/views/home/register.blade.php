@@ -3,7 +3,7 @@
 <html>
 
     <head>
-        <title>Register Page</title>
+        <title>Register Page </title>
         <!--Bootsrap 4 CDN-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -15,9 +15,8 @@
     <style>
         body {
             background-color: #8EC5FC;
-            background-image: url('https://images.wallpaperscraft.com/image/night_city_aerial_view_buildings_140989_1366x768.jpg');
+            background-image: url('{{ asset('') }}home_asset/background/register.png');
         }
-
         span {
             width: 42px;
         }
