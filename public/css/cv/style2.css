@@ -2,13 +2,9 @@ body{
     padding: 0;
     margin: 0;
 }
-input{
+input,textarea {
     border: none;
-    background: none;
-}
-textarea{
-    border: none;
-    background: none;
+    border-bottom: 1px solid;
 }
 .steven {
     font-size: 30px;

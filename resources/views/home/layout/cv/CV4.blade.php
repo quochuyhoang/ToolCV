@@ -33,6 +33,9 @@
 		.backgroundColor{
 			background-color: {{ $color->name }};
 		}
+/*		textarea {
+    		width: 357px;
+		}*/
 	</style>
 </head>
 <body>
@@ -75,7 +78,7 @@
 					<span>about me</span>
 				</div>
 				<div class="info-content">
-					<textarea name="target" cols="30" rows="5"  class="ckeditor" placeholder="About You"></textarea>
+					<textarea name="target" cols="35" rows="5"  class="ckeditor" placeholder="About You"></textarea>
 				</div>
 			</div>
 			<div class="info-cv">
@@ -84,7 +87,7 @@
 				</div>
 				<div class="info-content">
 					<div>
-						<input name="address" placeholder="Your Address" value="{{ Auth::user()->address }}">
+						<input name="address"  placeholder="Your Address" value="{{ Auth::user()->address }}">
 					</div><br>
 					<div>
 						<input name="phone" placeholder="Your Phone Number" value="{{ Auth::user()->phone }}">
@@ -337,7 +340,8 @@
 	<div style="text-align: center;">
 		<input type="hidden" name="imageCV" value="{{ $cv ->id}}">
 		<input type="hidden" name="colorCV" value="{{ $color->id }}">
-		<input type="submit" class="btn backgroundColor" value="Lưu" />
+{{-- 		<input type="submit" class="btn backgroundColor" value="Lưu" /> --}}
+		<a type="submit" class="btn backgroundColor" style="color: #007bff">Lưu</a>
 		<a href="#" class="btn backgroundColor" id="btn-print" onclick=""><i class="fa fa-download"></i> Xuất PDF</a>
 	</div>
 </form>
