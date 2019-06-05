@@ -236,10 +236,8 @@ Route::prefix('backend')->group(function (){
 
     });
 
-
     Route::get('Cv', 'Backend\CVsController@Create')->name('cv');
     Route::post('Cv', 'Backend\CVsController@CVCreate')->name('usercvs.create');
-
 
 });
 
