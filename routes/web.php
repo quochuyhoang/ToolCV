@@ -24,6 +24,7 @@ Route::prefix('home')->group(function (){
 
     /*Route::get('/', 'Home\HomeController@index')->name('home.index');*/
     Route::get('/', 'Home\HomeController@index1')->name('home.index1');
+    Route::get('/profile/{id}', 'Home\HomeController@profile')->name('home.profile');
 
 
 //show cv

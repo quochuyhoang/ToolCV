@@ -30,9 +30,18 @@ class HomeController extends Controller
 
     }
 
+    /*
+     *profile
+     *  */
 
+    public function profile($id){
 
+        $data['user_cvs'] = DB::table('user_cvs')->where('user_id', $id)->get();
 
+        dd($data['user_cvs']);
+        return view('home.profile',$data);
+
+    }
 
 
 
