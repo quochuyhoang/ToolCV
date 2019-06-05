@@ -25,6 +25,7 @@
   <link href="{{asset('assets/font-awesome/css/font-awesome.css')}}" rel="stylesheet"> --}}
 
   <link href="{{asset('assets/css/animate.css')}}" rel="stylesheet">
+  <link href="{{asset('assets/css/search.css')}}" rel="stylesheet">
   {{--   <link href="{{asset('assets/css/style.css')}}" rel="stylesheet"> --}}
   <script src="{{asset('assets/js/jquery-3.1.1.min.js') }}"></script> 
   <!-- Datatable -->
@@ -46,17 +47,7 @@
     </button>
 
     <!-- Navbar Search -->
-    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" method="post" action="{{ route('search') }}">
-      @csrf
-      <div class="input-group">
-        <input type="text" name="search" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-        <div class="input-group-append">
-          <button class="btn btn-primary" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
+    @include('admin.layouts.search')
 
     <!-- Navbar -->
     <ul class="navbar-nav ml-auto ml-md-0">

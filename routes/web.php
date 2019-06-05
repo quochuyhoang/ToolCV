@@ -17,13 +17,12 @@ Route::get('/', 'Home\HomeController@index1')->name('home');
 Route::get('/cv', function (){
   return view('home.layout.cv.CV3');
 });
-Route::get('/thu', function (){
-    return view('home.profile');
-  });
+
 Route::prefix('home')->group(function (){
 
     /*Route::get('/', 'Home\HomeController@index')->name('home.index');*/
     Route::get('/', 'Home\HomeController@index1')->name('home.index1');
+
 
 
 //show cv
@@ -67,7 +66,13 @@ Route::prefix('home')->group(function (){
     Route::get('ChosenColor/{id}','Home\CvsController@ChosenColor')->name('home.chosen');
 
     //showCV
-    Route::get('ShowCV/{id}','Home\CvsController@showcv');
+    Route::get('ShowCV/{id}','Home\CvsController@showcv')->name('CV.show');
+
+    Route::get('/profile/{id}', 'Home\HomeController@profile')->name('home.profile');
+
+    Route::post('/profile/edit/{id}', 'Home\HomeController@editInfor')->name('profile.edit');
+    Route::post('/profile/changePass/{id}', 'Home\HomeController@changePass')->name('profile.changePass');
+
 
 });
 Auth::routes();
