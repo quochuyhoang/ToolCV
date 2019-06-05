@@ -116,12 +116,12 @@
                     <div class="dropdown-content" style="border-radius:5px;">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{ url('home/profile/'.Auth::user()->id) }}">
                             Profile</a>
-                        @foreach($user_cvs as $usercv)
+                      {{--  @foreach($user_cvs as $usercv)
                         @if($usercv->user_id== Auth::user()->id)
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{ url('home/ShowCV/'.$usercv->id) }}">
                             Profile</a>
                         @endif
-                        @endforeach
+                        @endforeach--}}
 
                         <a href="{{ route('home.logout') }}">Log Out</a>
                     </div>
