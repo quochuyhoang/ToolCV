@@ -33,9 +33,12 @@
 		.backgroundColor{
 			background-color: {{ $color->name }};
 		}
-/*		textarea {
-    		width: 357px;
-		}*/
+		input, textarea {
+			border: none;
+			border-bottom: 1px solid;
+			margin-bottom: 3%;
+			background-color: transparent;
+		}
 	</style>
 </head>
 <body>
@@ -44,7 +47,6 @@
 		<ul>
 			@foreach($errors->all() as $error)
 				<li>{{$error}}</li>
-
 			@endforeach
 		</ul>
 	</div>
@@ -54,12 +56,10 @@
 	<div class="container template" id="pdf">
 	<div class="row ">
 		<div class="col-md-4 backgroundColor" id="right">
-
 			<div class="avatar-upload">
 				<div class="avatar-edit">
 					<input type='file' id="imageUpload" name="newImage" accept=".png, .jpg, .jpeg" />
 					<label for="imageUpload"></label>
-
 				</div>
 				<div class="avatar-preview">
 					<div id="imagePreview" style="background-image:url({{asset('assets/img/avatar/'.Auth::user()->avatar)}});">
@@ -68,9 +68,9 @@
 			</div>
 			<div class="name">
 				<div  class="last-name">
-					<input name="name"  type="text" placeholder="Your Name" value="{{ Auth::user()->name }}" >
-					<input name="job-name" type="text" id="jobName" placeholder="Wanted job">
-					<input name="salary" type="number" placeholder="Salary" max="100000000">
+					<input name="name"  type="text" placeholder="Your Name" value="{{ Auth::user()->name }}" style="text-align:center;text-transform:capitalize;">
+					<input name="job-name" type="text" id="jobName" placeholder="Wanted job" style="text-align:center;text-transform:capitalize;">
+					<input name="salary" type="number" placeholder="Salary" max="100000000" style="font-size:18px;text-align:center;width:35%;">
 				</div>
 			</div>
 			<div class="info-cv">
@@ -78,27 +78,27 @@
 					<span>about me</span>
 				</div>
 				<div class="info-content">
-					<textarea name="target" cols="35" rows="5"  class="ckeditor" placeholder="About You"></textarea>
+					<textarea name="target" cols="35" rows="5"  class="ckeditor" placeholder="About You" style="border-bottom:1px solid;"></textarea>
 				</div>
 			</div>
 			<div class="info-cv">
-				<div class="info-title">
+				<div class="info-title mb-4">
 					<span>contact me</span>
 				</div>
 				<div class="info-content">
 					<div>
-						<input name="address"  placeholder="Your Address" value="{{ Auth::user()->address }}">
+						<input name="address" class="text-center" placeholder="Your Address" value="{{ Auth::user()->address }}">
 					</div><br>
 					<div>
-						<input name="phone" placeholder="Your Phone Number" value="{{ Auth::user()->phone }}">
+						<input name="phone" class="text-center" placeholder="Your Phone Number" value="{{ Auth::user()->phone }}">
 					</div><br>
 					<div>
-						<input name="email" placeholder="Your Address" value="{{ Auth::user()->email }}">
+						<input name="email" class="text-center" placeholder="Your Address" value="{{ Auth::user()->email }}">
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="col-md-8">
+		<div class="col-md-8 pt-4">
 			<div class="left">
 				<div class="left-title">
 					<h3 class="color">work experience</h3>
@@ -116,12 +116,12 @@
 							var x= $("#ex");
 							x.append('<div id="ex-tag'+dem+'">'
 									+'<hr>'
-									+'<h4><input name="ex_name1" type="text" placeholder="Name Company"></h4>'
-									+'<h5><input name="ex_time1" type="text" class="color" placeholder="Time"></h5>'
-									+'<h6><input name="ex_position1" type="text" placeholder="Position"></h6>'
-									+'<textarea name="ex_describe1"  placeholder="Describe" cols="50"></textarea>'
-									+'<input name="ex_achiment1"  type="text" placeholder="Achiment"><br>'
-									+'<input name="ex_reference1"  type="text" placeholder="reference Name">'
+									+'<div><input name="ex_name1" type="text" placeholder="Name Company" style="width:75%;"></div>'
+									+'<div><input name="ex_time1" type="text" class="color" placeholder="Time" style="width:20%;"></div>'
+									+'<div><input name="ex_position1" type="text" placeholder="Position" style="width:30%;"></div>'
+									+'<div><textarea name="ex_describe1"  placeholder="Describe" rows="3" style="width:45%;margin-right:5%;border-bottom:1px solid;"></textarea>'
+									+'<textarea name="ex_describe1" placeholder="Achievement" rows="3" style="width:45%;border-bottom:1px solid"></textarea></div>'
+									+'<input name="ex_reference1"  type="text" placeholder="reference Name" style="margin-right:5%;">'
 									+'<input name="ex_rf_phone1"  type="text" placeholder="reference phone">'
 									+'</div>'
 							);
@@ -134,14 +134,13 @@
 
 				<div class="left-content" id="ex">
 					<div id="ex-tag1">
-					<h4><input name="ex_name1" type="text" placeholder="Name Company"></h4>
-					<h5><input name="ex_time1" type="text" class="color" placeholder="Time"></h5>
-					<h6><input name="ex_position1" type="text" placeholder="Position"></h6>
-					<textarea name="ex_describe1"  placeholder="Describe" cols="50"></textarea>
-					<!--<input name="ex_describe1"  type="text" placeholder="Describe">-->
-					<input name="ex_achiment1"  type="text" placeholder="Achiment"><br>
-					<input name="ex_reference1"  type="text" placeholder="reference Name">
-					<input name="ex_rf_phone1"  type="text" placeholder="reference phone">
+            <div><input name="ex_name1" type="text" placeholder="Name Company" style="width:75%;"></div>
+            <div><input name="ex_time1" type="text" class="color" placeholder="Time" style="width:20%;"></div>
+            <div><input name="ex_position1" type="text" placeholder="Position" style="width:30%;"></div>
+            <div><textarea name="ex_describe1" placeholder="Describe" rows="3" style="width:45%;margin-right:5%;border-bottom:1px solid;"></textarea>
+            <textarea name="ex_describe1" placeholder="Achievement" rows="3" style="width:45%;border-bottom:1px solid"></textarea></div>
+            <input name="ex_reference1"  type="text" placeholder="reference Name" style="margin-right:5%;">
+            <input name="ex_rf_phone1"  type="text" placeholder="reference phone">
 					</div>
 				</div>
 				<div class="plus-buttom"  id="ex-hide" hidden>
@@ -184,9 +183,9 @@
 						var x= $("#edu");
 						x.append('<div id="edu-tag'+dem+'">'
 								+'<hr>'
-								+'<h4><input name="ed_name1" type="text" placeholder="Name School"></h4>'
-								+'<h5><input name="ed_time1" class="color" type="text" placeholder="Time"></h5>'
-								+'<h6><input name="ed_spe1" type="text" placeholder="Speciality"></h6>'
+								+'<input name="ed_name1" type="text" placeholder="Name School" style="width:70%;"><br>'
+								+'<input name="ed_time1" class="color" type="text" placeholder="Time" style="width:20%;"><br>'
+								+'<input name="ed_spe1" type="text" placeholder="Speciality" style="width:30%;">'
 								+'</div>'
 						);
 						var hide= document.getElementById('edu-hide');
@@ -196,9 +195,9 @@
 				<input name="edu-number" type="hidden" id="edu-number" value="1">
 				<div class="left-content" id="edu">
 					<div id="edu-tag1">
-					<h4><input name="ed_name1" type="text" placeholder="Name School"></h4>
-					<h5><input name="ed_time1" class="color" type="text" placeholder="Time"></h5>
-					<h6><input name="ed_spe1" type="text" placeholder="Speciality"></h6>
+					<input name="ed_name1" type="text" placeholder="Name School" style="width:70%;"><br>
+					<input name="ed_time1" class="color" type="text" placeholder="Time" style="width:20%;"><br>
+					<input name="ed_spe1" type="text" placeholder="Speciality" style="width:30%;">
 					</div>
 				</div>
 				<div class="plus-buttom" id="edu-hide" hidden>
@@ -236,11 +235,11 @@
 						get.value= dem;
 
 						var x= $("#aw");
-						x.append('<div id="aw-tag'+dem+'">'
+						x.append('<div class="col-lg-6" id="aw-tag'+dem+'">'
 								+'<hr>'
-								+'<h4><input name="aw_name'+dem+'"  type="text" placeholder="Name"></h4>'
-								+'<h5><input name="aw_time'+dem+'"  class="color" type="text" placeholder="Year"></h5>'
-								+'<h6><input name="aw_describe'+dem+'"  type="text" placeholder="Describe"></h6>'
+								+'<input name="aw_name1"  type="text" placeholder="Name" style="width:90%;"><br>'
+								+'<input name="aw_time1"  class="color" type="text" placeholder="Year" style="width:35%;"><br>'
+								+'<input name="aw_describe1"  type="text" placeholder="Describe" style="width:60%;">'
 								+'</div>'
 						);
 						var hide= document.getElementById('aw-hide');
@@ -249,10 +248,10 @@
 				</script>
 				<input name="aw-number" type="hidden" id="aw-number" value="1">
 				<div class="left-content" id="aw">
-					<div id="aw-tag1">
-					<h4><input name="aw_name1"  type="text" placeholder="Name"></h4>
-					<h5><input name="aw_time1"  class="color" type="text" placeholder="Year"></h5>
-					<h6><input name="aw_describe1"  type="text" placeholder="Describe"></h6>
+					<div class="col-lg-6" id="aw-tag1">
+					  <input name="aw_name1"  type="text" placeholder="Name" style="width:90%;"><br>
+					  <input name="aw_time1"  class="color" type="text" placeholder="Year" style="width:35%;"><br>
+				    <input name="aw_describe1"  type="text" placeholder="Describe" style="width:60%;">
 					</div>
 				</div>
 				<div class="plus-buttom" id="aw-hide" hidden>
@@ -329,7 +328,7 @@
 					<h3 class="color">interes/hobby</h3>
 				</div>
 				<div class="left-content hobby">
-					<textarea name="hobbies" cols="100" rows="5"  class="ckeditor" placeholder="Yours hobbies"></textarea>
+					<textarea name="hobbies" cols="100" rows="5"  class="ckeditor" placeholder="Yours hobbies" style="border-bottom:1px solid;"></textarea>
 				</div>
 
 			</div>
@@ -337,7 +336,7 @@
 	</div>
 </div>
 
-	<div style="text-align: center;">
+	<div style="text-align: center;margin-bottom:3%;">
 		<input type="hidden" name="imageCV" value="{{ $cv ->id}}">
 		<input type="hidden" name="colorCV" value="{{ $color->id }}">
 {{-- 		<input type="submit" class="btn backgroundColor" value="Lưu" /> --}}
