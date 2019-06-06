@@ -115,7 +115,7 @@
 				</div>
 			</div>
 			<div class="job-name">
-				<input type="text" placeholder="CREATIVE DISGNER" class="text-center" style="text-transform: uppercase; letter-spacing: 15px;width: 75%;font-size: 25px;">
+				<input type="text" placeholder="CREATIVE DISGNER" class="text-center" style="text-transform: uppercase; letter-spacing: 15px;width: 75%;font-size: 24px;">
 			</div>
 				<div class="job-name">
 					<input name="salary" type="number" placeholder="Salary" style="height: 40px;width: 20%;">
