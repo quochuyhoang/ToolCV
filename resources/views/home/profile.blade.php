@@ -87,7 +87,7 @@
                                 <tbody>
                                     <tr>
                                         <th scope="row">1</th>
-                                        <td>Mark Zuckerberg Mark Zuckerberg Mark Zuckerberg</td>
+                                        <td>Mark Zuckerberg Mark     Zuckerberg Mark Zuckerberg</td>
                                         <td>
                                             <button class="btn btn-danger" style="font-size: 12px;padding: 2px 10px;">
                                                 Show <img src="{{ asset('home_asset') }}/images/show.png" alt="" style="width: 17px;"></button>
