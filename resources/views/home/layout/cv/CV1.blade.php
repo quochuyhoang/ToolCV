@@ -180,7 +180,7 @@
 									<div class="wordpress">
 										<span class="list"><input name="ex_name1" type="text" placeholder="Name Company" style="width: 70%;font-size: 25px;"></span>
 										<span class="nam"><input name="ex_time1" type="text" class="color" placeholder="Time" style="width: 20%;"></span><br>
-										<input name="ex_position1" type="text" placeholder="Position" style="font-size: 23px;">
+										<input name="ex_position1" type="text" placeholder="Position" style="font-size: 22px;">
 									</div>
 									<div class="content">
 										<p class="text_max"><input name="ex_achiment1"  type="text" placeholder="Achiment" style="font-size: 20px;"></p>

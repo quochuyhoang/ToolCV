@@ -283,7 +283,7 @@
 					<div id="aw-tag1">
 						<div class="job-header">
 							<input name="aw_name1"  type="text" placeholder="Name" style="width: 50%;">
-							<h4 class="time color">	<input name="aw_time1"  class="color" type="text" placeholder="Year"  style="width: 50%;margin-left: 40%;font-size: 17px;"></h4>
+							<h4 class="time color">	<input name="aw_time1"  class="color" type="text" placeholder="Year"  style="width: 50%;margin-left: 40%;font-size: 16px;"></h4>
 						</div>
 						<div class="job-describer">
 							<textarea name="aw_describe1"  type="text" placeholder="Describe" style="width: 65%;"></textarea>
