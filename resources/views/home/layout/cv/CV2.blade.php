@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>cv thu 3</title>
+	<title>Create CV</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -18,7 +18,9 @@
 	<style type="text/css">
 		input,textarea {
 			border: none;
+			border-bottom: 1px solid;
 			background-color: transparent;
+			margin-bottom: 2%;
 		}
 		.plus-buttom{
 			float: right;
@@ -107,19 +109,19 @@
 			</div>
 
 			<div class="name">
-				<input name="name"  type="text" placeholder="Your Name" value="{{ Auth::user()->name }}">
+				<input name="name"  type="text" placeholder="Your Name" value="{{ Auth::user()->name }}" style="margin:2% 0 4% 0;text-transform: uppercase;">
 				<div class="resume">
-					<input type="text" name="job-name" placeholder="REsume" class="text-center" style="text-transform: uppercase; color: white">
+					<input type="text" name="job-name" placeholder="REsume" class="text-center" style="text-transform: uppercase; color: white; width: 92%;">
 				</div>
 			</div>
 			<div class="job-name">
-				<input type="text" placeholder="CREATIVE DISGNER" class="text-center" style="text-transform: uppercase; letter-spacing: 15px;width: 100%;">
+				<input type="text" placeholder="CREATIVE DISGNER" class="text-center" style="text-transform: uppercase; letter-spacing: 15px;width: 75%;font-size: 25px;">
 			</div>
 				<div class="job-name">
-					<input name="salary" type="number" placeholder="Salary">
+					<input name="salary" type="number" placeholder="Salary" style="height: 40px;width: 20%;">
 				</div>
 			<div class="job-demo">
-				<textarea name="target" placeholder="Content" rows="5" style="width: 100%;"></textarea>
+				<textarea name="target" placeholder="Content" rows="5" style="width: 70%;"></textarea>
 			</div>
 
 		</div>
@@ -170,17 +172,17 @@
 									x.append('<div id="ex-tag'+dem+'">'
 											+'<hr>'
 											+'<div class="exp-title">'
-											+'<input name="ex_time'+dem+'" type="text" class="color" placeholder="Time">'
+											+'<input name="ex_time'+dem+'" type="text" class="color" placeholder="Time" style="width: 20%;">'
 											+'</div>'
 											+'<div class="exp-content">'
-											+'<input name="ex_name'+dem+'" type="text" placeholder="Name Company">'
-											+'<input name="ex_position1" type="text" placeholder="Position">'
+											+'<input name="ex_name'+dem+'" type="text" placeholder="Name Company" style="width: 65%; font-size: 20px;">'
+											+'<input name="ex_position1" type="text" placeholder="Position" style="font-size: 17px; width: 30%;margin-left: 3%;">'
 											+'</div>'
 											+'<div class="content">'
-											+'<textarea name="ex_describe'+dem+'"  placeholder="Describe" cols="50"></textarea>'
-											+'<input name="ex_achiment'+dem+'"  type="text" placeholder="Achiment"><br>'
-											+'<input name="ex_reference'+dem+'"  type="text" placeholder="reference Name">'
-											+'<input name="ex_rf_phone'+dem+'"  type="text" placeholder="reference phone">'
+											+'<textarea name="ex_describe'+dem+'"  placeholder="Describe" cols="50" style="width: 65%;font-size: 17px;"></textarea>'
+											+'<textarea name="ex_achiment'+dem+'"  type="text" placeholder="Achiment" style="width: 30%;margin-left: 3%;font-size: 17px;"></textarea>'
+											+'<input name="ex_reference'+dem+'"  type="text" placeholder="reference Name" style="margin-right: 5%;font-size: 15px;">'
+											+'<input name="ex_rf_phone'+dem+'"  type="text" placeholder="reference phone" style="font-size: 15px;">'
 											+'</div>'
 											+'</div>'
 									);
@@ -193,20 +195,20 @@
 							<div class="last-job" id="ex">
 								<div id="ex-tag1">
 									<div class="exp-title">
-										<input name="ex_time1" type="text" class="color" placeholder="Time">
+										<input name="ex_time1" type="text" class="color" placeholder="Time" style="width: 20%;">
 									</div>
 									<div class="exp-content">
-										<input name="ex_name1" type="text" placeholder="Name Company">
-										<input name="ex_position1" type="text" placeholder="Position">
+										<input name="ex_name1" type="text" placeholder="Name Company" style="width: 65%; font-size: 20px;">
+										<input name="ex_position1" type="text" placeholder="Position" style="font-size: 17px; width: 30%;margin-left: 3%;">
 
 									</div>
 
 									<div class="content">
-										<textarea name="ex_describe1"  placeholder="Describe" cols="50"></textarea>
+										<textarea name="ex_describe1"  placeholder="Describe" rows="3" style="width: 65%;font-size: 17px;"></textarea>
 										<!--<input name="ex_describe1"  type="text" placeholder="Describe">-->
-										<input name="ex_achiment1"  type="text" placeholder="Achiment"><br>
-										<input name="ex_reference1"  type="text" placeholder="reference Name">
-										<input name="ex_rf_phone1"  type="text" placeholder="reference phone">
+										<textarea name="ex_achiment1"  type="text" placeholder="Achiment" style="width: 30%;margin-left: 3%;font-size: 17px;"></textarea>
+										<input name="ex_reference1"  type="text" placeholder="reference Name" style="margin-right: 5%;font-size: 15px;">
+										<input name="ex_rf_phone1"  type="text" placeholder="reference phone" style="font-size: 15px;">
 									</div>
 								</div>
 							</div>
@@ -247,10 +249,10 @@
 								x.append('<div id="edu-tag'+dem+'">'
 										+'<hr>'
 										+'<div class="exp-title">'
-										+'<input name="ed_name'+dem+'" type="text" placeholder="Desired Salary">'
+										+'<input name="ed_name'+dem+'" type="text" placeholder="Name School"  style="width: 50%;">'
 										+'</div>'
 										+'<div class="exp-content">'
-										+'<input name="ed_time'+dem+'" class="color" type="text" placeholder="Time">'
+										+'<input name="ed_time'+dem+'" class="color" type="text" placeholder="Time"  style="width: 20%;">'
 										+'</div>'
 										+'<div class="location">'
 										+'<input name="ed_spe'+dem+'" type="text" placeholder="Speciality">'
@@ -265,10 +267,10 @@
 							<input name="edu-number" type="hidden" id="edu-number" value="1">
 							<div id="edu-tag1">
 									<div class="exp-title">
-										<input name="ed_name1" type="text" placeholder="Desired Salary">
+										<input name="ed_name1" type="text" placeholder="Name School" style="width: 50%;">
 									</div>
 									<div class="exp-content">
-										<input name="ed_time1" class="color" type="text" placeholder="Time">
+										<input name="ed_time1" class="color" type="text" placeholder="Time" style="width: 20%;">
 									</div>
 									<div class="location">
 										<input name="ed_spe1" type="text" placeholder="Speciality">
@@ -313,13 +315,13 @@
 								x.append('<div id="aw-tag'+dem+'">'
 										+'<hr>'
 										+'<div class="exp-title">'
-										+'<input name="aw_time'+dem+'"  class="color" type="text" placeholder="Year">'
+										+'<input name="aw_time'+dem+'"  class="color" type="text" placeholder="Year" style="width: 20%;">'
 										+'</div>'
 										+'<div class="exp-content">'
-										+'<input name="aw_name'+dem+'"  type="text" placeholder="Name">'
+										+'<input name="aw_name'+dem+'"  type="text" placeholder="Name" style="width: 45%;">'
 										+'</div>'
 										+'<div class="content">'
-										+'<textarea name="aw_describe'+dem+'" rows="4" placeholder="Describe" style="width: 100%;"></textarea>'
+										+'<textarea name="aw_describe'+dem+'" rows="4" placeholder="Describe" style="width: 80%;"></textarea>'
 										+'</div>'
 										+'</div>'
 								);
@@ -332,15 +334,15 @@
 							<input name="aw-number" type="hidden" id="aw-number" value="1">
 							<div id="aw-tag1">
 									<div class="exp-title">
-										<input name="aw_time1"  class="color" type="text" placeholder="Year">
+										<input name="aw_time1"  class="color" type="text" placeholder="Year" style="width: 20%;">
 									</div>
 									<div class="exp-content">
-										<input name="aw_name1"  type="text" placeholder="Name">
+										<input name="aw_name1"  type="text" placeholder="Name" style="width: 45%;">
 									</div>
 
 
 									<div class="content">
-										<textarea name="aw_describe1" rows="4" placeholder="Describe" style="width: 100%;"></textarea>
+										<textarea name="aw_describe1" rows="4" placeholder="Describe" style="width: 80%;"></textarea>
 									</div>
 
 							</div>
@@ -418,10 +420,10 @@
 	</div>
 
 </div>
-<div style="text-align: center;">
+<div style="text-align: center; padding-bottom: 3%;">
 	<input type="hidden" name="imageCV" value="{{ $cv ->id}}">
 	<input type="hidden" name="colorCV" value="{{ $color->id }}">
-	<input type="submit" class="btn backgroundColor" value="Lưu" />
+	<input type="submit" class="btn backgroundColor" value="Lưu" style="margin: 0;" />
 	<a href="#" class="btn backgroundColor" id="btn-print" onclick=""><i class="fa fa-download"></i> Xuất PDF</a>
 </div>
 </form>

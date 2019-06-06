@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>cv thu 2</title>
+	<title>Create CV</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -50,6 +50,11 @@
 		background: #4CAF50;
 		cursor: pointer;
 	}
+	input,textarea {
+		margin-bottom: 3%;
+		border: none;
+		border-bottom: 1px solid;
+	}
 	</style>
 </head>
 <body>
@@ -70,10 +75,10 @@
 			<div class="row row-1">
 				<div class="col-md-6 name">
 					<div class="name">
-						<input name="name"  type="text" placeholder="Your Name" value="{{ Auth::user()->name }}" style="border:none;background-color: transparent;">
+						<input name="name"  type="text" placeholder="Your Name" value="{{ Auth::user()->name }}" style="border:none;background-color: transparent;text-transform: capitalize;">
 					</div>
 					<span class="job-name backgroundColor">
-						<input name="job-name" id="jobName" placeholder="Wanted job" style="border:none;background-color: transparent;">
+						<input name="job-name" id="jobName" placeholder="Wanted job" style="border:none;background-color: transparent;text-transform: capitalize;">
 					</span>
 				</div>
 				<div class="col-md-6 contact-header">
@@ -90,29 +95,28 @@
                     <ul>
 						<li class="userInfor" style="padding-bottom: 3%;">
 							<i class="fa fa-map-marker color" aria-hidden="true" style="width: 20px;"></i>
-							<input name="address" placeholder="Your Address" value="{{ Auth::user()->address }}" style="border:none;background-color: transparent;">
+							<input name="address" placeholder="Your Address" value="{{ Auth::user()->address }}" style="background-color: transparent;">
 						</li>
 						<li class="userInfor" style="padding-bottom: 3%;">
 							<i class="fa fa-mobile color" aria-hidden="true" style="width: 20px;"></i>
-							<input name="phone" placeholder="Your Phone Number" value="{{ Auth::user()->phone }}" style="border:none;background-color: transparent;">
+							<input name="phone" placeholder="Your Phone Number" value="{{ Auth::user()->phone }}" style="background-color: transparent;">
 						</li>
 						<li class="userInfor" style="padding-bottom: 3%;">
 							<i class="fa fa-envelope color" aria-hidden="true" style="width: 20px;"></i>
-                                <input name="email" placeholder="Your Address" value="{{ Auth::user()->email }}" style="border:none;background-color: transparent;">
+                                <input name="email" placeholder="Your Address" value="{{ Auth::user()->email }}" style="background-color: transparent;">
 						</li>
                         <li class="userInfor">
                             <i class="fas fa-money color" aria-hidden="true"></i>
-                            <input name="salary" type="number" placeholder="Salary" style="border:none;background-color: transparent;">
+                            <input name="salary" type="number" placeholder="Salary" style="background-color: transparent;">
                         </li>
-
 					</ul>
 									
 				</div>
 				<div class="col-md-6 ">
 
 					<div class="media-body ">
-						<h2 class="mt-0"><i class="fas fa-quote-left color"></i>about us</h2>
-						<textarea name="target" cols="60" rows="5"  class="ckeditor" placeholder="About You" style="border:none;background-color: transparent;"></textarea>
+						<h2 class="mt-0" style="text-transform: uppercase;"><i class="fas fa-quote-left color"></i> about us</h2>
+						<textarea name="target" cols="60" rows="5"  class="ckeditor" placeholder="About You" style="background-color: transparent;"></textarea>
 					</div>
 				</div>
                 <input type="file" id="file" name="newImage" class="hide-option" onchange="fileValidation()"  style="border:none;background-color: transparent;padding-left: 2%"/>
@@ -162,25 +166,23 @@
 								x.append('<div id="ex-tag'+dem+'">'
 										+'<hr>'
 										+'<div class="job-header">'
-										+'<h3 class="name">'
-										+'<input name="ex_name'+dem+'" type="text" placeholder="Name Company">'
-										+'</h3>'
-										+'<h4 class="time color">'
-										+'<input name="ex_time'+dem+'" class="color" type="text" placeholder="Time" style="width: 60%;float: right;">'
-										+'</h4>'
+										+'<input name="ex_name'+dem+'" type="text" placeholder="Name Company" style="font-size: 20px;width: 75%;margin-right: 5%;">'
+										+'<div class="time color">'
+										+'<input name="ex_time'+dem+'" class="color" type="text" placeholder="Time"  style="width: 80%;">'
+										+'</div>'
 										+'</div>'
 										+'<div class="job-body">'
 										+'<h4 class="job-location">'
-										+'<input name="ex_position'+dem+'" type="text" placeholder="Position">'
+										+'<input name="ex_position'+dem+'" type="text" placeholder="Position" style="font-size: 15px;">'
 										+'</h4>'
 										+'</div>'
 										+'<div class="job-describer">'
-										+'<textarea name="ex_describe'+dem+'"  placeholder="Describe" cols="50"></textarea>'
-										+'<input name="ex_achiment'+dem+'"  type="text" placeholder="Achiment">'
+										+'<textarea name="ex_describe'+dem+'"  placeholder="Describe" cols="50" style="font-size: 15px;"></textarea>'
+										+'<input name="ex_achiment'+dem+'"  type="text" placeholder="Achiment" style="font-size: 15px;">'
 										+'</div>'
 										+'<div class="job-describer">'
-										+'<input name="ex_reference'+dem+'"  type="text" placeholder="reference Name" style="margin-right: 5%;">'
-										+'<input name="ex_rf_phone'+dem+'"  type="text" placeholder="reference phone">'
+										+'<input name="ex_reference'+dem+'"  type="text" placeholder="reference Name" style="margin-right: 5%;font-size: 15px;">'
+										+'<input name="ex_rf_phone'+dem+'"  type="text" placeholder="reference phone" style="font-size: 15px;">'
 										+'</div>'
 										+'</div>'
 								);
@@ -195,27 +197,24 @@
 					<input name="ex-number" type="hidden" id="ex-number" value="1" />
 						<div id="ex-tag1" >
 							<div class="job-header">
-
-								<h3 class="name">
-									<input name="ex_name1" type="text" placeholder="Name Company" >
-								</h3>
-								<h4 class="time color">
-									<input name="ex_time1" type="text" class="color" placeholder="2019-2020" style="width: 60%;float: right;">		
-								</h4>
+								<input name="ex_name1" type="text" placeholder="Name Company" style="font-size: 20px;width: 75%;margin-right: 5%;">
+								<div class="time color">
+									<input name="ex_time1" type="text" class="color" placeholder="2019-2020" style="width: 80%;">		
+								</div>
 							</div>
 							<div class="job-body">
 								<h4 class="job-location">
-									<input name="ex_position1" type="text" placeholder="Position">
+									<input name="ex_position1" type="text" placeholder="Position" style="font-size: 15px;">
 								</h4>
 							</div>
 							<div class="job-describer">
-								<textarea name="ex_describe1"  placeholder="Describe" cols="50"></textarea>
+								<textarea name="ex_describe1"  placeholder="Describe" cols="50" style="font-size: 15px;"></textarea>
 								<!--<input name="ex_describe1"  type="text" placeholder="Describe">-->
-								<input name="ex_achiment1"  type="text" placeholder="Achiment">
+								<input name="ex_achiment1"  type="text" placeholder="Achiment" style="font-size: 15px;">
 							</div>
 							<div class="job-describer">
-								<input name="ex_reference1"  type="text" placeholder="reference Name" style="margin-right: 5%;">
-								<input name="ex_rf_phone1"  type="text" placeholder="reference phone">
+								<input name="ex_reference1"  type="text" placeholder="reference Name" style="margin-right: 5%;font-size: 15px;">
+								<input name="ex_rf_phone1"  type="text" placeholder="reference phone" style="font-size: 15px;">
 							</div>
 						</div>
 
@@ -265,9 +264,7 @@
 							x.append('<div id="aw-tag'+dem+'">'
 									+'<hr>'
 									+'<div class="job-header">'
-									+'<h3 class="name">'
 									+'<input name="aw_name'+dem+'"  type="text" placeholder="Name">'
-									+'</h3>'
 									+'<h4 class="time color">	<input name="aw_time'+dem+'" class="color" type="text" placeholder="Year"></h4>'
 									+'</div>'
 									+'<div class="job-describer">'
@@ -282,17 +279,14 @@
 				</div>
 				<h1 class="exp">Awards</h1>
 				<input name="aw-number" type="hidden" id="aw-number" value="1">
-				<div class="last-job" id="aw">
+				<div class="last-job" id="aw" style="margin-top: -7%;">
 					<div id="aw-tag1">
 						<div class="job-header">
-
-							<h3 class="name">
-								<input name="aw_name1"  type="text" placeholder="Name">
-							</h3>
-							<h4 class="time color">	<input name="aw_time1"  class="color" type="text" placeholder="Year"  style="width: 60%;float: right;"></h4>
+							<input name="aw_name1"  type="text" placeholder="Name" style="width: 50%;">
+							<h4 class="time color">	<input name="aw_time1"  class="color" type="text" placeholder="Year"  style="width: 50%;margin-left: 40%;font-size: 17px;"></h4>
 						</div>
 						<div class="job-describer">
-							<input name="aw_describe1"  type="text" placeholder="Describe">
+							<textarea name="aw_describe1"  type="text" placeholder="Describe" style="width: 65%;"></textarea>
 						</div>
 					</div>
 				</div>
