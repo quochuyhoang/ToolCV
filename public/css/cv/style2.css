@@ -2,10 +2,7 @@ body{
     padding: 0;
     margin: 0;
 }
-input,textarea {
-    border: none;
-    border-bottom: 1px solid;
-}
+
 .steven {
     font-size: 30px;
     text-align: center;
@@ -191,7 +188,7 @@ p.text_min {
     position:absolute;
     top:0px;
     left:0px;
-    opacity:0;a
+    opacity:0;
 }
 .rating span label {
     display:inline-block;

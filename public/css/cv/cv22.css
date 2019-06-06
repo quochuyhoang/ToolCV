@@ -14,13 +14,9 @@ input,textarea,select{
 .header .name{
 		font-size: 30px;
 }
-.row-1 {
-	
-}
 .name {
 	display: flex;
 	justify-content: flex-start;
-	background-color: ;
 	padding: 30px 20px;
 }
 .name span{
