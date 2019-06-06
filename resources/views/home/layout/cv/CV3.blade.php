@@ -357,13 +357,11 @@
 						x.append('<div id="edu-tag'+dem+'">'
 								+'<hr>'
 								+'<div class="job-header">'
-								+'<h3 class="name">'
-								+'<input name="ed_name'+dem+'" type="text" placeholder="Desired Salary">'
-								+'</h3>'
-								+'<h4 class="time"><input name="ed_time'+dem+'" class="color" type="text" placeholder="Time"></h4>'
+								+'<input name="ed_name'+dem+'" type="text" placeholder="Name School" style="font-size:20px"><br>'
+								+'<input name="ed_time'+dem+'" class="color" type="text" placeholder="Time" style="font-size:15px;width:30%;">'
 								+'</div>'
 								+'<div class="job-describer">'
-								+'<input name="ed_spe'+dem+'" type="text" placeholder="Speciality">'
+								+'<input name="ed_spe'+dem+'" type="text" placeholder="Speciality" style="font-size:15px;">'
 								+'</div>'
 								+'</div>'
 						);
@@ -375,13 +373,11 @@
 					<input name="edu-number" type="hidden" id="edu-number" value="1">
 					<div id="edu-tag1" style="margin-top: -13%;">
 							<div class="job-header">
-								<h3 class="name">
-									<input name="ed_name1" type="text" placeholder="Desired Salary">
-								</h3>
-								<h4 class="time"><input name="ed_time1" class="color" type="text" placeholder="Time"></h4>
+								<input name="ed_name1" type="text" placeholder="Name School" style="font-size:20px"><br>
+								<input name="ed_time1" class="color" type="text" placeholder="Time" style="font-size:15px;width:30%;">
 							</div>
 							<div class="job-describer">
-								<input name="ed_spe1" type="text" placeholder="Speciality">
+								<input name="ed_spe1" type="text" placeholder="Speciality" style="font-size:15px;">
 							</div>
 					</div>
 
@@ -477,12 +473,11 @@
 		</div>
 		</div>
 		</div>
-	<div style="text-align: center;" id="aaa">
+	<div style="text-align: center;padding-bottom: 3%;" id="aaa">
         <input type="hidden" name="imageCV" value="{{ $cv ->id}}">
         <input type="hidden" name="colorCV" value="{{ $color->id }}">
-		<input type="submit" class="btn backgroundColor"  value="Lưu" />
-		{{-- <a href="#" class="btn backgroundColor" id="btn-print" id="aaa" onclick=""><i class="fa fa-download"></i> Xuất PDF</a> --}}
-		<a class="save1" href="">Click here to save as PDF</a>
+		<input type="submit" class="btn backgroundColor" value="Lưu" style="margin: 0;" />
+		<a href="#" class="btn backgroundColor" id="btn-print" onclick=""><i class="fa fa-download"></i> Xuất PDF</a>
 	</div>
 	<script>
 		$(document).ready(function(){

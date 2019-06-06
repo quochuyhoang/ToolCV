@@ -134,7 +134,7 @@
 						</div>
 
 					</div>
-					<div class="right col-md-7 offset-md-1">
+					<div class="right col-md-8">
 
 						<div class="right1">
 							<div class="experience">
