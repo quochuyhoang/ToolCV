@@ -90,45 +90,70 @@ class AdminController extends Controller
 	public function search(Request $request)
 	{
 		$input=$request->all();
+       /* dd($input);*/
 		$data['name']=$input['user_name'];
 		$data['skill']=$input['skills'];
-		$data['level']=$input['skill_level'];
+		$data['skill_level_down']=$input['skill_level_down'];
+		$data['skill_level_up'] = $input['skill_level_up'];
 
-        $data['count'] = DB::table('users')
-            ->join('user_skill', 'users.id', 'user_skill.user_id')
-            ->join('skills', 'skills.id', 'user_skill.skill_id')
-            ->where([
-                ['users.name', 'like', '%' . $input['user_name'] . '%'],
-                ['skills.name', 'like', '%' . $input['skills'] . '%'],
-                ['user_skill.level', 'like', '%' . $input['skill_level'] . '%']
-            ])
-            ->distinct()
-            ->count('users.id');
-
-            $data['items'] = DB::table('users')
-                ->select('users.id', 'users.name', 'users.birth', 'users.phone', 'users.address', 'users.avatar', 'users.email', 'users.location_id' )
+        if($input['skill_level_up'] != null) {
+            $data['count'] = DB::table('users')
                 ->join('user_skill', 'users.id', 'user_skill.user_id')
                 ->join('skills', 'skills.id', 'user_skill.skill_id')
                 ->where([
                     ['users.name', 'like', '%' . $input['user_name'] . '%'],
                     ['skills.name', 'like', '%' . $input['skills'] . '%'],
-                    ['user_skill.level', 'like', '%' . $input['skill_level'] . '%']
+                    ['user_skill.level', '>', $input['skill_level_down']],
+                    ['user_skill.level', '<=', $input['skill_level_up']]
+                ])
+                ->distinct()
+                ->count('users.id');
+
+            $data['items'] = DB::table('users')
+                ->select('users.id', 'users.name', 'users.birth', 'users.phone', 'users.address', 'users.avatar', 'users.email', 'users.location_id')
+                ->join('user_skill', 'users.id', 'user_skill.user_id')
+                ->join('skills', 'skills.id', 'user_skill.skill_id')
+                ->where([
+                    ['users.name', 'like', '%' . $input['user_name'] . '%'],
+                    ['skills.name', 'like', '%' . $input['skills'] . '%'],
+                    ['user_skill.level', '>', $input['skill_level_down']],
+                    ['user_skill.level', '<=', $input['skill_level_up']]
                 ])
                 ->distinct()
                 ->get();
+        }
+        else{
+            $data['count'] = DB::table('users')
+                ->join('user_skill', 'users.id', 'user_skill.user_id')
+                ->join('skills', 'skills.id', 'user_skill.skill_id')
+                ->where([
+                    ['users.name', 'like', '%' . $input['user_name'] . '%'],
+                    ['skills.name', 'like', '%' . $input['skills'] . '%'],
+                ])
+                ->distinct()
+                ->count('users.id');
+
+            $data['items'] = DB::table('users')
+                ->select('users.id', 'users.name', 'users.birth', 'users.phone', 'users.address', 'users.avatar', 'users.email', 'users.location_id')
+                ->join('user_skill', 'users.id', 'user_skill.user_id')
+                ->join('skills', 'skills.id', 'user_skill.skill_id')
+                ->where([
+                    ['users.name', 'like', '%' . $input['user_name'] . '%'],
+                    ['skills.name', 'like', '%' . $input['skills'] . '%'],
+                ])
+                ->distinct()
+                ->get();
+        }
 
 
             /*->max('user_cvs.id');*/
-           /* dd($data['items']);*/
+     /*      dd($data['items']);*/
 
 		$data['user_skills']=DB::table('user_skill')
             ->select('skills.name','user_skill.level', 'user_skill.user_id')
             ->join('skills', 'skills.id','user_skill.skill_id')
             ->get();
 
-
-
-		# code...
         return view('admin.layouts.listSearch',$data)->with('success','hihi');
 	}
 }

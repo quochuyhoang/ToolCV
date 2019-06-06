@@ -2,12 +2,12 @@
 @section('content')
 <div class="col-lg-12">
 
-	@if(isset($name)&&isset($skill)&&isset($level))
-		<h4>Có {{ $count }} kết quả với từ khóa: tên: {{ $name }} có skill {{ $skill }} level {{ $level }}%</h4>
+	@if(isset($name)&&isset($skill)&&isset($skill_level_down))
+		<h4>Có {{ $count }} kết quả với từ khóa: tên: {{ $name }} có skill {{ $skill }} level từ {{ $skill_level_down }}% tới {{ $skill_level_up }}%</h4>
 	@elseif(isset($name)&&isset($skill))
 		<h4>Có {{ $count }} kết quả với từ khóa: tên: {{ $name }} có skill {{ $skill }}</h4>
-	@elseif(isset($skill)&&isset($level))
-		<h4>Có {{ $count }} kết quả với từ khóa: skill: {{ $skill }} level {{ $level }}%</h4>
+	@elseif(isset($skill)&&isset($skill_level_down))
+		<h4>Có {{ $count }} kết quả với từ khóa: skill: {{ $skill }} level từ {{ $skill_level_down }}% tới {{ $skill_level_up }}%</h4>
 	@elseif(isset($name))
 		<h4>Có {{ $count }} kết quả với từ khóa: tên: {{ $name }}</h4>
 	@elseif(isset($skill))
