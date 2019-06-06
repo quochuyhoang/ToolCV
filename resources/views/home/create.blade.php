@@ -87,7 +87,7 @@
 
                                 <div class="form-group">
                                     <label class="text-body custom-control-label">Hobby</label>
-                                    <input name="hobbies" class="form-control"></input>
+                                    <input name="hobbies" class="form-control">
                                     <p style="color:red">{{ $errors->first('target') }}</p>
                                 </div>
 
