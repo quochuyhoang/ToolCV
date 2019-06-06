@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use MongoDB\BSON\MaxKey;
 
 class AdminController extends Controller
 {
@@ -86,12 +87,48 @@ class AdminController extends Controller
 		return redirect()->route('admin')->with('success','update success');
 	}   
 
-	public function search(Request $rq)
+	public function search(Request $request)
 	{
-		$input=$rq->all();
-		
-		$data= DB::table('users')->where('name',$input['search'])->get();
-		dd($data);
+		$input=$request->all();
+		$data['name']=$input['user_name'];
+		$data['skill']=$input['skills'];
+		$data['level']=$input['skill_level'];
+
+        $data['count'] = DB::table('users')
+            ->join('user_skill', 'users.id', 'user_skill.user_id')
+            ->join('skills', 'skills.id', 'user_skill.skill_id')
+            ->where([
+                ['users.name', 'like', '%' . $input['user_name'] . '%'],
+                ['skills.name', 'like', '%' . $input['skills'] . '%'],
+                ['user_skill.level', 'like', '%' . $input['skill_level'] . '%']
+            ])
+            ->distinct()
+            ->count('users.id');
+
+            $data['items'] = DB::table('users')
+                ->select('users.id', 'users.name', 'users.birth', 'users.phone', 'users.address', 'users.avatar', 'users.email', 'users.location_id' )
+                ->join('user_skill', 'users.id', 'user_skill.user_id')
+                ->join('skills', 'skills.id', 'user_skill.skill_id')
+                ->where([
+                    ['users.name', 'like', '%' . $input['user_name'] . '%'],
+                    ['skills.name', 'like', '%' . $input['skills'] . '%'],
+                    ['user_skill.level', 'like', '%' . $input['skill_level'] . '%']
+                ])
+                ->distinct()
+                ->get();
+
+
+            /*->max('user_cvs.id');*/
+           /* dd($data['items']);*/
+
+		$data['user_skills']=DB::table('user_skill')
+            ->select('skills.name','user_skill.level', 'user_skill.user_id')
+            ->join('skills', 'skills.id','user_skill.skill_id')
+            ->get();
+
+
+
 		# code...
+        return view('admin.layouts.listSearch',$data)->with('success','hihi');
 	}
 }

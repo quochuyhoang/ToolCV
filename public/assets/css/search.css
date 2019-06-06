@@ -1,0 +1,18 @@
+.search-items{
+    padding: 50px 0px;
+
+    margin: 1px 1px 1px 15px;
+
+}
+.search-items .search-content{
+    border-radius: 25px;
+    width: 90%;
+    box-shadow: 5px 10px 18px #888888;
+    margin-top: 50px;
+}
+.search-items .avatar{
+    padding-top: 25%;
+}
+.search-items .search-infor{
+    padding: 5px;
+}

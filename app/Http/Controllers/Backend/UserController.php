@@ -211,7 +211,7 @@ if ($req->hasFile('avatar')) {
 			'avatar'		=> $file_name,
 			'address' 		=> $req->address,
 			'email' 		=> $req->email,
-			'password' 		=> $req->password,  
+			'password' 		=> bcrypt($req->password),
 			'location_id'	=> $req->location_id,    
 		]);
 

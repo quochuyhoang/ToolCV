@@ -112,17 +112,16 @@
                 @else
                 <span style="font-size:20px;color:white;margin-right:.7rem;">Welcome, {{ Auth::user()->name}}</span>
                 <div class="dropdown" style="margin-right:50px;display:inline-block">
-
-                        <img src="{{ asset('assets/img/avatar/'.Auth::user()->avatar)}}" alt="" style="width:60px;height:60px;border-radius:50%;">
-
-
+                        <img src="{{ asset('assets/img/avatar/'.Auth::user()->avatar)}}" alt="hỏng" style="width:60px;height:60px;border-radius:50%;">
                     <div class="dropdown-content" style="border-radius:5px;">
-                        @foreach($user_cvs as $usercv)
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{ url('home/profile/'.Auth::user()->id) }}">
+                            Profile</a>
+                      {{--  @foreach($user_cvs as $usercv)
                         @if($usercv->user_id== Auth::user()->id)
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{ url('home/ShowCV/'.$usercv->id) }}">
                             Profile</a>
                         @endif
-                        @endforeach
+                        @endforeach--}}
 
                         <a href="{{ route('home.logout') }}">Log Out</a>
                     </div>

@@ -241,10 +241,11 @@
 							// lặp qua từng option và kiểm tra thuộc tính selected
 							for (var i = 0; i < options.length; i++){
 								if (options[i].selected){
-									html += '<h4>'+options[i].text+'</h4>'
-									+'<input type="hidden" name="skill-name'+number+'" value="'+options[i].value+'">'
-									+' <input type="range" name="skill-level'+number+'" min="1" max="100" value="50" class="slider" id="myRange" style="width: 410px;">'
 									number++;
+									html += '<h4>'+options[i].text+'</h4>'
+											+'<input type="hidden" name="skill-name'+number+'" value="'+options[i].value+'">'
+											+' <input type="range" name="skill-level'+number+'" min="1" max="100" value="50" class="slider" id="myRange" style="width: 410px;">'
+
 								}
 							}
 							num.value=number;
