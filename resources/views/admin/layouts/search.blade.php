@@ -2,23 +2,23 @@
 	@csrf
 	<div class="input-group">
 		<input type="text" name="user_name" class="form-control" placeholder="Search for name..." aria-label="Search" aria-describedby="basic-addon2">
+		<select name="userLocation" onchange="">
+			<option value="">-none-</option>
+			@foreach($locations as $location)
+				<option value="{{ $location->id }}">{{ $location->name }}</option>
+			@endforeach
+		</select>
 		<input type="text" name="skills" class="form-control" placeholder="Search for skill..." aria-label="Search" aria-describedby="basic-addon2" onchange="level(this)">
+
 {{--
 		<input type="text" id="skill_level" name="skill_level" class="form-control" placeholder="Search for skill level..." aria-label="Search" aria-describedby="basic-addon2">
 --}}
 		<div id="skill_level">
 			<select name="skill_level_down" onchange="levelUp(this)">
 				<option value="">-none-</option>
-				<option value="10">10%</option>
-				<option value="20">20%</option>
-				<option value="30">30%</option>
-				<option value="40">40%</option>
-				<option value="50">50%</option>
-				<option value="60">60%</option>
-				<option value="70">70%</option>
-				<option value="80">80%</option>
-				<option value="90">90%</option>
-				<option value="100">100%</option>
+				@for($i=10; $i<=100; $i=$i+10)
+				<option value="{{ $i }}">{{$i}}%</option>
+				@endfor
 			</select>
 		</div>
 		<div id="level_up">

@@ -121,10 +121,10 @@
                                         <td>
                                             <a class="btn btn-danger" style="font-size: 12px;padding: 2px 10px;" href="{{ url('home/ShowCV/'.$user_cv->id) }}">
                                                 Show <img src="{{ asset('home_asset') }}/images/show.png" alt="" style="width: 17px;"></a>
-                                            <button class="btn btn-outline-light"
-                                                style="font-size: 12px;padding: 2px 10px;">
+                                            <a class="btn btn-outline-light" href="{{ url('home/deleteCV/'.$user_cv->id) }}"
+                                                style="font-size: 12px;padding: 2px 10px;" onclick="return confirm('Bạn có chắc chắn xóa Cv này?')">
                                                 Delete <img src="{{ asset('home_asset') }}/images/delete.png" alt=""
-                                                    style="width: 17px;"></button>
+                                                    style="width: 17px;"></a>
                                         </td>
                                     </tr>
                                 @endforeach

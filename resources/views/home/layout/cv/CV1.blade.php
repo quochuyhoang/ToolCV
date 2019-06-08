@@ -177,6 +177,7 @@
 											+'</div>'
 											+'</div>'
 											);
+                                        $('#ex-hide').show();
 										var hide= document.getElementById('ex-hide');
 										hide.removeAttribute('hidden');
 									}
@@ -210,10 +211,11 @@
 										parent.removeChild(child);
 
 										var dem= parseInt(get.value)-1;
+                                        get.value= dem;
 										if(dem===1){
-											$('#ex-hide').createAttribute('hidden');
+											$('#ex-hide').hide();
 										}
-										get.value= dem;
+
 									}
 								</script>
 							</div>
@@ -244,23 +246,23 @@
 										var num = document.getElementById('skill-level-num');
 										var options = obj.children;
 
-							// Biến lưu trữ các chuyên mục đa chọn
-							var html = '';
-							var number=0;
-							// lặp qua từng option và kiểm tra thuộc tính selected
-							for (var i = 0; i < options.length; i++){
-								if (options[i].selected){
-									number++;
-									html += '<h4>'+options[i].text+'</h4>'
-											+'<input type="hidden" name="skill-name'+number+'" value="'+options[i].value+'">'
-											+' <input type="range" name="skill-level'+number+'" min="1" max="100" value="50" class="slider" id="myRange" style="width: 410px;">'
+										// Biến lưu trữ các chuyên mục đa chọn
+										var html = '';
+										var number=0;
+										// lặp qua từng option và kiểm tra thuộc tính selected
+										for (var i = 0; i < options.length; i++){
+											if (options[i].selected){
+												number++;
+												html += '<h4>'+options[i].text+'</h4>'
+														+'<input type="hidden" name="skill-name'+number+'" value="'+options[i].value+'">'
+														+' <input type="range" name="skill-level'+number+'" min="1" max="100" value="50" class="slider" id="myRange" style="width: 410px;">'
 
-								}
-							}
-							num.value=number;
+											}
+										}
+										num.value=number;
 
-							// Gán kết quả vào div#result
-							document.getElementById('result').innerHTML = html;
+										// Gán kết quả vào div#result
+										document.getElementById('result').innerHTML = html;
 						}
 					</script>
 				</div>
@@ -297,6 +299,7 @@
 							+'</div>'
 							);
 						var hide= document.getElementById('edu-hide');
+                        $('#edu-hide').show();
 						hide.removeAttribute('hidden');
 					}
 				</script>
@@ -325,10 +328,11 @@
 							var child = document.getElementById('edu-tag'+get.value);
 							parent.removeChild(child);
 							var dem= parseInt(get.value)-1;
+                            get.value= dem;
 							if(dem===1){
-								$('#edu-hide').createAttribute('hidden');
+								$('#edu-hide').hide();
 							}
-							get.value= dem;
+
 						}
 					</script>
 				</div>
@@ -364,8 +368,8 @@
 							+'</div>'
 							+'</div>'
 							);
-						var hide= document.getElementById('aw-hide');
-						hide.removeAttribute('hidden');
+
+                        $('#aw-hide').show();
 					}
 				</script>
 				<input name="aw-number" type="hidden" id="aw-number" value="1">
@@ -393,10 +397,11 @@
 							var child = document.getElementById('aw-tag'+get.value);
 							parent.removeChild(child);
 							var dem= parseInt(get.value)-1;
+                            get.value= dem;
 							if(dem===1){
-								$('#aw-hide').createAttribute('hidden');
+								$('#aw-hide').hide();
 							}
-							get.value= dem;
+
 						}
 					</script>
 				</div>

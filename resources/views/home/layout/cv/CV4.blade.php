@@ -125,6 +125,7 @@
 									+'<input name="ex_rf_phone'+dem+'" type="text" placeholder="reference phone">'
 									+'</div>'
 							);
+							$('#ex-hide').show();
 							var hide= document.getElementById('ex-hide');
 							hide.removeAttribute('hidden');
 						}
@@ -155,10 +156,11 @@
 							parent.removeChild(child);
 
 							var dem= parseInt(get.value)-1;
-							if(dem===1){
-								$('#ex-hide').createAttribute('hidden');
-							}
 							get.value= dem;
+							if(dem===1){
+								$('#ex-hide').hide();
+							}
+
 						}
 					</script>
 				</div>
@@ -188,6 +190,7 @@
 								+'<input name="ed_spe'+dem+'" type="text" placeholder="Speciality" style="width:30%;">'
 								+'</div>'
 						);
+						$('#edu-hide').show();
 						var hide= document.getElementById('edu-hide');
 						hide.removeAttribute('hidden');
 					}
@@ -211,10 +214,11 @@
 							var child = document.getElementById('edu-tag'+get.value);
 							parent.removeChild(child);
 							var dem= parseInt(get.value)-1;
-							if(dem===1){
-								$('#edu-hide').createAttribute('hidden');
-							}
 							get.value= dem;
+							if(dem===1){
+								$('#edu-hide').hide();
+							}
+
 						}
 					</script>
 				</div>
@@ -242,8 +246,10 @@
 								+'<input name="aw_describe'+dem+'"  type="text" placeholder="Describe" style="width:60%;">'
 								+'</div>'
 						);
+						$('#aw-hide').show();
 						var hide= document.getElementById('aw-hide');
 						hide.removeAttribute('hidden');
+
 					}
 				</script>
 				<input name="aw-number" type="hidden" id="aw-number" value="1">
@@ -265,10 +271,11 @@
 							var child = document.getElementById('aw-tag'+get.value);
 							parent.removeChild(child);
 							var dem= parseInt(get.value)-1;
-							if(dem===1){
-								$('#aw-hide').createAttribute('hidden');
-							}
 							get.value= dem;
+							if(dem===1){
+								$('#aw-hide').hide();
+							}
+
 						}
 					</script>
 				</div>

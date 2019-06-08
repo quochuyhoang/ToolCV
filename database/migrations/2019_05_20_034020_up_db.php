@@ -131,7 +131,8 @@ class UpDb extends Migration
             $table
                 ->foreign('user_cv_id')
                 ->references('id')
-                ->on('user_cvs');
+                ->on('user_cvs')
+                ->onDelete('cascade');
 
         });
 
@@ -155,7 +156,8 @@ class UpDb extends Migration
             $table
                 ->foreign('user_cv_id')
                 ->references('id')
-                ->on('user_cvs');
+                ->on('user_cvs')
+                ->onDelete('cascade');
         });
 
 
@@ -171,7 +173,8 @@ class UpDb extends Migration
             $table
                 ->foreign('user_cv_id')
                 ->references('id')
-                ->on('user_cvs');
+                ->on('user_cvs')
+                ->onDelete('cascade');
             $table->string('name');
             $table->string('spe');
             $table->string('time');

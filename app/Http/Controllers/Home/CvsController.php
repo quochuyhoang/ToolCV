@@ -211,4 +211,14 @@ class CvsController extends Controller
         return view('home.show.'.$imagecvs->CVname, compact('user_cvs','imagecvs','experience','education','user_skill','awards'));
     }
 
+    public function deleteCV($id){
+
+        if(DB::table('user_cvs')->where('id',$id)->delete()){
+            return redirect()->back()->with('success','Delete CV success');
+        }
+        else{
+            return redirect()->back()->with('failed','Something wrong');
+        }
+    }
+
 }

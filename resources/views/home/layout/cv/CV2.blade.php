@@ -218,6 +218,8 @@
 											+'</div>'
 											+'</div>'
 									);
+
+									$('#ex-hide').show();
 									var hide= document.getElementById('ex-hide');
 									hide.removeAttribute('hidden');
 								}
@@ -257,10 +259,11 @@
 									parent.removeChild(child);
 
 									var dem= parseInt(get.value)-1;
-									if(dem===1){
-										$('#ex-hide').createAttribute('hidden');
-									}
 									get.value= dem;
+									if(dem===1){
+										$('#ex-hide').hide();
+									}
+
 								}
 							</script>
 						</div>
@@ -291,6 +294,7 @@
 										+'</div>'
 										+'</div>'
 								);
+								$('#edu-hide').show();
 								var hide= document.getElementById('edu-hide');
 								hide.removeAttribute('hidden');
 							}
@@ -321,10 +325,11 @@
 									var child = document.getElementById('edu-tag'+get.value);
 									parent.removeChild(child);
 									var dem= parseInt(get.value)-1;
-									if(dem===1){
-										$('#edu-hide').createAttribute('hidden');
-									}
 									get.value= dem;
+									if(dem===1){
+										$('#edu-hide').hide();
+									}
+
 								}
 							</script>
 						</div>
@@ -363,6 +368,7 @@
 										+'</div>'
 										+'</div>'
 								);
+								$('#aw-hide').show();
 								var hide= document.getElementById('aw-hide');
 								hide.removeAttribute('hidden');
 							}
@@ -384,6 +390,28 @@
 								</div>
 
 							</div>
+						</div>
+						<div class="plus-buttom hide-option" id="aw-hide" hidden>
+							<a  onclick="hideAW()" title="More Experience">
+								<i class="fa fa-times"></i>
+							</a>
+							<script>
+								function hideAW() {
+									var get= document.getElementById('aw-number');
+									var parent = document.getElementById("aw");
+									var child = document.getElementById('aw-tag'+get.value);
+									parent.removeChild(child);
+
+
+
+									var dem= parseInt(get.value)-1;
+									get.value= dem;
+									if(dem===1){
+										$('#aw-hide').hide();
+									}
+
+								}
+							</script>
 						</div>
 						<div style="clear: both;"></div>
 					</div>
@@ -425,13 +453,14 @@
 								// lặp qua từng option và kiểm tra thuộc tính selected
 								for (var i = 0; i < options.length; i++){
 									if (options[i].selected){
+										number++;
 										html += '<h4>'+options[i].text+'</h4>'
 												+'<div class="progress">'
 												+'<input type="hidden" name="skill-name'+number+'" value="'+options[i].value+'">'
 												+'<input type="range" name="skill-level'+number+'" min="1" max="100" value="50" class="slider" id="myRange" style="width: 410px;">'
 												+'</div>'
 
-										number++;
+
 									}
 								}
 								num.value=number;

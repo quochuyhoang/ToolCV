@@ -2,8 +2,14 @@
 @section('content')
 <div class="col-lg-12">
 
-	@if(isset($name)&&isset($skill)&&isset($skill_level_down))
-		<h4>Có {{ $count }} kết quả với từ khóa: tên: {{ $name }} có skill {{ $skill }} level từ {{ $skill_level_down }}% tới {{ $skill_level_up }}%</h4>
+	@if(isset($name)&&isset($location)&&isset($skill)&&isset($skill_level_down))
+		<h4>Có {{ $count }} kết quả với từ khóa: tên: {{ $name }} ở {{ $lo }} có skill {{ $skill }} level từ {{ $skill_level_down }}% tới {{ $skill_level_up }}%</h4>
+	@elseif(isset($name)&&isset($search_location))
+		<h4>Có {{ $count }} kết quả với từ khóa: tên: {{ $name }} ở {{ $search_location }}
+		</h4>
+	@elseif(isset($name)&&isset($search_location)&&isset($skill))
+		<h4>Có {{ $count }} kết quả với từ khóa: tên: {{ $name }} ở {{ $search_location }} có skill {{ $skill }}
+		</h4>
 	@elseif(isset($name)&&isset($skill))
 		<h4>Có {{ $count }} kết quả với từ khóa: tên: {{ $name }} có skill {{ $skill }}</h4>
 	@elseif(isset($skill)&&isset($skill_level_down))
@@ -12,6 +18,9 @@
 		<h4>Có {{ $count }} kết quả với từ khóa: tên: {{ $name }}</h4>
 	@elseif(isset($skill))
 		<h4>Có {{ $count }} kết quả với từ khóa: skill: {{ $skill }}</h4>
+
+	@elseif(isset($search_location))
+		<h4>Có {{ $count }} kết quả với từ khóa: thành phố: {{ $search_location }}</h4>
 	@endif
 	@if(session('success'))
 	<div class = "alert alert-success">{{ session('success') }}</div>
@@ -28,6 +37,7 @@
 					<th>Phone</th>
 					<th>Email</th>
 					<th>Address</th>
+					<th>City</th>
 					<th>Skills</th>
 					<th>CV</th>
 				</tr>
@@ -42,6 +52,7 @@
 					<td>{{ $item->phone }}</td>
 					<td>{{ $item->email }}</td>
 					<td>{{ $item->address }}</td>
+					<td>{{ $item->city }}</td>
 					<td>
 						<ul>
 							@foreach($user_skills as $user_skill)

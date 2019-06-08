@@ -63,7 +63,9 @@ Route::prefix('home')->group(function (){
         Route::post('Create/{id}', 'Home\CvsController@CVCreate')->name('home.postcv');
         Route::get('CreateCV', 'Home\CvsController@color')->name('home.color');
 
+
     });
+    Route::get('deleteCV/{id}', 'Home\CvsController@deleteCV')->name('CV.delete');
 
     Route::get('ChosenColor/{id}','Home\CvsController@ChosenColor')->name('home.chosen');
 

@@ -186,6 +186,9 @@
 										+'</div>'
 										+'</div>'
 								);
+
+									$('#ex-hide').show();
+
 								var hide= document.getElementById('ex-hide');
 								hide.removeAttribute('hidden');
 							}
@@ -228,14 +231,14 @@
 							var get= document.getElementById('ex-number');
 							var parent = document.getElementById("ex");
 							var child = document.getElementById('ex-tag'+get.value);
-							var child = document.getElementById('ex-tag'+get.value);
 							parent.removeChild(child);
 
 							var dem= parseInt(get.value)-1;
-							if(dem===1){
-								$('#ex-hide').createAttribute('hidden');
-							}
 							get.value= dem;
+							if(dem===1){
+								$('#ex-hide').hide();
+							}
+
 						}
 					</script>
 				</div>
@@ -264,14 +267,15 @@
 							x.append('<div id="aw-tag'+dem+'">'
 									+'<hr>'
 									+'<div class="job-header">'
-									+'<input name="aw_name'+dem+'"  type="text" placeholder="Name">'
-									+'<h4 class="time color">	<input name="aw_time'+dem+'" class="color" type="text" placeholder="Year"></h4>'
+									+'<input name="aw_name'+dem+'"  type="text" placeholder="Name" style="width: 50%;">'
+									+'<h4 class="time color">	<input name="aw_time'+dem+'"  class="color" type="text" placeholder="Year"  style="width: 50%;margin-left: 40%;font-size: 16px;"></h4>'
 									+'</div>'
 									+'<div class="job-describer">'
-									+'<input name="aw_describe'+dem+'"  type="text" placeholder="Describe">'
+									+'<textarea name="aw_describe'+dem+'"  type="text" placeholder="Describe" style="width: 65%;"></textarea>'
 									+'</div>'
 									+'</div>'
 							);
+							$('#aw-hide').show();
 							var hide= document.getElementById('aw-hide');
 							hide.removeAttribute('hidden');
 						}
@@ -305,10 +309,11 @@
 
 
 							var dem= parseInt(get.value)-1;
-							if(dem===1){
-								$('#aw-hide').createAttribute('hidden');
-							}
 							get.value= dem;
+							if(dem===1){
+								$('#aw-hide').hide();
+							}
+
 						}
 					</script>
 				</div>
@@ -337,7 +342,7 @@
 						get.value= dem;
 
 						var x= $("#edu");
-						x.append('<div id="edu-tag'+dem+'">'
+						x.append('<div id="edu-tag'+dem+'" style="margin-top: -13%;">'
 								+'<hr>'
 								+'<div class="job-header">'
 								+'<input name="ed_name'+dem+'" type="text" placeholder="Name School" style="font-size:20px"><br>'
@@ -348,6 +353,7 @@
 								+'</div>'
 								+'</div>'
 						);
+						$('#edu-hide').show();
 						var hide= document.getElementById('edu-hide');
 						hide.removeAttribute('hidden');
 					}
@@ -376,10 +382,11 @@
 							var child = document.getElementById('edu-tag'+get.value);
 							parent.removeChild(child);
 							var dem= parseInt(get.value)-1;
-							if(dem===1){
-								$('#edu-hide').createAttribute('hidden');
-							}
 							get.value= dem;
+							if(dem===1){
+								$('#edu-hide').hide();
+							}
+
 						}
 					</script>
 				</div>
@@ -425,16 +432,17 @@
 
                         // Biến lưu trữ các chuyên mục đa chọn
                         var html = '';
-                        var number=1;
+                        var number=0;
                         // lặp qua từng option và kiểm tra thuộc tính selected
                         for (var i = 0; i < options.length; i++){
                             if (options[i].selected){
+								number++;
                                 html += '<br><h4>'+options[i].text+'    <span id="level'+number+'" ></span></h4> '
 										+'<input type="hidden" name="skill-name'+number+'" value="'+options[i].value+'">'
 										+'<div class="progress hide-option">'
 										+'<input type="range" name="skill-level'+number+'" id="name-skill'+number+'" min="1" max="100" value="50" class="slider " style="width: 410px;" onchange="hien('+number+')" >'
 										+'</div>'
-                                number++;
+
                             }
                         }
                         num.value=number;
