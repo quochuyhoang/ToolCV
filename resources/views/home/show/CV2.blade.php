@@ -14,7 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/cv') }}/cv3.css">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css') }}/bootstrap-tagsinput/bootstrap-tagsinput.css" />
 	<link href="{{ asset('home_asset/css/plugins/chosen/chosen.css') }}" rel="stylesheet">
-{{--	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>--}}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<style type="text/css">
 		input,textarea {
 			border: none;
@@ -228,8 +228,8 @@
 			</div>
 
 		</div>
-		<div style="text-align: center;">
-		<a href="#" class="btn backgroundColor" id="btn-print" onclick=""><i class="fa fa-download"></i> Xuất PDF</a>
+		<div style="text-align: center;"  class="hide-option">
+		<a href="#" class="btn backgroundColor" id="savePDF" onclick=""><i class="fa fa-download"></i> Xuất PDF</a>
 		</div>
 
 </body>
@@ -252,6 +252,14 @@
 				}
 			});
 		};
+
+	});
+
+	$('#savePDF').click(function(){
+		$('.hide-option').hide();
+		$('input').css('border-bottom', 'none');
+		$('textarea').css('border-bottom', 'none');
+		window.print();
 
 	});
 </script>

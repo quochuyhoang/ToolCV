@@ -57,7 +57,7 @@
 	<div class="row ">
 		<div class="col-md-4 backgroundColor" id="right">
 			<div class="avatar-upload">
-				<div class="avatar-edit">
+				<div class="avatar-edit hide-option">
 					<input type='file' id="imageUpload" name="newImage" accept=".png, .jpg, .jpeg" />
 					<label for="imageUpload"></label>
 				</div>
@@ -103,7 +103,7 @@
 				<div class="left-title">
 					<h3 class="color">work experience</h3>
 				</div>
-				<div class="plus-buttom">
+				<div class="plus-buttom hide-option">
 					<a  onclick="addEx()" title="More Experience">
 						<i class="fa fa-plus"></i>
 					</a>
@@ -116,15 +116,16 @@
 							var x= $("#ex");
 							x.append('<div id="ex-tag'+dem+'">'
 									+'<hr>'
-									+'<div><input name="ex_name1" type="text" placeholder="Name Company" style="width:75%;"></div>'
-									+'<div><input name="ex_time1" type="text" class="color" placeholder="Time" style="width:20%;"></div>'
-									+'<div><input name="ex_position1" type="text" placeholder="Position" style="width:30%;"></div>'
-									+'<div><textarea name="ex_describe1"  placeholder="Describe" rows="3" style="width:45%;margin-right:5%;border-bottom:1px solid;"></textarea>'
-									+'<textarea name="ex_describe1" placeholder="Achievement" rows="3" style="width:45%;border-bottom:1px solid"></textarea></div>'
-									+'<input name="ex_reference1"  type="text" placeholder="reference Name" style="margin-right:5%;">'
-									+'<input name="ex_rf_phone1"  type="text" placeholder="reference phone">'
+									+'<div><input name="ex_name'+dem+'" type="text" placeholder="Name Company" style="width:75%;"></div>'
+									+'<div><input name="ex_time'+dem+'" type="text" class="color" placeholder="Time" style="width:20%;"></div>'
+									+'<div><input name="ex_position'+dem+'" type="text" placeholder="Position" style="width:30%;"></div>'
+									+'<div><textarea name="ex_describe'+dem+'"  placeholder="Describe" rows="3" style="width:45%;margin-right:5%;border-bottom:1px solid;"></textarea>'
+									+'<textarea name="ex_describe'+dem+'" placeholder="Achievement" rows="3" style="width:45%;border-bottom:1px solid"></textarea></div>'
+									+'<input name="ex_reference'+dem+'"  type="text" placeholder="reference Name" style="margin-right:5%;">'
+									+'<input name="ex_rf_phone'+dem+'" type="text" placeholder="reference phone">'
 									+'</div>'
 							);
+							$('#ex-hide').show();
 							var hide= document.getElementById('ex-hide');
 							hide.removeAttribute('hidden');
 						}
@@ -143,7 +144,7 @@
             <input name="ex_rf_phone1"  type="text" placeholder="reference phone">
 					</div>
 				</div>
-				<div class="plus-buttom"  id="ex-hide" hidden>
+				<div class="plus-buttom hide-option"  id="ex-hide" hidden>
 					<a  onclick="hideEX()" title="More Experience">
 						<i class="fa fa-times"></i>
 					</a>
@@ -155,10 +156,11 @@
 							parent.removeChild(child);
 
 							var dem= parseInt(get.value)-1;
-							if(dem===1){
-								$('#ex-hide').createAttribute('hidden');
-							}
 							get.value= dem;
+							if(dem===1){
+								$('#ex-hide').hide();
+							}
+
 						}
 					</script>
 				</div>
@@ -169,7 +171,7 @@
 				<div class="left-title">
 					<h3 class="color">education</h3>
 				</div>
-				<div class="plus-buttom">
+				<div class="plus-buttom hide-option">
 					<a  onclick="edu()" >
 						<i class="fa fa-plus"></i>
 					</a>
@@ -183,11 +185,12 @@
 						var x= $("#edu");
 						x.append('<div id="edu-tag'+dem+'">'
 								+'<hr>'
-								+'<input name="ed_name1" type="text" placeholder="Name School" style="width:70%;"><br>'
-								+'<input name="ed_time1" class="color" type="text" placeholder="Time" style="width:20%;"><br>'
-								+'<input name="ed_spe1" type="text" placeholder="Speciality" style="width:30%;">'
+								+'<input name="ed_name'+dem+'" type="text" placeholder="Name School" style="width:70%;"><br>'
+								+'<input name="ed_time'+dem+'" class="color" type="text" placeholder="Time" style="width:20%;"><br>'
+								+'<input name="ed_spe'+dem+'" type="text" placeholder="Speciality" style="width:30%;">'
 								+'</div>'
 						);
+						$('#edu-hide').show();
 						var hide= document.getElementById('edu-hide');
 						hide.removeAttribute('hidden');
 					}
@@ -200,7 +203,7 @@
 					<input name="ed_spe1" type="text" placeholder="Speciality" style="width:30%;">
 					</div>
 				</div>
-				<div class="plus-buttom" id="edu-hide" hidden>
+				<div class="plus-buttom hide-option" id="edu-hide" hidden>
 					<a  onclick="hideEdu()" title="Hide this Education">
 						<i class="fa fa-times"></i>
 					</a>
@@ -211,10 +214,11 @@
 							var child = document.getElementById('edu-tag'+get.value);
 							parent.removeChild(child);
 							var dem= parseInt(get.value)-1;
-							if(dem===1){
-								$('#edu-hide').createAttribute('hidden');
-							}
 							get.value= dem;
+							if(dem===1){
+								$('#edu-hide').hide();
+							}
+
 						}
 					</script>
 				</div>
@@ -223,7 +227,7 @@
 				<div class="left-title">
 					<h3 class="color">Awards</h3>
 				</div>
-				<div class="plus-buttom">
+				<div class="plus-buttom hide-option">
 					<a  onclick="aw()" >
 						<i class="fa fa-plus"></i>
 					</a>
@@ -237,13 +241,15 @@
 						var x= $("#aw");
 						x.append('<div class="col-lg-6" id="aw-tag'+dem+'">'
 								+'<hr>'
-								+'<input name="aw_name1"  type="text" placeholder="Name" style="width:90%;"><br>'
-								+'<input name="aw_time1"  class="color" type="text" placeholder="Year" style="width:35%;"><br>'
-								+'<input name="aw_describe1"  type="text" placeholder="Describe" style="width:60%;">'
+								+'<input name="aw_name'+dem+'"  type="text" placeholder="Name" style="width:90%;"><br>'
+								+'<input name="aw_time'+dem+'"  class="color" type="text" placeholder="Year" style="width:35%;"><br>'
+								+'<input name="aw_describe'+dem+'"  type="text" placeholder="Describe" style="width:60%;">'
 								+'</div>'
 						);
+						$('#aw-hide').show();
 						var hide= document.getElementById('aw-hide');
 						hide.removeAttribute('hidden');
+
 					}
 				</script>
 				<input name="aw-number" type="hidden" id="aw-number" value="1">
@@ -254,7 +260,7 @@
 				    <input name="aw_describe1"  type="text" placeholder="Describe" style="width:60%;">
 					</div>
 				</div>
-				<div class="plus-buttom" id="aw-hide" hidden>
+				<div class="plus-buttom hide-option" id="aw-hide" hidden>
 					<a  onclick="hideAw()" title="Hide this Education">
 						<i class="fa fa-times"></i>
 					</a>
@@ -265,10 +271,11 @@
 							var child = document.getElementById('aw-tag'+get.value);
 							parent.removeChild(child);
 							var dem= parseInt(get.value)-1;
-							if(dem===1){
-								$('#aw-hide').createAttribute('hidden');
-							}
 							get.value= dem;
+							if(dem===1){
+								$('#aw-hide').hide();
+							}
+
 						}
 					</script>
 				</div>
@@ -276,6 +283,7 @@
 			<div class="left">
 				<div class="left-title">
 					<h3 class="color">persional skills</h3>
+					<div class="hide-option">
 					<select data-placeholder="Choose a Skill..." id="select-skill"  class="chosen-select" multiple style="width:350px;" tabindex="4" onchange="chon(this)">
 						<p style="color: red" id="show_message"></p>
 						@foreach($skills as $skill)
@@ -283,6 +291,7 @@
 						@endforeach
 
 					</select>
+					</div>
 					<input id="skill-level-num" name="skill-level-num" type="hidden" value="0">
 					{{--<div id="chon">
 						<select name="select">
@@ -303,13 +312,14 @@
 							// lặp qua từng option và kiểm tra thuộc tính selected
 							for (var i = 0; i < options.length; i++){
 								if (options[i].selected){
+									number++;
 									html += '<h4>'+options[i].text+'</h4>'
 											+'<input type="hidden" name="skill-name'+number+'" value="'+options[i].value+'">'
 											+' <input type="range" name="skill-level'+number+'" min="1" max="100" value="50" class="slider" id="myRange" style="width: 410px;">'
 									/* +'<div class="progress">'
                                         +'<div class="progress-bar backgroundColor" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>'
                                         +'</div><br>'*/
-									number++;
+
 								}
 							}
 							num.value=number;
@@ -336,12 +346,12 @@
 	</div>
 </div>
 
-	<div style="text-align: center;margin-bottom:3%;">
+	<div style="text-align: center;margin-bottom:3%;" class="hide-option">
 		<input type="hidden" name="imageCV" value="{{ $cv ->id}}">
 		<input type="hidden" name="colorCV" value="{{ $color->id }}">
 {{-- 		<input type="submit" class="btn backgroundColor" value="Lưu" /> --}}
 		<a type="submit" class="btn backgroundColor" style="color: #007bff">Lưu</a>
-		<a href="#" class="btn backgroundColor" id="btn-print" onclick=""><i class="fa fa-download"></i> Xuất PDF</a>
+		<a href="#" class="btn backgroundColor" id="savePDF" onclick=""><i class="fa fa-download"></i> Xuất PDF</a>
 	</div>
 </form>
 <script>
@@ -392,6 +402,12 @@
 
 		readURL(this);
 	};
+	$('#savePDF').click(function(){
+		$('.hide-option').hide();
+		$('input').css('border-bottom', 'none');
+		$('textarea').css('border-bottom', 'none');
+		window.print();
+	});
 
 </script>
 	<script src="{{ asset('js/pdf/html2canvas.js') }}"></script>

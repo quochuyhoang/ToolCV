@@ -14,9 +14,11 @@
 // home.login
 
 Route::get('/', 'Home\HomeController@index1')->name('home');
+Route::get('/checkPass/{value}', 'Home\HomeController@checkPass')->name('checkPass');
 Route::get('/cv', function (){
   return view('home.layout.cv.CV3');
 });
+
 
 Route::prefix('home')->group(function (){
 
@@ -61,7 +63,9 @@ Route::prefix('home')->group(function (){
         Route::post('Create/{id}', 'Home\CvsController@CVCreate')->name('home.postcv');
         Route::get('CreateCV', 'Home\CvsController@color')->name('home.color');
 
+
     });
+    Route::get('deleteCV/{id}', 'Home\CvsController@deleteCV')->name('CV.delete');
 
     Route::get('ChosenColor/{id}','Home\CvsController@ChosenColor')->name('home.chosen');
 

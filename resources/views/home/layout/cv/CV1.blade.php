@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	<link href="{{ asset('home_asset/css/plugins/chosen/chosen.css') }}" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 	<style type="text/css">
 		.container{
@@ -72,9 +73,9 @@
 						<div class="steven"><input name="name"  type="text" placeholder="Your Name" value="{{ Auth::user()->name }}" style="background-color: transparent;"></div>
 						<div class="">
 							<div class="avatar-upload">
-								<div class="avatar-edit">
-									<input type='file' id="imageUpload" name="newImage" accept=".png, .jpg, .jpeg" />
-									<label for="imageUpload"></label>
+								<div class="avatar-edit hide-option">
+									<input type='file' id="imageUpload" name="newImage" accept=".png, .jpg, .jpeg" class="hide-option" />
+									<label for="imageUpload" class="hide-option"></label>
 
 								</div>
 								<div class="avatar-preview">
@@ -93,6 +94,13 @@
 											reader.readAsDataURL(input.files[0]);
 										}
 									}
+
+									var upload = document.querySelector('#imageUpload');
+
+									upload.onchange = function() {
+
+										readURL(this);
+									};
 								</script>
 							</div>
 						</div>
@@ -134,7 +142,7 @@
 						</div>
 
 					</div>
-					<div class="right col-md-8">
+				<div class="right col-md-8">
 
 						<div class="right1">
 							<div class="experience">
@@ -143,7 +151,7 @@
 								</div>
 								<span class="contact contact01 color"> EXPERIENCE</span>
 							</div>
-							<div class="plus-buttom">
+							<div class="plus-buttom hide-option">
 								<a  onclick="addEx()" title="More Experience">
 									<i class="fa fa-plus"></i>
 								</a>
@@ -157,18 +165,19 @@
 										x.append('<div id="ex-tag'+dem+'">'
 											+'<hr>'
 											+'<div class="wordpress">'
-											+'<span class="list"><input name="ex_name1" type="text" placeholder="Name Company" style="width: 70%;font-size: 25px;"></span>'
-											+'<span class="nam"><input name="ex_time1" type="text" class="color" placeholder="Time" style="width: 20%;"></span><br>'
-											+'<input name="ex_position1" type="text" placeholder="Position" style="font-size: 23px;">'
+											+'<span class="list"><input name="ex_name'+dem+'" type="text" placeholder="Name Company" style="width: 70%;font-size: 25px;"></span>'
+											+'<span class="nam"><input name="ex_time'+dem+'" type="text" class="color" placeholder="Time" style="width: 20%;"></span><br>'
+											+'<input name="ex_position'+dem+'" type="text" placeholder="Position" style="font-size: 23px;">'
 											+'</div>'
 											+'<div class="content">'
-											+'<p class="text_max"><input name="ex_achiment1"  type="text" placeholder="Achiment" style="font-size: 20px;"></p>'
-											+'<textarea name="ex_describe1"  placeholder="Describe" cols="50" style="border-bottom: 1px solid" style="font-size: 20px;"></textarea><br>'
-											+'<input name="ex_reference1"  type="text" placeholder="reference Name" style="font-size: 18px;">'
-											+'<input name="ex_rf_phone1"  type="text" placeholder="reference phone"  style="margin-left: 5%;font-size: 18px;">'
+											+'<p class="text_max"><input name="ex_achiment'+dem+'"  type="text" placeholder="Achiment" style="font-size: 20px;"></p>'
+											+'<textarea name="ex_describe'+dem+'"  placeholder="Describe" cols="50" style="border-bottom: 1px solid" style="font-size: 20px;"></textarea><br>'
+											+'<input name="ex_reference'+dem+'"  type="text" placeholder="reference Name" style="font-size: 18px;">'
+											+'<input name="ex_rf_phone'+dem+'"  type="text" placeholder="reference phone"  style="margin-left: 5%;font-size: 18px;">'
 											+'</div>'
 											+'</div>'
 											);
+                                        $('#ex-hide').show();
 										var hide= document.getElementById('ex-hide');
 										hide.removeAttribute('hidden');
 									}
@@ -190,7 +199,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="plus-buttom"  id="ex-hide" hidden>
+							<div class="plus-buttom hide-option"  id="ex-hide" hidden>
 								<a  onclick="hideEX()" title="More Experience">
 									<i class="fa fa-times"></i>
 								</a>
@@ -202,10 +211,11 @@
 										parent.removeChild(child);
 
 										var dem= parseInt(get.value)-1;
+                                        get.value= dem;
 										if(dem===1){
-											$('#ex-hide').createAttribute('hidden');
+											$('#ex-hide').hide();
 										}
-										get.value= dem;
+
 									}
 								</script>
 							</div>
@@ -217,14 +227,15 @@
 									<img src="{{ asset('css/cv/images/cv1/') }}/Layer 3-min.png">
 								</div>
 								<span class="contact contact01 color">SKILLS</span><br>
+								<div class="hide-option">
+									<select data-placeholder="Choose a Skill..." id="select-skill"  class="chosen-select" multiple style="width:350px;" tabindex="4" onchange="chon(this)">
+										<p style="color: red" id="show_message"></p>
+										@foreach($skills as $skill)
+										<option value="{{ $skill->id }}">{{ $skill->name }}</option>
+										@endforeach
 
-								<select data-placeholder="Choose a Skill..." id="select-skill"  class="chosen-select" multiple style="width:350px;" tabindex="4" onchange="chon(this)">
-									<p style="color: red" id="show_message"></p>
-									@foreach($skills as $skill)
-									<option value="{{ $skill->id }}">{{ $skill->name }}</option>
-									@endforeach
-
-								</select>
+									</select>
+								</div>
 								<input id="skill-level-num" name="skill-level-num" type="hidden" value="0">
 								<div class="" id="result">
 
@@ -235,23 +246,23 @@
 										var num = document.getElementById('skill-level-num');
 										var options = obj.children;
 
-							// Biến lưu trữ các chuyên mục đa chọn
-							var html = '';
-							var number=0;
-							// lặp qua từng option và kiểm tra thuộc tính selected
-							for (var i = 0; i < options.length; i++){
-								if (options[i].selected){
-									number++;
-									html += '<h4>'+options[i].text+'</h4>'
-											+'<input type="hidden" name="skill-name'+number+'" value="'+options[i].value+'">'
-											+' <input type="range" name="skill-level'+number+'" min="1" max="100" value="50" class="slider" id="myRange" style="width: 410px;">'
+										// Biến lưu trữ các chuyên mục đa chọn
+										var html = '';
+										var number=0;
+										// lặp qua từng option và kiểm tra thuộc tính selected
+										for (var i = 0; i < options.length; i++){
+											if (options[i].selected){
+												number++;
+												html += '<h4>'+options[i].text+'</h4>'
+														+'<input type="hidden" name="skill-name'+number+'" value="'+options[i].value+'">'
+														+' <input type="range" name="skill-level'+number+'" min="1" max="100" value="50" class="slider" id="myRange" style="width: 410px;">'
 
-								}
-							}
-							num.value=number;
+											}
+										}
+										num.value=number;
 
-							// Gán kết quả vào div#result
-							document.getElementById('result').innerHTML = html;
+										// Gán kết quả vào div#result
+										document.getElementById('result').innerHTML = html;
 						}
 					</script>
 				</div>
@@ -263,7 +274,7 @@
 					</div>
 					<span class="contact contact01 color">EDUCATION</span>
 				</div>
-				<div class="plus-buttom">
+				<div class="plus-buttom hide-option">
 					<a  onclick="edu()" >
 						<i class="fa fa-plus"></i>
 					</a>
@@ -288,6 +299,7 @@
 							+'</div>'
 							);
 						var hide= document.getElementById('edu-hide');
+                        $('#edu-hide').show();
 						hide.removeAttribute('hidden');
 					}
 				</script>
@@ -305,7 +317,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="plus-buttom" id="edu-hide" hidden style="margin-top: -1%;">
+				<div class="plus-buttom hide-option" id="edu-hide" hidden style="margin-top: -1%;">
 					<a  onclick="hideEdu()" title="Hide this Education">
 						<i class="fa fa-times"></i>
 					</a>
@@ -316,10 +328,11 @@
 							var child = document.getElementById('edu-tag'+get.value);
 							parent.removeChild(child);
 							var dem= parseInt(get.value)-1;
+                            get.value= dem;
 							if(dem===1){
-								$('#edu-hide').createAttribute('hidden');
+								$('#edu-hide').hide();
 							}
-							get.value= dem;
+
 						}
 					</script>
 				</div>
@@ -331,7 +344,7 @@
 					</div>
 					<span class="contact contact01 color">AWARDS</span>
 				</div>
-				<div class="plus-buttom">
+				<div class="plus-buttom hide-option">
 					<a  onclick="aw()" >
 						<i class="fa fa-plus"></i>
 					</a>
@@ -346,17 +359,17 @@
 						x.append('<div class="col-md-6" id="aw-tag'+dem+'">'
 							+'<div class="text_expres">'
 							+'<div class="wordpress">'
-							+'<span class="list"><input name="aw_name1"  type="text" placeholder="Name"></span>'
+							+'<span class="list"><input name="aw_name'+dem+'"  type="text" placeholder="Name"></span>'
 							+'</div>'
 							+'<div class="contant1">'
-							+'<div class=" nam1"><input name="aw_time1"  class="color" type="text" placeholder="Year"></div>'
-							+'<p class="text_min"><input name="aw_describe1"  type="text" placeholder="Describe"></p>'
+							+'<div class=" nam1"><input name="aw_time'+dem+'"  class="color" type="text" placeholder="Year"></div>'
+							+'<p class="text_min"><input name="aw_describe'+dem+'"  type="text" placeholder="Describe"></p>'
 							+'</div>'
 							+'</div>'
 							+'</div>'
 							);
-						var hide= document.getElementById('aw-hide');
-						hide.removeAttribute('hidden');
+
+                        $('#aw-hide').show();
 					}
 				</script>
 				<input name="aw-number" type="hidden" id="aw-number" value="1">
@@ -373,7 +386,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="plus-buttom" id="aw-hide" hidden>
+				<div class="plus-buttom hide-option" id="aw-hide" hidden>
 					<a  onclick="hideAw()" title="Hide this Education">
 						<i class="fa fa-times"></i>
 					</a>
@@ -384,10 +397,11 @@
 							var child = document.getElementById('aw-tag'+get.value);
 							parent.removeChild(child);
 							var dem= parseInt(get.value)-1;
+                            get.value= dem;
 							if(dem===1){
-								$('#aw-hide').createAttribute('hidden');
+								$('#aw-hide').hide();
 							}
-							get.value= dem;
+
 						}
 					</script>
 				</div>
@@ -406,15 +420,17 @@
 		</div>
 	</div>
 </div>
-<div style="text-align: center;padding-bottom: 3%">
+<div style="text-align: center;padding-bottom: 3%" class="hide-option">
 	<input type="hidden" name="imageCV" value="{{ $cv ->id}}">
 	<input type="hidden" name="colorCV" value="{{ $color->id }}">
 	<input style="margin: 0" type="submit" class="btn backgroundColor" value="Lưu" />
-	<a href="#" class="btn backgroundColor" id="btn-print" onclick=""><i class="fa fa-download"></i> Xuất PDF</a>
+	<a href="#" class="btn backgroundColor" id="savePDF" ><i class="fa fa-download"></i> Xuất PDF</a>
 </div>
 </form>
 <!-- Thư viện jquery đã nén phục vụ cho bootstrap.min.js  -->
+{{--
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+--}}
 <!-- Thư viện popper đã nén phục vụ cho bootstrap.min.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
 <!-- Bản js đã nén của bootstrap 4, đặt dưới cùng trước thẻ đóng body-->
@@ -429,29 +445,18 @@
 			$(".rating span").removeClass('checked');
 			$(this).parent().addClass('checked');
 		});
-		var area_print = $('#area-print');
 
-		var a4 =[ 595.28, 841.89];
-		$('#btn-print').on('click',function(){
-			print();
-		});
-		function print() {
-			html2canvas(document.getElementById('pdf'), {
-
-				onrendered: function(canvas){
-					var img= canvas.toDataURL("image/png");
-					doc = new jsPDF();
-					doc.addImage(img,'JPEG',0,0,210, 297);
-					doc.save('CV.pdf');
-				}
-			});
-		};
+	});
+	$('#savePDF').click(function(){
+		$('.hide-option').hide();
+		$('input').css('border-bottom', 'none');
+		$('textarea').css('border-bottom', 'none');
+		/*document.getElementById('aaa').style.display = 'none';*/
+		window.print();
 
 	});
 </script>
 
-<script src="{{ asset('js/pdf/html2canvas.js') }}"></script>
-<script src="{{ asset('js/pdf/jspdf.js') }}"></script>
 <script src="{{ asset('home_asset/js/plugins/chosen/chosen.jquery.js')}}"></script>
 </body>
 </html>

@@ -14,8 +14,13 @@ class AdminController extends Controller
 
 		$this->middleware('auth:admin');
 	}
+	public function du_lieu(){
+         $data['locations']= DB::table('locations')->get();
+         return $data;
+    }
 	public function Admin()
 	{
+
 		$admins = DB::table('admins')->get();
 
 		return view('admin.layouts.admin.list', compact('admins'));
@@ -88,47 +93,79 @@ class AdminController extends Controller
 	}   
 
 	public function search(Request $request)
-	{
-		$input=$request->all();
-		$data['name']=$input['user_name'];
-		$data['skill']=$input['skills'];
-		$data['level']=$input['skill_level'];
+    {
+        $input = $request->all();
+        /*dd($input);*/
 
-        $data['count'] = DB::table('users')
-            ->join('user_skill', 'users.id', 'user_skill.user_id')
-            ->join('skills', 'skills.id', 'user_skill.skill_id')
-            ->where([
-                ['users.name', 'like', '%' . $input['user_name'] . '%'],
-                ['skills.name', 'like', '%' . $input['skills'] . '%'],
-                ['user_skill.level', 'like', '%' . $input['skill_level'] . '%']
-            ])
-            ->distinct()
-            ->count('users.id');
+        $data['name'] = $input['user_name'];
+        $data['skill'] = $input['skills'];
+        $data['skill_level_down'] = $input['skill_level_down'];
+        $data['skill_level_up'] = $input['skill_level_up'];
+        if (isset($input['userLocation'])){
+            $loca = DB::table('locations')->find($input['userLocation']);
+        $data['search_location'] = $loca->name;
+        }
 
-            $data['items'] = DB::table('users')
-                ->select('users.id', 'users.name', 'users.birth', 'users.phone', 'users.address', 'users.avatar', 'users.email', 'users.location_id' )
+        if($input['skill_level_up'] != null) {
+            $data['count'] = DB::table('users')
                 ->join('user_skill', 'users.id', 'user_skill.user_id')
                 ->join('skills', 'skills.id', 'user_skill.skill_id')
                 ->where([
-                    ['users.name', 'like', '%' . $input['user_name'] . '%'],
-                    ['skills.name', 'like', '%' . $input['skills'] . '%'],
-                    ['user_skill.level', 'like', '%' . $input['skill_level'] . '%']
+                    ['users.name', 'like', '"%' . $input['user_name'] . '%"'],
+                    ['skills.name', 'like', '"%' . $input['skills'] . '%"'],
+                    ['user_skill.level', '>', $input['skill_level_down']],
+                    ['user_skill.level', '<=', $input['skill_level_up']]
+                ])
+                ->distinct()
+                ->count('users.id');
+
+            $data['items'] = DB::table('users')
+                ->select('users.id', 'users.name', 'users.birth', 'users.phone', 'users.address', 'users.avatar', 'users.email', 'users.location_id')
+                ->join('user_skill', 'users.id', 'user_skill.user_id')
+                ->join('skills', 'skills.id', 'user_skill.skill_id')
+                ->where([
+                    ['users.name', 'like', '"%' . $input['user_name'] . '%"'],
+                    ['skills.name', 'like', '"%' . $input['skills'] . '%"'],
+                    ['user_skill.level', '>', $input['skill_level_down']],
+                    ['user_skill.level', '<=', $input['skill_level_up']]
                 ])
                 ->distinct()
                 ->get();
+        }
+        else{
+            $data['count'] = DB::table('users')
+                ->join('user_skill', 'users.id', 'user_skill.user_id')
+                ->join('skills', 'skills.id', 'user_skill.skill_id')
+                ->join('locations', 'locations.id', 'users.location_id')
+                ->where([
+                    ['users.name', 'like', '%' . $input['user_name'] . '%'],
+                    ['skills.name', 'like', '%' . $input['skills'] . '%']
+                ])
+                ->distinct()
+                ->count('users.id');
+
+            $data['items'] = DB::table('users')
+                ->select('users.id', 'users.name', 'users.birth', 'users.phone', 'users.address', 'users.avatar', 'users.email', 'locations.name as city')
+                ->join('user_skill', 'users.id','=', 'user_skill.user_id')
+                ->join('skills', 'skills.id','=',  'user_skill.skill_id')
+                ->join('locations', 'locations.id', 'users.location_id')
+                ->where([
+                    ['users.name', 'like', '%' . $input['user_name'] . '%'],
+                    ['skills.name', 'like', '%' . $input['skills'] . '%']
+                ])
+                ->distinct()
+                ->get();
+        }
 
 
             /*->max('user_cvs.id');*/
-           /* dd($data['items']);*/
+    /*  dd($data['items']);*/
 
 		$data['user_skills']=DB::table('user_skill')
             ->select('skills.name','user_skill.level', 'user_skill.user_id')
             ->join('skills', 'skills.id','user_skill.skill_id')
             ->get();
 
-
-
-		# code...
         return view('admin.layouts.listSearch',$data)->with('success','hihi');
 	}
 }

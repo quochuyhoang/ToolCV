@@ -121,10 +121,10 @@
                                         <td>
                                             <a class="btn btn-danger" style="font-size: 12px;padding: 2px 10px;" href="{{ url('home/ShowCV/'.$user_cv->id) }}">
                                                 Show <img src="{{ asset('home_asset') }}/images/show.png" alt="" style="width: 17px;"></a>
-                                            <button class="btn btn-outline-light"
-                                                style="font-size: 12px;padding: 2px 10px;">
+                                            <a class="btn btn-outline-light" href="{{ url('home/deleteCV/'.$user_cv->id) }}"
+                                                style="font-size: 12px;padding: 2px 10px;" onclick="return confirm('Bạn có chắc chắn xóa Cv này?')">
                                                 Delete <img src="{{ asset('home_asset') }}/images/delete.png" alt=""
-                                                    style="width: 17px;"></button>
+                                                    style="width: 17px;"></a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -139,7 +139,7 @@
                                   {{--  </a>--}}
                                     <input type="button" class="btn btn-outline-success" id="edit" onclick="editInfor()" value="Edit Info">
                                     <input type="button" class="btn btn-outline-danger" id="editCancel" onclick="cancelInfor()" value="Cancel">
-                                    <input type="button" class="btn btn-outline-info" onclick="changePass()" value="Chang PassWord">
+                                    <input type="button" class="btn btn-outline-info" onclick="changePass()" value="Change PassWord">
                                     <script>
                                         function editInfor() {
                                             $('#edit').hide();
@@ -178,10 +178,25 @@
                                 <div class="card-body">
                                     <label>Current Password</label>
                                     <div class="form-group pass_show">
-                                        <input type="password" name="oldPass"  class="form-control"
-                                            placeholder="Current Password" id="oldpass" style="width: 93%;" >
+                                        <input type="password" name="oldPass"  id="oldPass" class="form-control"
+                                            placeholder="Current Password" style="width: 93%;" onchange="checkPass(this)">
                                         <p style="color:red">{{ $errors->first('oldPass') }}</p>
+                                        <div style="color:red" id="errorPass"></div>
                                     </div>
+                                    <script>
+                                        function checkPass(obj){
+                                            /*var x= document.getElementById('search_name').value;*/
+                                            var x = obj.value;
+                                            if(x===""){
+                                                $("#errorPass").innerHTML='';
+                                            }
+                                            else {
+                                                $.get("checkPass/"+x, function (data) {
+                                                    $("#errorPass").html(data);
+                                                });
+                                            }
+                                        };
+                                    </script>
                                     <label>New Password</label>
                                     <div class="form-group pass_show">
                                         <input type="password" name="newPass" id="pass" class="form-control" placeholder="New Password"

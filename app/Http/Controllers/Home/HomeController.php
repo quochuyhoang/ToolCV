@@ -74,7 +74,9 @@ class HomeController extends Controller
                 $Hinh = str_random(4) . "_avatar_" . $name;
             }
             $file->move('assets/img/avatar/', $avatar);
-            unlink('assets/img/avatar/'.$old->avatar);
+            if ($old->avatar != null) {
+                unlink('assets/img/avatar/' . $old->avatar);
+            }
             $file_name = $avatar;
 
         } else {
@@ -146,5 +148,16 @@ class HomeController extends Controller
         return view('home.layout.show1',compact('user_cvs','skills','users','user_skill','education','experience'));
     }
 
+    public function checkPass($value){
+     /*   $user=DB::table('users')->find($id);
+        if (password_verify($value,$user->password)) {
+
+        }else{
+            echo 'old pasword dose not match';
+        }*/
+     echo "kiên";
+
+
+    }
 
 }

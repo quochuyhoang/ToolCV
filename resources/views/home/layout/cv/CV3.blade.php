@@ -152,7 +152,7 @@
 					<div class="cricle backgroundColor">
 					<i class="fas fa-shopping-bag"></i>
 					</div>
-					<div class="plus-buttom">
+					<div class="plus-buttom hide-option">
 						<a  onclick="addEx()" title="More Experience">
 							<i class="fa fa-plus"></i>
 						</a>
@@ -186,6 +186,9 @@
 										+'</div>'
 										+'</div>'
 								);
+
+									$('#ex-hide').show();
+
 								var hide= document.getElementById('ex-hide');
 								hide.removeAttribute('hidden');
 							}
@@ -219,7 +222,7 @@
 						</div>
 
 				</div>
-				<div class="plus-buttom"  id="ex-hide" hidden >
+				<div class="plus-buttom hide-option"  id="ex-hide" hidden >
 				<a  onclick="hideEX()" title="More Experience">
 					<i class="fa fa-times"></i>
 				</a>
@@ -228,14 +231,14 @@
 							var get= document.getElementById('ex-number');
 							var parent = document.getElementById("ex");
 							var child = document.getElementById('ex-tag'+get.value);
-							var child = document.getElementById('ex-tag'+get.value);
 							parent.removeChild(child);
 
 							var dem= parseInt(get.value)-1;
-							if(dem===1){
-								$('#ex-hide').createAttribute('hidden');
-							}
 							get.value= dem;
+							if(dem===1){
+								$('#ex-hide').hide();
+							}
+
 						}
 					</script>
 				</div>
@@ -248,7 +251,7 @@
 					<div class="cricle backgroundColor">
 						<i class="fa fa-gift" aria-hidden="true"></i>
 					</div>
-					<div class="plus-buttom">
+					<div class="plus-buttom hide-option">
 						<a  onclick="aw()" >
 							<i class="fa fa-plus"></i>
 						</a>
@@ -264,14 +267,15 @@
 							x.append('<div id="aw-tag'+dem+'">'
 									+'<hr>'
 									+'<div class="job-header">'
-									+'<input name="aw_name'+dem+'"  type="text" placeholder="Name">'
-									+'<h4 class="time color">	<input name="aw_time'+dem+'" class="color" type="text" placeholder="Year"></h4>'
+									+'<input name="aw_name'+dem+'"  type="text" placeholder="Name" style="width: 50%;">'
+									+'<h4 class="time color">	<input name="aw_time'+dem+'"  class="color" type="text" placeholder="Year"  style="width: 50%;margin-left: 40%;font-size: 16px;"></h4>'
 									+'</div>'
 									+'<div class="job-describer">'
-									+'<input name="aw_describe'+dem+'"  type="text" placeholder="Describe">'
+									+'<textarea name="aw_describe'+dem+'"  type="text" placeholder="Describe" style="width: 65%;"></textarea>'
 									+'</div>'
 									+'</div>'
 							);
+							$('#aw-hide').show();
 							var hide= document.getElementById('aw-hide');
 							hide.removeAttribute('hidden');
 						}
@@ -291,7 +295,7 @@
 					</div>
 				</div>
 
-				<div class="plus-buttom" id="aw-hide" hidden>
+				<div class="plus-buttom hide-option" id="aw-hide" hidden>
 					<a  onclick="hideAW()" title="More Experience">
 						<i class="fa fa-times"></i>
 					</a>
@@ -305,33 +309,17 @@
 
 
 							var dem= parseInt(get.value)-1;
-							if(dem===1){
-								$('#aw-hide').createAttribute('hidden');
-							}
 							get.value= dem;
+							if(dem===1){
+								$('#aw-hide').hide();
+							}
+
 						}
 					</script>
 				</div>
 			</div>
 
-			<div class="test" style="margin-top: 30px">
-				<div class="title">
-					<div class="cricle backgroundColor">
-						<i class="fa fa-heart" aria-hidden="true"></i>
-					</div>
-				</div>
 
-				<h1 class="exp">Hobbies</h1>
-                <textarea name="hobbies" cols="60" rows="5"  class="ckeditor" placeholder="Yours hobbies"></textarea>
-
-				<script>
-					function hob() {
-						var x= document.getElementById('hobbies').value;
-						alert(x);
-					}
-				</script>
-
-			</div>
 
 		</div>
 		<div class="col-md-5">
@@ -342,7 +330,7 @@
 					</div>
 				</div>
 				<h1 class="exp">EDUCATION</h1>
-				<div class="plus-buttom"  style="margin-top: -16%;">
+				<div class="plus-buttom hide-option"  style="margin-top: -16%;">
 					<a  onclick="edu()" >
 						<i class="fa fa-plus"></i>
 					</a>
@@ -354,7 +342,7 @@
 						get.value= dem;
 
 						var x= $("#edu");
-						x.append('<div id="edu-tag'+dem+'">'
+						x.append('<div id="edu-tag'+dem+'" style="margin-top: -13%;">'
 								+'<hr>'
 								+'<div class="job-header">'
 								+'<input name="ed_name'+dem+'" type="text" placeholder="Name School" style="font-size:20px"><br>'
@@ -365,6 +353,7 @@
 								+'</div>'
 								+'</div>'
 						);
+						$('#edu-hide').show();
 						var hide= document.getElementById('edu-hide');
 						hide.removeAttribute('hidden');
 					}
@@ -382,7 +371,7 @@
 					</div>
 
 				</div>
-				<div class="plus-buttom" id="edu-hide" hidden>
+				<div class="plus-buttom hide-option" id="edu-hide" hidden>
 					<a  onclick="hideEdu()" title="Hide this Education">
 						<i class="fa fa-times"></i>
 					</a>
@@ -393,10 +382,11 @@
 							var child = document.getElementById('edu-tag'+get.value);
 							parent.removeChild(child);
 							var dem= parseInt(get.value)-1;
-							if(dem===1){
-								$('#edu-hide').createAttribute('hidden');
-							}
 							get.value= dem;
+							if(dem===1){
+								$('#edu-hide').hide();
+							}
+
 						}
 					</script>
 				</div>
@@ -428,7 +418,7 @@
 				</div>
 				<div id="result">
 					@foreach($user_skills as $user_skill)
-						<h4>{{ $user_skill->name }}</h4>
+						<h4>{{ $user_skill->name }} {{ $user_skill->level }}%</h4>
 						<div class="progress">
 							<input type="range" min="1" max="100" value="{{ $user_skill->level }}" class="slider"  style="width: 410px;" onchange="hien(this)">
 						</div>
@@ -442,16 +432,17 @@
 
                         // Biến lưu trữ các chuyên mục đa chọn
                         var html = '';
-                        var number=1;
+                        var number=0;
                         // lặp qua từng option và kiểm tra thuộc tính selected
                         for (var i = 0; i < options.length; i++){
                             if (options[i].selected){
-                                html += '<br><h4>'+options[i].text+' <span id="level'+number+'"></span></h4>'
+								number++;
+                                html += '<br><h4>'+options[i].text+'    <span id="level'+number+'" ></span></h4> '
 										+'<input type="hidden" name="skill-name'+number+'" value="'+options[i].value+'">'
 										+'<div class="progress hide-option">'
-										+' <input type="range" name="skill-level'+number+'" id="name-skill'+number+'" min="1" max="100" value="50" class="slider " style="width: 410px;" onchange="hien('+number+')" >'
+										+'<input type="range" name="skill-level'+number+'" id="name-skill'+number+'" min="1" max="100" value="50" class="slider " style="width: 410px;" onchange="hien('+number+')" >'
 										+'</div>'
-                                number++;
+
                             }
                         }
                         num.value=number;
@@ -465,68 +456,50 @@
 
 						var y= document.getElementById('level'+obj);
 						y.innerHTML = x.value+"%";
+
 					}
                 </script>
 
 
 			</div>
+			<div class="test" style="margin-top: 30px">
+				<div class="title">
+					<div class="cricle backgroundColor">
+						<i class="fa fa-heart" aria-hidden="true"></i>
+					</div>
+				</div>
+
+				<h1 class="exp">Hobbies</h1>
+				<textarea name="hobbies" cols="40" rows="5"  class="ckeditor" placeholder="Yours hobbies"></textarea>
+			</div>
 		</div>
 		</div>
 		</div>
-	<div style="text-align: center;padding-bottom: 3%;" id="aaa">
+	<div style="text-align: center;padding-bottom: 3%;" id="aaa" class="hide-option">
         <input type="hidden" name="imageCV" value="{{ $cv ->id}}">
         <input type="hidden" name="colorCV" value="{{ $color->id }}">
 		<input type="submit" class="btn backgroundColor" value="Lưu" style="margin: 0;" />
-		<a href="#" class="btn backgroundColor" id="btn-print" onclick=""><i class="fa fa-download"></i> Xuất PDF</a>
+		<a href="#" class="btn backgroundColor " id="savePDF" onclick=""><i class="fa fa-download"></i> Xuất PDF</a>
 	</div>
 	<script>
 		$(document).ready(function(){
-
-			$('.tagsinput').tagsinput({
-				tagClass: 'label label-danger'
-			});
-            $('.chosen-select').chosen({width: '100%'});
-
-
-
-            var area_print = $('#area-print');
-
-			var a4 =[ 595.28, 841.89];
-			$('#btn-print').on('click',function(){
-				print();
-			});
-			function print() {
-				$(".hide-option").hide();
-
-
-				/*html2canvas(document.getElementById('pdf'), {
-
-					onrendered: function(canvas){
-						var img= canvas.toDataURL("image/png");
-						doc = new jsPDF();
-						doc.addImage(img,'JPEG',0,0,210, 297);
-						doc.save('CV.pdf');
-					}
-				});*/
-			};
-
-
-
+			// Check Radio-box
+			$('.chosen-select').chosen({width: '100%'});
 		});
+		$('#savePDF').click(function(){
+			$('.hide-option').hide();
+			$('input').css('border-bottom', 'none');
+			$('textarea').css('border-bottom', 'none');
 
-		$('.save1').click(function(){
-		document.getElementById('aaa').style.display = 'none';
      	window.print();
-});
+		});
 	</script>
-	<script src="{{ asset('js/pdf/html2canvas.js') }}"></script>
-	<script src="{{ asset('js/pdf/jspdf.js') }}"></script>
 </form>
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="{{ asset('home_asset/js/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js')}}"></script>
-<script src="{{ asset('home_asset/js/plugins/chosen/chosen.jquery.js')}}"></script>
+		<script src="{{ asset('home_asset/js/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js')}}"></script>
+		<script src="{{ asset('home_asset/js/plugins/chosen/chosen.jquery.js')}}"></script>
 </body>
 	
 </html>

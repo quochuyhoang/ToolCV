@@ -50,28 +50,28 @@
 																<div class="input-group-prepend">
 																		<span class="input-group-text"><i class="fas fa-user"></i></span>
 																</div>
-																<input type="text" id="name" name="name" class="form-control" placeholder="name">
+																<input type="text" id="name" name="name" class="form-control" placeholder="name" value="{{ old('name') }}">
 														</div>
 														<div class="input-group form-group">
 
 																<div class="input-group-prepend">
 																		<span class="input-group-text"><i class="fas fa-birthday-cake"></i></span>
 																</div>
-																<input type="date" id="birth" name="birth" class="form-control" placeholder="Birthday (dd/MM/yyyy)">
+																<input type="date" id="birth" name="birth" class="form-control" placeholder="Birthday (dd/MM/yyyy)" value="{{ old('birth') }}">
 														</div>
 														<div class="input-group form-group">
 
 																<div class="input-group-prepend">
 																		<span class="input-group-text"><i class="fas fa-phone"></i></span>
 																</div>
-																<input type="text" id="phone" name="phone" class="form-control" maxlength="12" placeholder="phone">
+																<input type="text" id="phone" name="phone" class="form-control" maxlength="12" placeholder="phone" value="{{ old('phone') }}">
 														</div>
 														<div class="input-group form-group">
 
 																<div class="input-group-prepend">
 																		<span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
 																</div>
-																<input type="text" id="address" name="address" class="form-control" placeholder="address">
+																<input type="text" id="address" name="address" class="form-control" placeholder="address" value="{{ old('address') }}">
 														</div>
 														<div class="input-group form-group">
 
@@ -88,7 +88,7 @@
 																<div class="input-group-prepend">
 																		<span class="input-group-text"><i class="fas fa-at"></i></span>
 																</div>
-																<input type="email" id="email" name="email" class="form-control" placeholder="email">
+																<input type="email" id="email" name="email" class="form-control" placeholder="email" value="{{ old('email') }}">
 														</div>
 														<div class="input-group form-group">
 
@@ -105,7 +105,7 @@
 																<div class="input-group-prepend">
 																		<span class="input-group-text"><i class="fas fa-key"></i></span>
 																</div>
-																<input type="password" id="password" name="password" class="form-control" placeholder="password" onchange="lengthPasswword()">
+																<input type="password" id="password" name="password" class="form-control" placeholder="password" onchange="lengthPasswword()" >
 
 														</div>
 														<p id="lengthpass" style="color: red; font-size: 15px"></p>
