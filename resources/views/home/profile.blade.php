@@ -139,7 +139,7 @@
                                   {{--  </a>--}}
                                     <input type="button" class="btn btn-outline-success" id="edit" onclick="editInfor()" value="Edit Info">
                                     <input type="button" class="btn btn-outline-danger" id="editCancel" onclick="cancelInfor()" value="Cancel">
-                                    <input type="button" class="btn btn-outline-info" onclick="changePass()" value="Chang PassWord">
+                                    <input type="button" class="btn btn-outline-info" onclick="changePass()" value="Change PassWord">
                                     <script>
                                         function editInfor() {
                                             $('#edit').hide();
@@ -178,10 +178,25 @@
                                 <div class="card-body">
                                     <label>Current Password</label>
                                     <div class="form-group pass_show">
-                                        <input type="password" name="oldPass"  class="form-control"
-                                            placeholder="Current Password" id="oldpass" style="width: 93%;" >
+                                        <input type="password" name="oldPass"  id="oldPass" class="form-control"
+                                            placeholder="Current Password" style="width: 93%;" onchange="checkPass(this)">
                                         <p style="color:red">{{ $errors->first('oldPass') }}</p>
+                                        <div style="color:red" id="errorPass"></div>
                                     </div>
+                                    <script>
+                                        function checkPass(obj){
+                                            /*var x= document.getElementById('search_name').value;*/
+                                            var x = obj.value;
+                                            if(x===""){
+                                                $("#errorPass").innerHTML='';
+                                            }
+                                            else {
+                                                $.get("checkPass/"+x, function (data) {
+                                                    $("#errorPass").html(data);
+                                                });
+                                            }
+                                        };
+                                    </script>
                                     <label>New Password</label>
                                     <div class="form-group pass_show">
                                         <input type="password" name="newPass" id="pass" class="form-control" placeholder="New Password"

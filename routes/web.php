@@ -14,9 +14,11 @@
 // home.login
 
 Route::get('/', 'Home\HomeController@index1')->name('home');
+Route::get('/checkPass/{value}', 'Home\HomeController@checkPass')->name('checkPass');
 Route::get('/cv', function (){
   return view('home.layout.cv.CV3');
 });
+
 
 Route::prefix('home')->group(function (){
 

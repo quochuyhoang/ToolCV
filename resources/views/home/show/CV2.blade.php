@@ -228,8 +228,8 @@
 			</div>
 
 		</div>
-		<div style="text-align: center;">
-		<a href="#" class="btn backgroundColor" id="btn-print" onclick=""><i class="fa fa-download"></i> Xuất PDF</a>
+		<div style="text-align: center;"  class="hide-option">
+		<a href="#" class="btn backgroundColor" id="savePDF" onclick=""><i class="fa fa-download"></i> Xuất PDF</a>
 		</div>
 
 </body>
@@ -252,6 +252,15 @@
 				}
 			});
 		};
+
+	});
+
+	$('#savePDF').click(function(){
+		$('.hide-option').hide();
+		$('input').css('border-bottom', 'none');
+		$('textarea').css('border-bottom', 'none');
+		/*document.getElementById('aaa').style.display = 'none';*/
+		window.print();
 
 	});
 </script>

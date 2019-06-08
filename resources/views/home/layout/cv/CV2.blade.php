@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
 	{{--<link rel="stylesheet" type="text/css" href="{{ asset('css/cv') }}/cv22.css">--}}
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/cv') }}/cv3.css">
@@ -76,12 +76,16 @@
 		.backgroundColor input,.backgroundColor textarea {
 			text-align: center;
 		}
-		.backgroundColor input,.backgroundColor textarea{
+		.backgroundColor input,.backgroundColor textarea {
 			@switch($color->name)
                 @case('black' && 'purple')
-					color:white;
-			@break
-			@endswitch
+					 color: white;
+		@break
+        @endswitch
+		}
+
+
+
 	</style>
 </head>
 
@@ -103,8 +107,36 @@
 
 			<div class="header backgroundColor" style="">
 			<div class="avatar">
-				<div class="cricle">
-					<img class="mr-3" src="{{ asset('assets/img/avatar/'.Auth::user()->avatar) }}" width="100%" alt="Generic placeholder image">
+				<div class="avatar-upload">
+					<div class="avatar-edit hide-option">
+						<input type='file' id="imageUpload" name="newImage" accept=".png, .jpg, .jpeg" />
+						<label for="imageUpload"></label>
+
+					</div>
+					<div class="avatar-preview">
+						<div id="imagePreview" style="background-image:url({{asset('assets/img/avatar/'.Auth::user()->avatar)}});">
+						</div>
+					</div>
+					<script>
+						function readURL(input) {
+							if (input.files && input.files[0]) {
+								var reader = new FileReader();
+								reader.onload = function(e) {
+									$('#imagePreview').css('background-image', 'url('+e.target.result +')');
+
+
+								}
+								reader.readAsDataURL(input.files[0]);
+							}
+						}
+
+						var upload = document.querySelector('#imageUpload');
+
+						upload.onchange = function() {
+
+							readURL(this);
+						};
+					</script>
 				</div>
 			</div>
 
@@ -158,7 +190,7 @@
 				<div class="col-md-7">
 					<div class="test">
 						<h2 class="exp color">EXPERIENCE</h2>
-						<div class="plus-buttom">
+						<div class="plus-buttom hide-option">
 							<a  onclick="addEx()" title="More Experience">
 								<i class="fa fa-plus"></i>
 							</a>
@@ -176,7 +208,7 @@
 											+'</div>'
 											+'<div class="exp-content">'
 											+'<input name="ex_name'+dem+'" type="text" placeholder="Name Company" style="width: 65%; font-size: 20px;">'
-											+'<input name="ex_position1" type="text" placeholder="Position" style="font-size: 17px; width: 30%;margin-left: 3%;">'
+											+'<input name="ex_position1'+dem+'" type="text" placeholder="Position" style="font-size: 17px; width: 30%;margin-left: 3%;">'
 											+'</div>'
 											+'<div class="content">'
 											+'<textarea name="ex_describe'+dem+'"  placeholder="Describe" cols="50" style="width: 65%;font-size: 17px;"></textarea>'
@@ -212,7 +244,7 @@
 									</div>
 								</div>
 							</div>
-						<div class="plus-buttom"  id="ex-hide" hidden>
+						<div class="plus-buttom hide-option"  id="ex-hide" hidden>
 							<a  onclick="hideEX()" title="More Experience">
 								<i class="fa fa-times"></i>
 							</a>
@@ -235,7 +267,7 @@
 						</div>
 					<div class="test">
 						<h2 class="exp color">educations</h2>
-						<div class="plus-buttom">
+						<div class="plus-buttom hide-option">
 							<a  onclick="edu()" >
 								<i class="fa fa-plus"></i>
 							</a>
@@ -278,7 +310,7 @@
 							</div>
 						</div>
 						<div style="clear: both;"></div>
-						<div class="plus-buttom" id="edu-hide" hidden>
+						<div class="plus-buttom hide-option" id="edu-hide" hidden>
 							<a  onclick="hideEdu()" title="Hide this Education">
 								<i class="fa fa-times"></i>
 							</a>
@@ -297,9 +329,15 @@
 							</script>
 						</div>
 					</div>
+
+
+
+				</div>
+
+				<div class="col-md-5">
 					<div class="test">
 						<h2 class="exp color">awards</h2>
-						<div class="plus-buttom">
+						<div class="plus-buttom hide-option">
 							<a  onclick="aw()" >
 								<i class="fa fa-plus"></i>
 							</a>
@@ -333,29 +371,26 @@
 						<div class="last-job" id="aw">
 							<input name="aw-number" type="hidden" id="aw-number" value="1">
 							<div id="aw-tag1">
-									<div class="exp-title">
-										<input name="aw_time1"  class="color" type="text" placeholder="Year" style="width: 20%;">
-									</div>
-									<div class="exp-content">
-										<input name="aw_name1"  type="text" placeholder="Name" style="width: 45%;">
-									</div>
+								<div class="exp-title">
+									<input name="aw_time1"  class="color" type="text" placeholder="Year" style="width: 20%;">
+								</div>
+								<div class="exp-content">
+									<input name="aw_name1"  type="text" placeholder="Name" style="width: 45%;">
+								</div>
 
 
-									<div class="content">
-										<textarea name="aw_describe1" rows="4" placeholder="Describe" style="width: 80%;"></textarea>
-									</div>
+								<div class="content">
+									<textarea name="aw_describe1" rows="4" placeholder="Describe" style="width: 80%;"></textarea>
+								</div>
 
 							</div>
 						</div>
 						<div style="clear: both;"></div>
 					</div>
-
-
-				</div>
-				<div class="col-md-5">
 					<div class="test" style="margin-bottom: 50px" >
 						<h2 class="exp color">PRO SKILLS</h2>
 						<input id="skill-level-num" name="skill-level-num" type="hidden" value="0">
+						<div class="hide-option">
 						<select data-placeholder="Choose a Skill..." id="select-skill"  class="chosen-select" multiple style="width:350px;" tabindex="4" onchange="chon(this)">
 							<p style="color: red" id="show_message"></p>
 							@foreach($skills as $skill)
@@ -368,6 +403,7 @@
 							@endforeach
 
 						</select>
+						</div>
 						<div id="result">
 							@foreach($user_skills as $user_skill)
 									<h4>{{ $user_skill->name }}</h4>
@@ -420,11 +456,11 @@
 	</div>
 
 </div>
-<div style="text-align: center; padding-bottom: 3%;">
+<div style="text-align: center; padding-bottom: 3%;" class="hide-option">
 	<input type="hidden" name="imageCV" value="{{ $cv ->id}}">
 	<input type="hidden" name="colorCV" value="{{ $color->id }}">
 	<input type="submit" class="btn backgroundColor" value="Lưu" style="margin: 0;" />
-	<a href="#" class="btn backgroundColor" id="btn-print" onclick=""><i class="fa fa-download"></i> Xuất PDF</a>
+	<a href="#" class="btn backgroundColor" id="savePDF" ><i class="fa fa-download"></i> Xuất PDF</a>
 </div>
 </form>
 
@@ -434,25 +470,16 @@
 
 		$('.chosen-select').chosen({width: '100%'});
 
-		var area_print = $('#area-print');
 
-		var a4 =[ 595.28, 841.89];
-		$('#btn-print').on('click',function(){
-			print();
+		$('#savePDF').click(function(){
+			$('.hide-option').hide();
+			$('input').css('border-bottom', 'none');
+			$('textarea').css('border-bottom', 'none');
+			$('.template').css('border', 'none');
+			/*document.getElementById('aaa').style.display = 'none';*/
+			window.print();
+
 		});
-		function print() {
-			html2canvas(document.getElementById('pdf'), {
-
-				onrendered: function(canvas){
-					var img= canvas.toDataURL("image/png");
-					doc = new jsPDF();
-					doc.addImage(img,'JPEG',0,0,210, 297);
-					doc.save('CV.pdf');
-				}
-			});
-		};
-
-
 
 	});
 </script>
