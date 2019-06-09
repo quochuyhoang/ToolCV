@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Model\AdminModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\View;
 
 class AdminController extends Controller
 {
@@ -12,6 +14,8 @@ class AdminController extends Controller
     {
 
         $this->middleware('auth:admin')-> only('index');
+        $locations = DB::table('locations')->get();
+        View::share('locations', $locations);
     }
 
     /*

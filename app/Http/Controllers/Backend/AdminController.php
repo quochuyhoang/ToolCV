@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
-use MongoDB\BSON\MaxKey;
+use Illuminate\Support\Facades\View;
 
 class AdminController extends Controller
 {
@@ -13,6 +13,8 @@ class AdminController extends Controller
 	{
 
 		$this->middleware('auth:admin');
+        $locations = DB::table('locations')->get();
+        View::share('locations', $locations);
 	}
 	public function du_lieu(){
          $data['locations']= DB::table('locations')->get();

@@ -151,43 +151,20 @@
 		</div>
 	</div>
 	<div style="text-align: center;" class="hide-option">
-	<a href="#" class="btn backgroundColor" id="savePDF" onclick=""><i class="fa fa-download"></i> Xuất PDF</a>
+		<a href="#" class="btn backgroundColor" id="savePDF" onclick="xuatPDF()"><i class="fa fa-download"></i> Xuất PDF</a>
 	</div>
+	<script>
+
+		function xuatPDF(){
+			$('.hide-option').hide();
+
+			window.print();
+
+		}
+	</script>
 
 </body>
-<script type="javascript">
-	$(document).ready(function(){
-		var area_print = $('#area-print');
 
-		var a4 =[ 595.28, 841.89];
-		$('#btn-print').on('click',function(){
-			print();
-		});
-		function print() {
-			html2canvas(document.getElementById('pdf'), {
-
-				onrendered: function(canvas){
-					var img= canvas.toDataURL("image/png");
-					doc = new jsPDF();
-					doc.addImage(img,'JPEG',0,0,210, 297);
-					doc.save('CV.pdf');
-				}
-			});
-		};
-
-	});
-	$('#savePDF').click(function(){
-		$('.hide-option').hide();
-		$('input').css('border-bottom', 'none');
-		$('textarea').css('border-bottom', 'none');
-		/*document.getElementById('aaa').style.display = 'none';*/
-		window.print();
-
-	});
-</script>
-
-<script src="{{ asset('js/pdf/html2canvas.js') }}"></script>
-<script src="{{ asset('js/pdf/jspdf.js') }}"></script>
 
 <script
 src="https://code.jquery.com/jquery-3.4.1.js"

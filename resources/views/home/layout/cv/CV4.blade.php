@@ -32,6 +32,11 @@
 		}
 		.backgroundColor{
 			background-color: {{ $color->name }};
+			@switch($color->name)
+			@case('black' && 'purple')
+				color:white;
+			@break
+		    @endswitch
 		}
 		input, textarea {
 			border: none;
@@ -39,6 +44,7 @@
 			margin-bottom: 3%;
 			background-color: transparent;
 		}
+
 	</style>
 </head>
 <body>
@@ -54,7 +60,7 @@
 <form name="create" method="post" action="{{ url('home/Create/Create/'.Auth::user()->id) }}" enctype="multipart/form-data">
 	@csrf
 	<div class="container template" id="pdf">
-	<div class="row ">
+		<div class="row ">
 		<div class="col-md-4 backgroundColor" id="right">
 			<div class="avatar-upload">
 				<div class="avatar-edit hide-option">
@@ -120,7 +126,7 @@
 									+'<div><input name="ex_time'+dem+'" type="text" class="color" placeholder="Time" style="width:20%;"></div>'
 									+'<div><input name="ex_position'+dem+'" type="text" placeholder="Position" style="width:30%;"></div>'
 									+'<div><textarea name="ex_describe'+dem+'"  placeholder="Describe" rows="3" style="width:45%;margin-right:5%;border-bottom:1px solid;"></textarea>'
-									+'<textarea name="ex_describe'+dem+'" placeholder="Achievement" rows="3" style="width:45%;border-bottom:1px solid"></textarea></div>'
+									+'<textarea name="ex_achiment'+dem+'" placeholder="Achievement" rows="3" style="width:45%;border-bottom:1px solid"></textarea></div>'
 									+'<input name="ex_reference'+dem+'"  type="text" placeholder="reference Name" style="margin-right:5%;">'
 									+'<input name="ex_rf_phone'+dem+'" type="text" placeholder="reference phone">'
 									+'</div>'
@@ -139,7 +145,7 @@
             <div><input name="ex_time1" type="text" class="color" placeholder="Time" style="width:20%;"></div>
             <div><input name="ex_position1" type="text" placeholder="Position" style="width:30%;"></div>
             <div><textarea name="ex_describe1" placeholder="Describe" rows="3" style="width:45%;margin-right:5%;border-bottom:1px solid;"></textarea>
-            <textarea name="ex_describe1" placeholder="Achievement" rows="3" style="width:45%;border-bottom:1px solid"></textarea></div>
+            <textarea name="ex_achiment1" placeholder="Achievement" rows="3" style="width:45%;border-bottom:1px solid"></textarea></div>
             <input name="ex_reference1"  type="text" placeholder="reference Name" style="margin-right:5%;">
             <input name="ex_rf_phone1"  type="text" placeholder="reference phone">
 					</div>
@@ -344,13 +350,13 @@
 			</div>
 		</div>
 	</div>
-</div>
+	</div>
 
 	<div style="text-align: center;margin-bottom:3%;" class="hide-option">
 		<input type="hidden" name="imageCV" value="{{ $cv ->id}}">
 		<input type="hidden" name="colorCV" value="{{ $color->id }}">
-{{-- 		<input type="submit" class="btn backgroundColor" value="Lưu" /> --}}
-		<a type="submit" class="btn backgroundColor" style="color: #007bff">Lưu</a>
+		<input type="submit" class="btn backgroundColor" value="Lưu" style="margin: 0;" />
+		{{--<a type="submit" class="btn backgroundColor" style="color: #007bff">Lưu</a>--}}
 		<a href="#" class="btn backgroundColor" id="savePDF" onclick=""><i class="fa fa-download"></i> Xuất PDF</a>
 	</div>
 </form>
