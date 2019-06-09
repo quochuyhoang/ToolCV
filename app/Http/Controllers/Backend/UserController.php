@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\View;
 
 class UserController extends Controller
 {
@@ -12,6 +13,8 @@ class UserController extends Controller
 	 {
 
 		$this->middleware('auth:admin')->except('Register', 'Create','PostCreate1');
+         $locations = DB::table('locations')->get();
+         View::share('locations', $locations);
 	}
 
 	public function Register(){
