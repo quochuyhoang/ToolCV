@@ -88,7 +88,7 @@ Auth::routes();
 /*
  * route cho admin
  * */
-Route::prefix('backend')->group(function (){
+Route::prefix('admin')->group(function (){
 
     //URL: ...public/admin/
     Route::get('/', 'AdminController@index')->name('admin.dashboard');

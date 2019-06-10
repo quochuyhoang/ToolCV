@@ -228,44 +228,20 @@
 			</div>
 
 		</div>
-		<div style="text-align: center;"  class="hide-option">
-		<a href="#" class="btn backgroundColor" id="savePDF" onclick=""><i class="fa fa-download"></i> Xuất PDF</a>
+		<div style="text-align: center;" class="hide-option">
+			<a href="#" class="btn backgroundColor" id="savePDF" onclick="xuatPDF()"><i class="fa fa-download"></i> Xuất PDF</a>
 		</div>
+		<script>
 
+			function xuatPDF(){
+				$('.hide-option').hide();
+
+				window.print();
+
+			}
+		</script>
 </body>
-<script type="javascript">
-	$(document).ready(function(){
-		var area_print = $('#area-print');
 
-		var a4 =[ 595.28, 841.89];
-		$('#btn-print').on('click',function(){
-			print();
-		});
-		function print() {
-			html2canvas(document.getElementById('pdf'), {
-
-				onrendered: function(canvas){
-					var img= canvas.toDataURL("image/png");
-					doc = new jsPDF();
-					doc.addImage(img,'JPEG',0,0,210, 297);
-					doc.save('CV.pdf');
-				}
-			});
-		};
-
-	});
-
-	$('#savePDF').click(function(){
-		$('.hide-option').hide();
-		$('input').css('border-bottom', 'none');
-		$('textarea').css('border-bottom', 'none');
-		window.print();
-
-	});
-</script>
-
-<script src="{{ asset('js/pdf/html2canvas.js') }}"></script>
-<script src="{{ asset('js/pdf/jspdf.js') }}"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
