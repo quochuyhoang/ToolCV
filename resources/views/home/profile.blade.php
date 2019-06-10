@@ -105,7 +105,7 @@
                             </div>
                 </form>
 
-                            <table class="table text-light table-bordered">
+                            <table class="table text-light table-bordered text-center">
                                 <thead>
                                     <tr class="text-center">
                                         <th scope="col">#</th>
@@ -115,9 +115,9 @@
                                 </thead>
                                 <tbody>
                                 @foreach($user_cvs as $key => $user_cv)
-                                    <tr>
+                                    <tr >
                                         <th scope="row">{{ $key+1 }}</th>
-                                        <td>CV{{ $key+1 }}</td>
+                                        <td >CV{{ $key+1 }}</td>
                                         <td>
                                             <a class="btn btn-danger" style="font-size: 12px;padding: 2px 10px;" href="{{ url('home/ShowCV/'.$user_cv->id) }}">
                                                 Show <img src="{{ asset('home_asset') }}/images/show.png" alt="" style="width: 17px;"></a>
@@ -189,9 +189,11 @@
                                             var x = obj.value;
                                             if(x===""){
                                                 $("#errorPass").innerHTML='';
+
                                             }
                                             else {
-                                                $.get("checkPass/"+x, function (data) {
+
+                                                $.get('{{ url('checkPass/'.Auth::user()->id) }}'+'/'+x, function (data) {
                                                     $("#errorPass").html(data);
                                                 });
                                             }
