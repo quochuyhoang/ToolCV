@@ -12,7 +12,15 @@
                     <figure class="wpf-blog">
                         <a href=""><img src="{{ asset('') }}home_asset/images/cv/{{ $imageCV->name }}_red.png" alt="img" class="CV_image"></a>
                         <figcaption class="view-caption">
-                            <a href="{{ url('home/ChosenColor/'.$imageCV->id) }}" target="_blank" class="centered" id="cv1" >Use this template</a>
+                            <a
+                            @guest
+                                data-toggle="modal" data-target="#loginModal"
+                            @else
+                                 href="{{ url('home/ChosenColor/'.$imageCV->id) }}"
+                            @endguest
+
+
+                                    target="_blank" class="centered" id="cv1" >Use this template</a>
                         </figcaption>
                     </figure>
                     <h3>Creative Resume Templates</h3>
