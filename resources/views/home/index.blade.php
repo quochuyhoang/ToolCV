@@ -113,8 +113,7 @@
                 @guest
                 <a  class="btn" data-toggle="modal" data-target="#loginModal">Sign In</a>
                 @if (Route::has('register'))
-                <a href="{{ route('home.register') }}" target="_blank" class="btn" style="margin-right:20px;">Register</a>
-                <a  target="_blank" class="btn" style="margin-right:20px;" data-toggle="modal" data-target="#registerModal">Register1</a>
+                <a  target="_blank" class="btn" style="margin-right:20px;" data-toggle="modal" data-target="#registerModal">Register</a>
                 @endif
                 @else
                 <span style="font-size:20px;color:white;margin-right:.7rem;">Welcome, {{ Auth::user()->name}}</span>

@@ -1,3 +1,8 @@
+<style>
+  .input-group {
+    width: 100%;
+  }
+</style>
 <div class="container">
 
 	<div class="modal fade" id="registerModal">
@@ -7,14 +12,12 @@
 				@csrf
 				<!-- Modal Header -->
 					<div class="modal-header">
-						<h4 class="modal-title">Login</h4>
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title text-center" style="text-shadow: 1px 1px 3px;font-size: 30px;">Create Account</h4>
+              <button type="button" class="close" data-dismiss="modal" style="margin-top:-40px;font-size:40px;">&times;</button>
 					</div>
 
 					<!-- Modal body -->
 					<div class="modal-body">
-
-
 						@if(count($errors)>0)
 							<div class="alert alert-danger">
 								@foreach($errors->all() as $err)
@@ -28,38 +31,24 @@
 						@endif
 
 						<div class="input-group form-group">
-							<div class="input-group-prepend">
-								<span class="input-group-text"><i class="fas fa-user"></i></span>
-							</div>
+                <label>Name:</label>
 							<input type="text" id="name" name="name" class="form-control" placeholder="name" value="{{ old('name') }}">
 						</div>
 						<div class="input-group form-group">
-
-							<div class="input-group-prepend">
-								<span class="input-group-text"><i class="fas fa-birthday-cake"></i></span>
-							</div>
-							<input type="date" id="birth" name="birth" class="form-control" placeholder="Birthday (dd/MM/yyyy)" value="{{ old('birth') }}">
+              <label>Birthday:</label>
+							<input type="date" id="birth" name="birth" class="form-control" placeholder="(dd/MM/yyyy)" value="{{ old('birth') }}">
 						</div>
 						<div class="input-group form-group">
-
-							<div class="input-group-prepend">
-								<span class="input-group-text"><i class="fas fa-phone"></i></span>
-							</div>
+              <label>Phone Number:</label>
 							<input type="text" id="phone" name="phone" class="form-control" maxlength="12" placeholder="phone" value="{{ old('phone') }}">
 						</div>
 						<div class="input-group form-group">
-
-							<div class="input-group-prepend">
-								<span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
-							</div>
+              <label>Address:</label>
 							<input type="text" id="address" name="address" class="form-control" placeholder="address" value="{{ old('address') }}">
 						</div>
 						<div class="input-group form-group">
-
-							<div class="input-group-prepend">
-								<span class="input-group-text"><i class="fas fa-user"></i></span>
-							</div>
-							<input type="file" id="avatar" name="avatar" placeholder="Avatar" class="form-control" onchange="fileValidation()" accept=".jpg, .png, .gif">
+              <label>Avatar:</label>
+							<input type="file" id="avatar" name="avatar" style="border: transparent;" placeholder="Avatar" class="form-control" onchange="fileValidation()" accept=".jpg, .png, .gif">
 							<script type="text/javascript">
 								function fileValidation() {
 									var fileInput = document.getElementById('avatar');
@@ -88,17 +77,11 @@
 						<div id="imagePreview" style="margin: 0 auto;">
 						</div>
 						<div class="input-group form-group">
-
-							<div class="input-group-prepend">
-								<span class="input-group-text"><i class="fas fa-at"></i></span>
-							</div>
+              <label>Email:</label>
 							<input type="email" id="email" name="email" class="form-control" placeholder="email" value="{{ old('email') }}">
 						</div>
 						<div class="input-group form-group">
-
-							<div class="input-group-prepend">
-								<span class="input-group-text"><i class="fas fa-city"></i></span>
-							</div>
+              <label>City:</label>
 							<select name="location_id" class="form-control">
 								@foreach($locations as $location)
 									<option value="{{ $location->id}}">{{$location->name }}</option>
@@ -106,9 +89,7 @@
 							</select>
 						</div>
 						<div class="input-group form-group">
-							<div class="input-group-prepend">
-								<span class="input-group-text"><i class="fas fa-key"></i></span>
-							</div>
+              <label>Password:</label>
 							<input type="password" id="password" name="password" class="form-control" placeholder="password" onchange="lengthPasswword()" >
 
 						</div>
@@ -127,9 +108,7 @@
 
 						</script>
 						<div class="input-group form-group">
-							<div class="input-group-prepend">
-								<span class="input-group-text"><i class="fas fa-key"></i></span>
-							</div>
+              <label>Re-Password:</label>
 							<input type="password" id="confirmPassword" name="confirmPassword" class="form-control" placeholder="confirmPassword" onchange="confirmPasswword()">
 						</div>
 						<p id="errorpass" style="color: red; font-size: 15px"></p>
@@ -153,8 +132,7 @@
 
 					<!-- Modal footer -->
 					<div class="modal-footer">
-						<input type="submit" value="Register" class="btn float-right login_btn">
-						<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+						<input type="submit" value="Register" class="btn btn-block btn-warning float-right login_btn">
 					</div>
 				</form>
 			</div>
