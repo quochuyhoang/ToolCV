@@ -33,6 +33,10 @@
   <script src="{{ asset('assets/js/plugins/dataTables/dataTables.bootstrap4.min.js') }}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" type="text/javascript" charset="utf-8" async defer></script>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link href="{{asset('login')}}/css/style4.css" rel="stylesheet" type="text/css" />
+  <!-- /custom style sheet -->
+  <!-- fontawesome css -->
+  <link href="{{asset('login')}}/css/fontawesome-all.css" rel="stylesheet" />
 
 </head>
 

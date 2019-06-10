@@ -8,20 +8,18 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\View;
 
 
 class HomeController extends Controller
 {
-//  public function __construct()
-// 	{
+  public function __construct()
+ 	{
 
-// 		$this->middleware('auth:web')->only('index');
-//     }
-	
-	// public function index(){
+        $locations = DB::table('locations')->get();
+        View::share('locations', $locations);
+     }
 
- //        return view('home.index1');
- //    }
 
     public function index1(){
         $data['imageCVs']=DB::table('imageCVs')->paginate(4);

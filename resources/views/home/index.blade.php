@@ -30,6 +30,9 @@
 
         <link rel="shortcut icon" href="{{asset('') }}home_asset/images/short_icon.html">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        <!--Custom styles-->
+        <link rel="stylesheet" type="text/css" href="{{ asset("") }}/home_asset/css_form/styles.css">
     </head>
     <style>
         .preview-banner {
@@ -88,6 +91,9 @@
             alert('{{ session('thongbao') }}');
         </script>
     @endif
+    @include('home.login')
+    @include('home.register')
+
         <!--Loader-->
         <div id="loader">
             <div class="loader">
@@ -105,9 +111,10 @@
         <section class="preview-banner" style="padding-top: 50px; padding-bottom: 100px;">
             <div class="pull-right display">
                 @guest
-                <a href="{{ route('home.login') }}" class="btn">Sign In</a>
+                <a  class="btn" data-toggle="modal" data-target="#loginModal">Sign In</a>
                 @if (Route::has('register'))
                 <a href="{{ route('home.register') }}" target="_blank" class="btn" style="margin-right:20px;">Register</a>
+                <a  target="_blank" class="btn" style="margin-right:20px;" data-toggle="modal" data-target="#registerModal">Register1</a>
                 @endif
                 @else
                 <span style="font-size:20px;color:white;margin-right:.7rem;">Welcome, {{ Auth::user()->name}}</span>
@@ -128,6 +135,7 @@
                 </div>
                 @endguest
             </div>
+
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 col-sm-12 text-center">
