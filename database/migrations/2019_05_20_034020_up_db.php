@@ -112,7 +112,7 @@ class UpDb extends Migration
             $table
                 ->foreign('colorcv_id')
                 ->references('id')
-                ->on('colorCV');
+                ->on('colorcv');
         });
 
 

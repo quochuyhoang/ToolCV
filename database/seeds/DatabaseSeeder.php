@@ -38,7 +38,7 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        $location = "red,blue,green,purple,orange,yellow,black";
+        $location = "red,blue,green,purple,orange,yellow";
         $explode = explode(',',$location);
         $j=1;
         foreach($explode as $ex)
