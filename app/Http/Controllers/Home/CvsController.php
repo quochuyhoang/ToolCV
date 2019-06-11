@@ -23,12 +23,15 @@ class CvsController extends Controller
     public function ChosenColor($id)
     {
 
-        $data['imageCVs'] = DB::table('imagecvs')->find($id);
+        $data['imageCVs'] = DB::table('imageCVs')->find($id);
 
-        $data['colors'] = DB::table('colorcv')
-            ->select('colors.id as colorId', 'colors.name as colorName')
-            ->join('colors', 'colors.id', '=', 'colorcv.color_id')
-            ->where('imageCV_id', $data['imageCVs']->id)->get();
+        // $data['colors'] = DB::table('colorcv')
+        //     ->select('colors.id as colorId', 'colors.name as colorName')
+        //     ->join('colors', 'colors.id', '=', 'colorcv.color_id')
+        //     ->where('imageCV_id', $data['imageCVs']->id)->get();
+
+        $data['colors'] = DB::table('colors')
+        ->select('colors.id as colorId', 'colors.name as colorName')->get();
 
 
         return view('home.chosencolor', $data);
@@ -189,7 +192,7 @@ class CvsController extends Controller
 
 
         $imagecvs = DB::table('colorcv')
-        ->select('imagecvs.name as cvname', 'colors.name as colorcv')
+        ->select('imagecvs.name as CVname', 'colors.name as colorCv')
         ->join('imagecvs', 'imagecvs.id', '=' ,'colorcv.imageCV_id')
         ->join('colors', 'colors.id', '=', 'colorcv.color_id')
         ->where('colorcv.id', '=', $user_cvs->colorcv_id)->first();
