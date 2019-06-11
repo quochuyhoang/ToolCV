@@ -76,7 +76,7 @@ class DatabaseSeeder extends Seeder
             'location_id' => '1',
         ]);
         
-        $location = "PHP, PHP Laravel, Css, JavaScript, Node.js";
+        $location = "PHP,PHP Laravel,Css,JavaScript,Node.js";
         $explode = explode(',',$location);
         foreach($explode as $ex)
         {
