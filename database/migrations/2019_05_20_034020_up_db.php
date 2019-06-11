@@ -26,9 +26,9 @@ class UpDb extends Migration
 
         Schema::create('colorcv', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('imageCV_id')->unsigned();
+            $table->bigInteger('imagecv_id')->unsigned();
             $table
-                ->foreign('imageCV_id')
+                ->foreign('imagecv_id')
                 ->references('id')
                 ->on('imagecvs')
                 ->onDelete('cascade');

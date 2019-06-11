@@ -73,8 +73,8 @@ class HomeController extends Controller
             }
             $file->move('assets/img/avatar/', $avatar);
             if ($old->avatar != null) {
-                if(file_exists('assets/img/avatar/' . $avatar){
-                unlink('assets/img/avatar/' . $old->avatar);
+                if(file_exists('assets/img/avatar/' . $old->avatar)){
+                    unlink('assets/img/avatar/' . $old->avatar);
                 }
             }
             $file_name = $avatar;
