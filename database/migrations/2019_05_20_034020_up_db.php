@@ -13,7 +13,7 @@ class UpDb extends Migration
      */
     public function up()
     {
-        Schema::create('imageCVs', function (Blueprint $table) {
+        Schema::create('imagecvs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
 
@@ -24,13 +24,13 @@ class UpDb extends Migration
             $table->string('name');
         });
 
-        Schema::create('colorCV', function (Blueprint $table) {
+        Schema::create('colorcv', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('imageCV_id')->unsigned();
             $table
                 ->foreign('imageCV_id')
                 ->references('id')
-                ->on('imageCVs')
+                ->on('imagecvs')
                 ->onDelete('cascade');
             $table->bigInteger('color_id')->unsigned();
             $table
