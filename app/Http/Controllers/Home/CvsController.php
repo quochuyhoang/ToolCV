@@ -23,7 +23,7 @@ class CvsController extends Controller
     public function ChosenColor($id)
     {
 
-        $data['imageCVs'] = DB::table('imageCVs')->find($id);
+        $data['imageCVs'] = DB::table('imagecvs')->find($id);
 
         $data['colors'] = DB::table('colorcv')
             ->select('colors.id as colorId', 'colors.name as colorName')
