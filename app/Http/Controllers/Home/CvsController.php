@@ -88,6 +88,10 @@ class CvsController extends Controller
             } else {
                 $file_name = 0;
             }
+            DB::table('users')->update([
+                'phone'=> $input['phone'],
+                'address'=> $input['address'],
+            ]);
 
             DB::table('user_cvs')->insert([
                 'user_id'=> $id,

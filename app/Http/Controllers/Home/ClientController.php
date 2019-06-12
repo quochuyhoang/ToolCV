@@ -51,20 +51,13 @@ class ClientController extends Controller
         $this->validate($req,[
             'name'		=>'required',
             'birth'		=>'required',
-            'phone'		=>'required',
-            'address'	=>'required',
-            //'avatar'	=>'required',
             'email'		=>'required|unique:users,email',
-            'password'	=>'required|min:6',
             'location_id'	=>'required'
 
         ],[
             'name.required'		=>'Name is not defined',
             'birth.required'	=>'Birth is not defined',
-            'phone.required'	=>'Phone is not defined',
-            'address.required'	=>'Address is not defined',
             'email.required'	=>'Email is not defined',
-            'password.required'	=>'Password is not defined',
             'location_id.required'	=>'Location is not defined',
         ]);
 

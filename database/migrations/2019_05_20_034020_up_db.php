@@ -49,8 +49,8 @@ class UpDb extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->date('birth');
-            $table->string('phone');
-            $table->string('address');
+            $table->string('phone')->nullable();
+            $table->string('address')->nullable();
             $table->string('avatar')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
