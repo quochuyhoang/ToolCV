@@ -10,7 +10,7 @@
             <div class="col-md-offset-1 col-md-5 col-sm-6 col-xs-12 text-center">
                 <div class="single-effect">
                     <figure class="wpf-blog">
-                        <a href=""><img src="{{ asset('') }}home_asset/images/cv/{{ $imageCV->name }}_red.png" alt="img" class="CV_image"></a>
+                        <a href=""><img src="{{ asset('') }}home_asset/images/cvs/{{ $imageCV->name }}_red.png" alt="img" class="CV_image"></a>
                         <figcaption class="view-caption">
                             <a
                             @guest
