@@ -196,7 +196,7 @@ class CvsController extends Controller
 
 
         $imagecvs = DB::table('colorcv')
-        ->select('imagecvs.name as CVname', 'colors.name as colorCv')
+        ->select('imagecvs.name as cvname', 'colors.name as colorcv')
         ->join('imagecvs', 'imagecvs.id', '=' ,'colorcv.imageCV_id')
         ->join('colors', 'colors.id', '=', 'colorcv.color_id')
         ->where('colorcv.id', '=', $user_cvs->colorcv_id)->first();
@@ -215,7 +215,7 @@ class CvsController extends Controller
 
         // dd($education);
 
-        return view('home.show.'.$imagecvs->CVname, compact('user_cvs','imagecvs','experience','education','user_skill','awards'));
+        return view('home.show.'.$imagecvs->cvname, compact('user_cvs','imagecvs','experience','education','user_skill','awards'));
     }
 
     public function deleteCV($id){
