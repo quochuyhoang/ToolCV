@@ -81,10 +81,6 @@ Route::prefix('home')->group(function (){
 });
 Auth::routes();
 
-
-
-
-
 /*
  * route cho admin
  * */

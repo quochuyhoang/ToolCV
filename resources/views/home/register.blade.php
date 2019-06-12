@@ -39,14 +39,6 @@
 							<input type="date" id="birth" name="birth" class="form-control" placeholder="(dd/MM/yyyy)" value="{{ old('birth') }}">
 						</div>
 						<div class="input-group form-group">
-              <label>Phone Number:</label>
-							<input type="text" id="phone" name="phone" class="form-control" maxlength="12" placeholder="phone" value="{{ old('phone') }}">
-						</div>
-						<div class="input-group form-group">
-              <label>Address:</label>
-							<input type="text" id="address" name="address" class="form-control" placeholder="address" value="{{ old('address') }}">
-						</div>
-						<div class="input-group form-group">
               <label>Avatar:</label>
 							<input type="file" id="avatar" name="avatar" style="border: transparent;" placeholder="Avatar" class="form-control" onchange="fileValidation()" accept=".jpg, .png, .gif">
 							<script type="text/javascript">
@@ -70,9 +62,7 @@
 										}
 									}
 								}
-
 							</script>
-
 						</div>
 						<div id="imagePreview" style="margin: 0 auto;">
 						</div>
@@ -90,13 +80,13 @@
 						</div>
 						<div class="input-group form-group">
               <label>Password:</label>
-							<input type="password" id="password" name="password" class="form-control" placeholder="password" onchange="lengthPasswword()" >
+							<input type="password" id="inputpassword" name="password" class="form-control" placeholder="password" onchange="lengthPasswword(this)" >
 
 						</div>
 						<p id="lengthpass" style="color: red; font-size: 15px"></p>
 						<script>
-							function lengthPasswword() {
-								var x = document.getElementById('password').value;
+							function lengthPasswword(obj) {
+								var x = obj.value;
 
 								if (x.length < 8) {
 									document.getElementById('lengthpass').style.display = 'block';
@@ -109,14 +99,14 @@
 						</script>
 						<div class="input-group form-group">
               <label>Re-Password:</label>
-							<input type="password" id="confirmPassword" name="confirmPassword" class="form-control" placeholder="confirmPassword" onchange="confirmPasswword()">
+							<input type="password" id="confirmPassword" name="confirmPassword" class="form-control" placeholder="confirmPassword" onchange="confirmPasswword(this)">
 						</div>
 						<p id="errorpass" style="color: red; font-size: 15px"></p>
 						<script>
-							function confirmPasswword() {
-								var x = document.getElementById('password').value;
-								var y = document.getElementById('confirmPassword').value;
+							function confirmPasswword(obj) {
 
+								var y = document.getElementById('inputpassword').value;
+								var x = obj.value;
 
 								if (x != y) {
 									document.getElementById('errorpass').style.display = 'block';
