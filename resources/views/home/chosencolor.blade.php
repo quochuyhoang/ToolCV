@@ -110,7 +110,7 @@
                 <div class="col-lg-1"></div>
                 <div class="col-lg-4">
                     <div class="single-effect" style="margin-left: 10%;">
-                        <img src="{{ asset('') }}home_asset/images/cv/{{ $imageCVs->name }}_red.png" alt="img" id="imageCV" class="displayImg" alt="this color doesn't exist">
+                        <img src="{{ asset('') }}home_asset/images/cvs/{{ $imageCVs->name }}_red.png" alt="img" id="imageCV" class="displayImg" alt="this color doesn't exist">
                     </div>
                 </div>
                 <div class="col-lg-1"></div>
@@ -151,7 +151,7 @@
 
                 var imgCV = document.querySelector('#imageCV');
 
-                imgCV.src = "{{ asset('') }}home_asset/images/cv/{{ $imageCVs->name }}_" + obj + ".png";
+                imgCV.src = "{{ asset('') }}home_asset/images/cvs/{{ $imageCVs->name }}_" + obj + ".png";
 
                 var color = document.getElementById('CVcolor');
                 color.value=obj;
