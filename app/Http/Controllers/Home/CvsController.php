@@ -23,12 +23,12 @@ class CvsController extends Controller
     public function ChosenColor($id)
     {
 
-        $data['imageCVs'] = DB::table('imagecvs')->find($id);
+        $data['imagecvs'] = DB::table('imagecvs')->find($id);
 
         // $data['colors'] = DB::table('colorcv')
         //     ->select('colors.id as colorId', 'colors.name as colorName')
         //     ->join('colors', 'colors.id', '=', 'colorcv.color_id')
-        //     ->where('imageCV_id', $data['imageCVs']->id)->get();
+        //     ->where('imageCV_id', $data['imagecvs']->id)->get();
 
         $data['colors'] = DB::table('colors')
         ->select('colors.id as colorId', 'colors.name as colorName')->get();
@@ -176,14 +176,14 @@ class CvsController extends Controller
 
 /*dd($user_skills);*/
         if($count<3) {
-            $cv=DB::table('imagecvs')->where('name',$input['CVname'])->first();
-            $color = DB::table('colors')->where('name',$input['CVcolor'])->first();
+            $cv=DB::table('imagecvs')->where('name',$input['cv_name'])->first();
+            $color = DB::table('colors')->where('name',$input['cv_color'])->first();
             $users= DB::table('users')->select('id', 'name', DB::raw('(SELECT COUNT(*) FROM user_cvs WHERE user_id=users.id) as count'))
                 ->get();
             $skills = DB::table('skills')->get();
 
 
-            return view('home.layout.cv.'.$input['CVname'], compact('color','users','skills','cv','user_skills'));
+            return view('home.layout.cv.'.$input['cv_name'], compact('color','users','skills','cv','user_skills'));
         }
         else{
             return Redirect()->back()->with('thongbao','You created three CV! You cannot create more');
