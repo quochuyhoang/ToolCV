@@ -28,7 +28,7 @@ class CvsController extends Controller
         // $data['colors'] = DB::table('colorcv')
         //     ->select('colors.id as colorId', 'colors.name as colorName')
         //     ->join('colors', 'colors.id', '=', 'colorcv.color_id')
-        //     ->where('imageCV_id', $data['imagecvs']->id)->get();
+        //     ->where('imagecv_id', $data['imagecvs']->id)->get();
 
         $data['colors'] = DB::table('colors')
         ->select('colors.id as colorId', 'colors.name as colorName')->get();
@@ -55,7 +55,7 @@ class CvsController extends Controller
         $input= $request->all();
         $idCV= DB::table('colorcv')
             ->where([
-            ['imageCV_id', $input['imageCV']],
+            ['imagecv_id', $input['imageCV']],
             ['color_id', $input['colorCV']]
         ])->first();
 
@@ -197,7 +197,7 @@ class CvsController extends Controller
 
         $imagecvs = DB::table('colorcv')
         ->select('imagecvs.name as cvname', 'colors.name as colorcv')
-        ->join('imagecvs', 'imagecvs.id', '=' ,'colorcv.imageCV_id')
+        ->join('imagecvs', 'imagecvs.id', '=' ,'colorcv.imagecv_id')
         ->join('colors', 'colors.id', '=', 'colorcv.color_id')
         ->where('colorcv.id', '=', $user_cvs->colorcv_id)->first();
 
