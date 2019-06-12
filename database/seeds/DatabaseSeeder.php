@@ -51,7 +51,7 @@ class DatabaseSeeder extends Seeder
         for($x=1; $x<$i; $x++){
             for($y=1; $y<$j; $y++){
                 DB::table('colorcv')->insert([
-                    'imageCV_id' => $x,
+                    'imagecv_id' => $x,
                     'color_id' => $y,
                 ]);
             }
