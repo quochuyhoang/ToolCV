@@ -128,7 +128,7 @@
                         <div class="ColorSet">
 
                             <form action="{{ route('home.color') }}" method="get">
-                                <input type="hidden" name="cv_name" value="{{ $imagecvs->name }}" />
+                                <input type="hidden" name="CVname" value="{{ $imagecvs->name }}" />
                                 <input type="hidden" name="cv_color" id="cv_color" value="red" />
                                 <input type="hidden" name="user_id" id="user_id" value="{{ Auth::user()->id }}" />
                                 {{--<a id="chosenlink" href="" class="btn btn-success btn-lg create_cv">Create Resume
