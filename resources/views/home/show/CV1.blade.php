@@ -27,10 +27,10 @@
 			color: black;
 		}
 		.color{
-			color: {{ $imagecvs->colorCv }};
+			color: {{ $imagecvs->colorcv }};
 		}
 		.backgroundColor{
-			background-color: {{ $imagecvs->colorCv }};
+			background-color: {{ $imagecvs->colorcv }};
 		}
 		.left input{
 			text-align: center;

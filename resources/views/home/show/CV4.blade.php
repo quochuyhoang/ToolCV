@@ -21,10 +21,10 @@
 	<link href="{{ asset('home_asset/css/plugins/chosen/chosen.css') }}" rel="stylesheet">
 	<style type="text/css">
 		.color{
-			color: {{ $imagecvs->colorCv }};
+			color: {{ $imagecvs->colorcv }};
 		}
 		.backgroundColor{
-			background-color: {{ $imagecvs->colorCv }};
+			background-color: {{ $imagecvs->colorcv }};
 		}
 	</style>
 </head>
