@@ -64,11 +64,11 @@
 		}
 
 		.color{
-			color: {{ $imagecvs->colorCv }};
+			color: {{ $imagecvs->colorcv }};
 		}
 		.backgroundColor{
 			z-index: 1;
-			background-color: {{ $imagecvs->colorCv }};
+			background-color: {{ $imagecvs->colorcv }};
 			opacity: 0.75;
 		}
 		.backgroundColor input,.backgroundColor textarea {

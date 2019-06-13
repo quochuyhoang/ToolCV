@@ -91,6 +91,18 @@ class ClientController extends Controller
             'location_id'	=> $req->location_id,
         ]);
 
-        return redirect()->route('home.index1')->with('success','Add Success');
+        if(Auth::guard('web')-> attempt(['email' => $req->email, 'password' => $req->password], $req -> remember)){
+
+            //nếu thành công thì chuyển hướng về view dashboard của admin
+            return redirect()-> intended(route('home.index1'))->with('thongbao','Create account success');
+
+        }
+        else {
+
+            //thất bại
+            return redirect()->back()->withInput($req->only('email', 'remember'));
+        }
+
+/*        return redirect()->route('home.index1')->with('success','Add Success');*/
     }
 }
