@@ -43,7 +43,7 @@ class ClientController extends Controller
         else {
 
             //thất bại
-            return redirect()->back()->withInput($req->only('email', 'remember'));
+            return redirect()->back()->withInput($req->only('email', 'remember'))->with('thongbao', 'Email or password is not correct');
         }
     }
 

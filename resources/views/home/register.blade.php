@@ -36,7 +36,14 @@
 						</div>
 						<div class="input-group form-group">
               <label>Birthday:</label>
-							<input type="date" id="birth" name="birth" class="form-control" placeholder="(dd/MM/yyyy)" value="{{ old('birth') }}">
+							<input type="date" id="birth" name="birth" class="form-control" placeholder="(dd/MM/yyyy)" value="{{ old('birth') }}" max="{{ date('d/m/Y') }}" onchange="checkday(this)">
+                            <script>
+                                function checkday(obj) {
+                                    var x = new Date();
+
+                                    alert(obj.value.getFullYear());
+                                }
+                            </script>
 						</div>
 						<div class="input-group form-group">
               <label>Avatar:</label>
