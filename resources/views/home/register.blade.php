@@ -94,7 +94,6 @@
 						<script>
 							function lengthPasswword(obj) {
 								var x = obj.value;
-
 								if (x.length < 8) {
 									document.getElementById('lengthpass').style.display = 'block';
 									document.getElementById('lengthpass').innerHTML = '<span>Password length must be greater than or equal to 8 characters</span>';
@@ -102,7 +101,6 @@
 									document.getElementById('lengthpass').style.display = 'none';
 								}
 							}
-
 						</script>
 						<div class="input-group form-group">
               <label>Re-Password:</label>
@@ -111,19 +109,15 @@
 						<p id="errorpass" style="color: red; font-size: 15px"></p>
 						<script>
 							function confirmPasswword(obj) {
-
 								var y = document.getElementById('inputpassword').value;
 								var x = obj.value;
-
 								if (x != y) {
 									document.getElementById('errorpass').style.display = 'block';
 									document.getElementById('errorpass').innerHTML = '<span>Confirm Pass word ís not correct</span>';
 								} else {
 									document.getElementById('errorpass').style.display = 'none';
-
 								}
 							}
-
 						</script>
 					</div>
 

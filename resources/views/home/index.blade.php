@@ -179,7 +179,7 @@
 
         <!-- BACK TO TOP  -->
         <div class="short-msg">
-            <a href="#" class="back-to"><i class="fa fa-long-arrow-up" aria-hidden="true"></i></a>
+            <a href="#" class="back-to"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a>
         </div>
         <!-- /#BACK TO TOP -->
 
