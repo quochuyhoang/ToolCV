@@ -6,11 +6,11 @@
 <div class="demo-section padding-bottom bglight">
     <div class="container">
         <div class="row page" id="page1" style="display: block;">
-            @foreach($imageCVs as $imageCV)
+            @foreach($imagecvs as $imageCV)
             <div class="col-md-offset-1 col-md-5 col-sm-6 col-xs-12 text-center">
                 <div class="single-effect">
                     <figure class="wpf-blog">
-                        <a href=""><img src="{{ asset('') }}home_asset/images/cv/{{ $imageCV->name }}_red.png" alt="img" class="CV_image"></a>
+                        <a href=""><img src="{{ asset('') }}home_asset/images/cvs/{{ $imageCV->name }}_red.png" alt="img" class="CV_image"></a>
                         <figcaption class="view-caption">
                             <a
                             @guest
@@ -34,7 +34,7 @@
 
         <div class="col-lg-12 text-center">
             <nav aria-label="Page navigation example">
-                {{ $imageCVs->links() }}
+                {{ $imagecvs->links() }}
             </nav>
         </div>
     </div>

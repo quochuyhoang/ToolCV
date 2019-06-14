@@ -51,20 +51,13 @@ class ClientController extends Controller
         $this->validate($req,[
             'name'		=>'required',
             'birth'		=>'required',
-            'phone'		=>'required',
-            'address'	=>'required',
-            //'avatar'	=>'required',
             'email'		=>'required|unique:users,email',
-            'password'	=>'required|min:6',
             'location_id'	=>'required'
 
         ],[
             'name.required'		=>'Name is not defined',
             'birth.required'	=>'Birth is not defined',
-            'phone.required'	=>'Phone is not defined',
-            'address.required'	=>'Address is not defined',
             'email.required'	=>'Email is not defined',
-            'password.required'	=>'Password is not defined',
             'location_id.required'	=>'Location is not defined',
         ]);
 
@@ -98,6 +91,18 @@ class ClientController extends Controller
             'location_id'	=> $req->location_id,
         ]);
 
-        return redirect()->route('home.index1')->with('success','Add Success');
+        if(Auth::guard('web')-> attempt(['email' => $req->email, 'password' => $req->password], $req -> remember)){
+
+            //nếu thành công thì chuyển hướng về view dashboard của admin
+            return redirect()-> intended(route('home.index1'))->with('thongbao','Create account success');
+
+        }
+        else {
+
+            //thất bại
+            return redirect()->back()->withInput($req->only('email', 'remember'));
+        }
+
+/*        return redirect()->route('home.index1')->with('success','Add Success');*/
     }
 }

@@ -23,12 +23,15 @@ class CvsController extends Controller
     public function ChosenColor($id)
     {
 
-        $data['imageCVs'] = DB::table('imageCVs')->find($id);
+        $data['imagecvs'] = DB::table('imagecvs')->find($id);
 
-        $data['colors'] = DB::table('colorcv')
-            ->select('colors.id as colorId', 'colors.name as colorName')
-            ->join('colors', 'colors.id', '=', 'colorcv.color_id')
-            ->where('imageCV_id', $data['imageCVs']->id)->get();
+        // $data['colors'] = DB::table('colorcv')
+        //     ->select('colors.id as colorId', 'colors.name as colorName')
+        //     ->join('colors', 'colors.id', '=', 'colorcv.color_id')
+        //     ->where('imagecv_id', $data['imagecvs']->id)->get();
+
+        $data['colors'] = DB::table('colors')
+        ->select('colors.id as colorId', 'colors.name as colorName')->get();
 
 
         return view('home.chosencolor', $data);
@@ -52,7 +55,7 @@ class CvsController extends Controller
         $input= $request->all();
         $idCV= DB::table('colorcv')
             ->where([
-            ['imageCV_id', $input['imageCV']],
+            ['imagecv_id', $input['imageCV']],
             ['color_id', $input['colorCV']]
         ])->first();
 
@@ -85,6 +88,10 @@ class CvsController extends Controller
             } else {
                 $file_name = 0;
             }
+            DB::table('users')->update([
+                'phone'=> $input['phone'],
+                'address'=> $input['address'],
+            ]);
 
             DB::table('user_cvs')->insert([
                 'user_id'=> $id,
@@ -170,7 +177,7 @@ class CvsController extends Controller
 /*dd($user_skills);*/
         if($count<3) {
             $cv=DB::table('imagecvs')->where('name',$input['CVname'])->first();
-            $color = DB::table('colors')->where('name',$input['CVcolor'])->first();
+            $color = DB::table('colors')->where('name',$input['cv_color'])->first();
             $users= DB::table('users')->select('id', 'name', DB::raw('(SELECT COUNT(*) FROM user_cvs WHERE user_id=users.id) as count'))
                 ->get();
             $skills = DB::table('skills')->get();
@@ -189,8 +196,8 @@ class CvsController extends Controller
 
 
         $imagecvs = DB::table('colorcv')
-        ->select('imagecvs.name as CVname', 'colors.name as colorCv')
-        ->join('imagecvs', 'imagecvs.id', '=' ,'colorcv.imageCV_id')
+        ->select('imagecvs.name as cvname', 'colors.name as colorcv')
+        ->join('imagecvs', 'imagecvs.id', '=' ,'colorcv.imagecv_id')
         ->join('colors', 'colors.id', '=', 'colorcv.color_id')
         ->where('colorcv.id', '=', $user_cvs->colorcv_id)->first();
 
@@ -208,7 +215,7 @@ class CvsController extends Controller
 
         // dd($education);
 
-        return view('home.show.'.$imagecvs->CVname, compact('user_cvs','imagecvs','experience','education','user_skill','awards'));
+        return view('home.show.'.$imagecvs->cvname, compact('user_cvs','imagecvs','experience','education','user_skill','awards'));
     }
 
     public function deleteCV($id){

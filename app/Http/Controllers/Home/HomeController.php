@@ -22,7 +22,7 @@ class HomeController extends Controller
 
 
     public function index1(){
-        $data['imageCVs']=DB::table('imageCVs')->paginate(4);
+        $data['imagecvs']=DB::table('imagecvs')->paginate(4);
         $data['user_cvs'] = DB::table('user_cvs')->get();
 
         return view('home.home',$data);
@@ -73,7 +73,9 @@ class HomeController extends Controller
             }
             $file->move('assets/img/avatar/', $avatar);
             if ($old->avatar != null) {
-                unlink('assets/img/avatar/' . $old->avatar);
+                if(file_exists('assets/img/avatar/' . $old->avatar)){
+                    unlink('assets/img/avatar/' . $old->avatar);
+                }
             }
             $file_name = $avatar;
 

@@ -13,7 +13,7 @@ class UpDb extends Migration
      */
     public function up()
     {
-        Schema::create('imageCVs', function (Blueprint $table) {
+        Schema::create('imagecvs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
 
@@ -24,13 +24,13 @@ class UpDb extends Migration
             $table->string('name');
         });
 
-        Schema::create('colorCV', function (Blueprint $table) {
+        Schema::create('colorcv', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('imageCV_id')->unsigned();
+            $table->bigInteger('imagecv_id')->unsigned();
             $table
-                ->foreign('imageCV_id')
+                ->foreign('imagecv_id')
                 ->references('id')
-                ->on('imageCVs')
+                ->on('imagecvs')
                 ->onDelete('cascade');
             $table->bigInteger('color_id')->unsigned();
             $table
@@ -49,8 +49,8 @@ class UpDb extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->date('birth');
-            $table->string('phone');
-            $table->string('address');
+            $table->string('phone')->nullable();
+            $table->string('address')->nullable();
             $table->string('avatar')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
@@ -112,7 +112,7 @@ class UpDb extends Migration
             $table
                 ->foreign('colorcv_id')
                 ->references('id')
-                ->on('colorCV');
+                ->on('colorcv');
         });
 
 

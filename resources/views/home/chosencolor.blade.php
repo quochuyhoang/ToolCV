@@ -110,7 +110,7 @@
                 <div class="col-lg-1"></div>
                 <div class="col-lg-4">
                     <div class="single-effect" style="margin-left: 10%;">
-                        <img src="{{ asset('') }}home_asset/images/cv/{{ $imageCVs->name }}_red.png" alt="img" id="imageCV" class="displayImg" alt="this color doesn't exist">
+                        <img src="{{ asset('') }}home_asset/images/cvs/{{ $imagecvs->name }}_red.png" alt="img" id="image_cv" class="displayImg" alt="this color doesn't exist">
                     </div>
                 </div>
                 <div class="col-lg-1"></div>
@@ -128,8 +128,8 @@
                         <div class="ColorSet">
 
                             <form action="{{ route('home.color') }}" method="get">
-                                <input type="hidden" name="CVname" value="{{ $imageCVs->name }}" />
-                                <input type="hidden" name="CVcolor" id="CVcolor" value="red" />
+                                <input type="hidden" name="CVname" value="{{ $imagecvs->name }}" />
+                                <input type="hidden" name="cv_color" id="cv_color" value="red" />
                                 <input type="hidden" name="user_id" id="user_id" value="{{ Auth::user()->id }}" />
                                 {{--<a id="chosenlink" href="" class="btn btn-success btn-lg create_cv">Create Resume
                                     <i class="fas fa-long-arrow-alt-right"></i>
@@ -149,14 +149,14 @@
         <script language="javascript">
             function chon(obj) {
 
-                var imgCV = document.querySelector('#imageCV');
+                var imgCV = document.querySelector('#image_cv');
 
-                imgCV.src = "{{ asset('') }}home_asset/images/cv/{{ $imageCVs->name }}_" + obj + ".png";
+                imgCV.src = "{{ asset('') }}home_asset/images/cvs/{{ $imagecvs->name }}_" + obj + ".png";
 
-                var color = document.getElementById('CVcolor');
+                var color = document.getElementById('cv_color');
                 color.value=obj;
                /* var color = document.getElementById('chosenlink');
-                color.href = "{{ url('home/Create/CreateCV/'.$imageCVs->name) }}"+"/"+obj;*/
+                color.href = "{{ url('home/Create/CreateCV/'.$imagecvs->name) }}"+"/"+obj;*/
             }
 
         </script>

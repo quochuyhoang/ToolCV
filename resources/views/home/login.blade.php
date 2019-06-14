@@ -6,7 +6,7 @@
                 @csrf
                 <!-- Modal Header -->
                     <div class="modal-header">
-                        <h4 class="modal-title text-center" style="text-shadow: 1px 1px 3px;font-size: 30px;">Login</h4>
+                        <h4 class="modal-title text-centerz" style="text-shadow: 1px 1px 3px;font-size: 30px;">Login</h4>
                         <button type="button" class="close" data-dismiss="modal" style="margin-top:-40px;font-size:40px;">&times;</button>
                     </div>
                     <!-- Modal body -->
