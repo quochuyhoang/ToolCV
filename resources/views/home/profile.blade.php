@@ -138,7 +138,7 @@
                                         <a href="{{ url('') }}" class="btn btn-outline-warning" style="text-decoration: none;color: yellow">Back to home page</a>
                                   {{--  </a>--}}
                                     <input type="button" class="btn btn-outline-success" id="edit" onclick="editInfor()" value="Edit Info">
-                                    <input type="button" class="btn btn-outline-danger" id="editCancel" onclick="cancelInfor()" value="Cancel">
+                                    <input type="reset" class="btn btn-outline-danger" id="editCancel" onclick="cancelInfor()" value="Cancel">
                                     <input type="button" class="btn btn-outline-info" onclick="changePass()" value="Change PassWord">
                                     <script>
                                         function editInfor() {

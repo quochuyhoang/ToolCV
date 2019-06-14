@@ -19,15 +19,15 @@
 					<!-- Modal body -->
 					<div class="modal-body">
 						@if(count($errors)>0)
-							<div class="alert alert-danger">
-								@foreach($errors->all() as $err)
-									{{ $err }}<br>
-								@endforeach
-							</div>
-						@endif
 
-						@if(session('success'))
-							<div class="alert alert-success">{{ session('success') }}</div>
+								<?php  $error =""; ?>
+								@foreach($errors->all() as $err)
+									<?php $error .= $err."<br>"; ?>
+								@endforeach
+								{!! $error !!}
+							<script>
+								alert({!! $error !!}+"hihi");
+							</script>
 						@endif
 
 						<div class="input-group form-group">

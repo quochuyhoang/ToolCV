@@ -126,18 +126,18 @@
                     </div>
                     <div class="col-lg-12">
                         <div class="ColorSet">
-
-                            <form action="{{ route('home.color') }}" method="get">
+                            <a class="btn btn-danger btn-lg" href="{{ url('') }}" style="float: left;">
+                                <i class="fas fa-long-arrow-alt-left"></i>
+                                <span>Back</span>
+                            </a>
+                            <form action="{{ route('home.color') }}" method="get" >
                                 <input type="hidden" name="CVname" value="{{ $imagecvs->name }}" />
                                 <input type="hidden" name="cv_color" id="cv_color" value="red" />
                                 <input type="hidden" name="user_id" id="user_id" value="{{ Auth::user()->id }}" />
                                 {{--<a id="chosenlink" href="" class="btn btn-success btn-lg create_cv">Create Resume
                                     <i class="fas fa-long-arrow-alt-right"></i>
                                 </a>--}}
-                                <button class="btn btn-danger btn-lg">
-                                    <i class="fas fa-long-arrow-alt-left"></i>
-                                    <span>Back</span>
-                                </button>  
+
                                 <input type="submit" class="btn btn-success btn-lg create_cv" value="Create Resume">
                             </form>
                         </div>
