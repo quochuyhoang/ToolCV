@@ -48,15 +48,15 @@ class ClientController extends Controller
     }
 
     public function store(Request $req){
+
+        $birth = $req->year.'-'.$req->month.'-'.$req->day;
         $this->validate($req,[
             'name'		=>'required',
-            'birth'		=>'required',
             'email'		=>'required|unique:users,email',
             'location_id'	=>'required'
 
         ],[
             'name.required'		=>'Name is not defined',
-            'birth.required'	=>'Birth is not defined',
             'email.required'	=>'Email is not defined',
             'location_id.required'	=>'Location is not defined',
         ]);
@@ -82,7 +82,7 @@ class ClientController extends Controller
 
         DB::table('users')->insert([
             'name' 			=> $req->name,
-            'birth' 		=> $req->birth,
+            'birth' 		=> $birth,
             'phone' 		=> $req->phone,
             'avatar'		=> $file_name,
             'address' 		=> $req->address,

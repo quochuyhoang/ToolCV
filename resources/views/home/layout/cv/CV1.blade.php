@@ -357,6 +357,7 @@
 
 						var x= $("#aw");
 						x.append('<div class="col-md-6" id="aw-tag'+dem+'">'
+								+'<h4></h4>'
 							+'<div class="text_expres">'
 							+'<div class="wordpress">'
 							+'<span class="list"><input name="aw_name'+dem+'"  type="text" placeholder="Name"></span>'
@@ -368,8 +369,10 @@
 							+'</div>'
 							+'</div>'
 							);
+						$('#aw-hide').show();
+						var hide= document.getElementById('aw-hide');
+						hide.removeAttribute('hidden');
 
-                        $('#aw-hide').show();
 					}
 				</script>
 				<input name="aw-number" type="hidden" id="aw-number" value="1">
@@ -380,7 +383,7 @@
 								<span class="list"><input name="aw_name1"  type="text" placeholder="Name"></span>
 							</div>
 							<div class="contant1">
-								<div class=" nam1"><input name="aw_time1"  class="color" type="text" placeholder="Year"></div>
+								<div class="nam1"><input name="aw_time1"  class="color" type="text" placeholder="Year"></div>
 								<p class="text_min"><input name="aw_describe1"  type="text" placeholder="Describe"></p>
 							</div>
 						</div>
