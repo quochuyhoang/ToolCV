@@ -49,14 +49,10 @@ class HomeController extends Controller
         $this->validate($request,[
             'name'			=>'required',
             'birth'			=>'required',
-            'phone'			=>'required',
-            'address'		=>'required',
             'email'			=>'required',
         ],[
             'name.required'			=>'Name is not defined',
             'birth.required'		=>'Birth is not defined',
-            'phone.required'		=>'Phone is not defined',
-            'address.required'		=>'Address is not defined',
             'email.required'		=>'Email is not defined',
         ]);
         $input=$request->all();
@@ -111,7 +107,7 @@ class HomeController extends Controller
             DB::table('users')->where('id', $id)->update([
                 'password' => bcrypt($input['reNewPass']),
             ]);
-            return redirect()->back()->with('success','change paswword success');
+            return redirect()->back()->with('success','change pasword success');
         }else{
             return redirect()->back()->with('failed','Change passwword failed! old pasword dose not match');
         }

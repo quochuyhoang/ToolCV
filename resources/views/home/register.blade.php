@@ -2,6 +2,15 @@
   .input-group {
     width: 100%;
   }
+
+    .birth-day .birth-item{
+        float: left;
+        width: 30%;
+    }
+  .birth-day .birth-item select{
+      width: 50%;
+      background-color: white;
+  }
 </style>
 <div class="container">
 
@@ -19,15 +28,15 @@
 					<!-- Modal body -->
 					<div class="modal-body">
 						@if(count($errors)>0)
-							<div class="alert alert-danger">
-								@foreach($errors->all() as $err)
-									{{ $err }}<br>
-								@endforeach
-							</div>
-						@endif
 
-						@if(session('success'))
-							<div class="alert alert-success">{{ session('success') }}</div>
+								<?php  $error =""; ?>
+								@foreach($errors->all() as $err)
+									<?php $error .= $err."<br>"; ?>
+								@endforeach
+								{!! $error !!}
+							<script>
+								alert({!! $error !!}+"hihi");
+							</script>
 						@endif
 
 						<div class="input-group form-group">
@@ -36,7 +45,93 @@
 						</div>
 						<div class="input-group form-group">
               <label>Birthday:</label>
-							<input type="date" id="birth" name="birth" class="form-control" placeholder="(dd/MM/yyyy)" value="{{ old('birth') }}">
+{{--
+							<input type="date" id="birth" name="birth" class="form-control" placeholder="(dd/MM/yyyy)" value="{{ old('birth') }}" max="{{ date('d/m/Y') }}" onchange="checkday(this)">
+--}}                     <div class="input-group birth-day">
+                                <div id="" class="birth-item">
+                                Year:<select id="year" name="year" onchange="changyear(this)">
+                                    <?php $now = getdate();?>
+                                    @for($i = $now["year"]- 15 ; $i>= $now["year"]- 45 ; $i--)
+                                        <option value="{{$i}}">{{$i}}</option>
+                                    @endfor
+                                </select>
+                                </div>
+                                <div id="" class="birth-item">
+                                Month:<select id="month" name="month" onchange="checkmonth(this)">
+                                    @for($i = 1; $i<=12 ; $i++)
+                                        <option value="{{$i}}">{{$i}}</option>
+                                    @endfor
+                                </select>
+                                </div>
+                                <div id="monthday" class="birth-item">
+                                Day:<select id="day" name="day">
+                                    @for($i = 1; $i<=31 ; $i++)
+                                        <option>{{$i}}</option>
+                                    @endfor
+                                </select>
+                                </div>
+                            </div>
+                            <script>
+                                function checkmonth(obj) {
+                                    var day= document.getElementById('monthday');
+                                    var year= document.getElementById('year');
+                                    var numberday="Day:<select id='day' name='day'>";
+                                    switch ( parseInt(obj.value)) {
+                                        case 2:{
+                                            if(year.value%4==0 && year.value%100!=0 || year.value%400==0) {
+                                                for (i = 1; i <= 29; i++) {
+                                                    numberday += "<option value='" + i + "'>" + i + "</option>";
+                                                }
+                                            }
+                                            else {
+                                                for (i = 1; i <= 28; i++) {
+                                                    numberday += "<option value='" + i + "'>" + i + "</option>";
+                                                }
+                                            }
+                                        break;
+                                        }
+                                        case 4:
+                                        case 6:
+                                        case 9:
+                                        case 11:
+                                            {
+                                            for(i=1; i<=30; i++){
+                                                numberday += "<option value='"+i+"'>"+i+"</option>";
+                                            }
+                                            break;
+                                        }
+                                        default:{
+                                            for(i=1; i<=31; i++){
+                                                numberday += "<option value='"+i+"'>"+i+"</option>";
+                                            }
+                                            break;
+                                        }
+
+                                    }
+                                    numberday +="</select>";
+                                    day.innerHTML =numberday;
+                                }
+                                function changyear(obj) {
+                                    var day = document.getElementById('monthday');
+                                    var month = document.getElementById('month');
+                                    if (parseInt(month.value) == 2) {
+                                        var numberday = "Day:<select id='day' name='day'>";
+                                        if (obj.value % 4 == 0 && obj.value % 100 != 0 || obj.value % 400 == 0) {
+                                            for (i = 1; i <= 29; i++) {
+                                                numberday += "<option value='" + i + "'>" + i + "</option>";
+                                            }
+                                        }
+                                        else{
+                                            for (i = 1; i <= 28; i++) {
+                                                numberday += "<option value='" + i + "'>" + i + "</option>";
+                                            }
+                                        }
+
+                                        numberday += "</select>";
+                                        day.innerHTML = numberday;
+                                    }
+                                }
+                            </script>
 						</div>
 						<div class="input-group form-group">
               <label>Avatar:</label>

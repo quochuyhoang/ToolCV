@@ -93,21 +93,21 @@ class UpDb extends Migration
 
         Schema::create('user_cvs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('target');
-            $table->integer('salary');
-            $table->string('hobbies');
-            $table->string('job_name');
-            $table->string('image');
+            $table->string('target')->nullable();
+            $table->integer('salary')->nullable();
+            $table->string('hobbies')->nullable();
+            $table->string('job_name')->nullable();
+            $table->string('image')->nullable();
             $table->bigInteger('user_id')->unsigned();
             $table
                 ->foreign('user_id')
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
-            $table->string('user_name');
-            $table->string('user_address');
-            $table->string('user_phone');
-            $table->string('user_email');
+            $table->string('user_name')->nullable();
+            $table->string('user_address')->nullable();
+            $table->string('user_phone')->nullable();
+            $table->string('user_email')->nullable();
             $table->bigInteger('colorcv_id')->unsigned();
             $table
                 ->foreign('colorcv_id')
@@ -118,9 +118,9 @@ class UpDb extends Migration
 
         Schema::create('awards', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('describe');
-            $table->string('year');
+            $table->string('name')->nullable();
+            $table->string('describe')->nullable();
+            $table->string('year')->nullable();
             $table->bigInteger('user_id')->unsigned();
             $table
                 ->foreign('user_id')
@@ -139,13 +139,13 @@ class UpDb extends Migration
 
         Schema::create('experience', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('position');
-            $table->string('describe');
-            $table->string('achi');
-            $table->string('reference');
-            $table->string('rf_phone');
-            $table->string('time');
+            $table->string('name')->nullable();
+            $table->string('position')->nullable();
+            $table->string('describe')->nullable();
+            $table->string('achi')->nullable();
+            $table->string('reference')->nullable();
+            $table->string('rf_phone')->nullable();
+            $table->string('time')->nullable();
             $table->bigInteger('user_id')->unsigned();
             $table
                 ->foreign('user_id')
@@ -175,9 +175,9 @@ class UpDb extends Migration
                 ->references('id')
                 ->on('user_cvs')
                 ->onDelete('cascade');
-            $table->string('name');
-            $table->string('spe');
-            $table->string('time');
+            $table->string('name')->nullable();
+            $table->string('spe')->nullable();
+            $table->string('time')->nullable();
         });
 
     }

@@ -401,9 +401,6 @@
 									var parent = document.getElementById("aw");
 									var child = document.getElementById('aw-tag'+get.value);
 									parent.removeChild(child);
-
-
-
 									var dem= parseInt(get.value)-1;
 									get.value= dem;
 									if(dem===1){
