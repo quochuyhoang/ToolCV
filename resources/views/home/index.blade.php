@@ -109,12 +109,14 @@
 
         <!-- Page Banner -->
         <section class="preview-banner" style="padding-top: 50px; padding-bottom: 100px;">
-            <div class="pull-right display">
+            <div class="display">
                 @guest
-                <a  class="btn" data-toggle="modal" data-target="#loginModal">Sign In</a>
+                <div style="float:right;">
+                <a  class="btn sign-in" data-toggle="modal" data-target="#loginModal">Sign In</a>
                 @if (Route::has('register'))
-                <a  target="_blank" class="btn" style="margin-right:20px;" data-toggle="modal" data-target="#registerModal">Register</a>
+                <a  target="_blank" class="btn register" style="margin-right:20px;" data-toggle="modal" data-target="#registerModal">Register</a>
                 @endif
+                </div>
                 @else
                 <span style="font-size:20px;color:white;margin-right:.7rem;">Welcome, {{ Auth::user()->name}}</span>
                 <div class="dropdown" style="margin-right:50px;display:inline-block">

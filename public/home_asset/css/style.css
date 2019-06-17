@@ -5015,6 +5015,9 @@ form.list_blog_contact .heading h2::before {
    .heading-section .domain_search.domain_search_bgw .heading h2 {
        font-size: 30px;
    }
+   img.CV_image {
+     height: 575px;
+   }
 }
 @media (max-width: 767px) {
     html {
@@ -5206,7 +5209,7 @@ form.list_blog_contact .heading h2::before {
         padding:0;
    }
     .padding-60-b {
-        padding-bottom: 30px;
+        padding-bottom: 0px;
    }
     .top-services {
         margin-bottom: 60px;
@@ -5269,6 +5272,9 @@ form.list_blog_contact .heading h2::before {
         margin-top: 60px;
         text-align: center;
    }
+    img.CV_image {
+        height: 560px;
+   }
 }
 @media (max-width: 555px) {
     #header-bottom .top_contact{
@@ -5307,7 +5313,7 @@ form.list_blog_contact .heading h2::before {
        font-size: 13px;
    }
    .domain_search.domain_search_bgw {
-       padding: 15px 25px;
+       padding: 25px 50px;
    }
    .content-heading{
        padding: 5px 20px;
@@ -5325,11 +5331,19 @@ form.list_blog_contact .heading h2::before {
        padding: 30px 50px;
    }
    .preview-banner .gradient-banner-detail h2 {
-       margin-top: 0;
+       margin-top: 60px;
        padding-bottom: 0;
    }
+   a.btn.sign-in {
+     font-size: 16px;
+     margin-right:-10px;
+   }
+   a.btn.register {
+     font-size: 16px;
+     margin-right: 0;
+   }
    .heading-section .domain_search.domain_search_bgw .heading h2 {
-       font-size: 18px;
+       font-size: 17px;
        padding-bottom: 5px!important;
    }
    .content-heading {
@@ -5347,6 +5361,9 @@ form.list_blog_contact .heading h2::before {
    }
    .domain_search.domain_search_bgw {
        margin-top: -75px;
+   }
+   img.CV_image {
+     height: 530px;
    }
 
 }
