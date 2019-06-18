@@ -7,25 +7,29 @@
     <div class="container">
         <div class="row page" id="page1" style="display: block;">
             @foreach($imagecvs as $imageCV)
-            <div class="col-md-offset-1 col-md-5 col-sm-6 col-xs-12 text-center">
-                <div class="single-effect">
-                    <figure class="wpf-blog">
-                        <a href=""><img src="{{ asset('') }}home_asset/images/cvs/{{ $imageCV->name }}_red.png" alt="img" class="CV_image"></a>
-                        <figcaption class="view-caption">
-                            <a
-                            @guest
-                                data-toggle="modal" data-target="#loginModal"
-                            @else
-                                 href="{{ url('home/ChosenColor/'.$imageCV->id) }}"
-                            @endguest
+                @if(isset($imageCV))
+                    <div class="col-md-offset-1 col-md-5 col-sm-6 col-xs-12 text-center">
+                        <div class="single-effect">
+                            <figure class="wpf-blog">
+                                <a href=""><img src="{{ asset('') }}home_asset/images/cvs/{{ $imageCV->name }}_red.png" alt="img" class="CV_image"></a>
+                                <figcaption class="view-caption">
+                                    <a
+                                            @guest
+                                            data-toggle="modal" data-target="#loginModal"
+                                            @else
+                                            href="{{ url('home/ChosenColor/'.$imageCV->id) }}"
+                                            @endguest
 
 
-                                    target="_blank" class="centered" id="cv1" >Use this template</a>
-                        </figcaption>
-                    </figure>
-                    <h3>Creative Resume Templates</h3>
-                </div>
-            </div>
+                                            target="_blank" class="centered" id="cv1" >Use this template</a>
+                                </figcaption>
+                            </figure>
+                            <h3>Creative Resume Templates</h3>
+                        </div>
+                    </div>
+                    @else
+                    {{ "jiji" }}
+                @endif
             @endforeach
         </div>
         <script type="javascript">

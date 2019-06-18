@@ -110,8 +110,10 @@
         <!-- Page Banner -->
         <section class="preview-banner" style="padding-top: 50px; padding-bottom: 100px;">
             <div class="display">
+                <a href=""><img src="{{ asset('home_asset/images/logo/logo.png')}}" alt="" style="height:50px;width:12%;margin-left:5%;cursor:pointer"></a>
+
                 @guest
-            <a href=""><img src="{{ asset('home_asset/images/logo/logo.png')}}" alt="" style="height:50px;width:12%;margin-left:5%;cursor:pointer"></a>
+
                 <div style="float:right;">
                   <a class="btn sign-in" data-toggle="modal" data-target="#loginModal">Sign In</a>
                   @if (Route::has('register'))
@@ -119,24 +121,27 @@
                   @endif
                 </div>
                 @else
-                <span style="font-size:20px;color:white;margin-right:.7rem;">Welcome, {{ Auth::user()->name}}</span>
-                <div class="dropdown" style="margin-right:50px;display:inline-block">
-                        <img src="{{ asset('assets/img/avatar/'.Auth::user()->avatar)}}" alt="hỏng" style="width:60px;height:60px;border-radius:50%;">
-                    <div class="dropdown-content" style="border-radius:5px;">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{ url('home/profile/'.Auth::user()->id) }}">
-                            Profile</a>
-                      {{--  @foreach($user_cvs as $usercv)
-                        @if($usercv->user_id== Auth::user()->id)
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{ url('home/ShowCV/'.$usercv->id) }}">
-                            Profile</a>
-                        @endif
-                        @endforeach--}}
+                <div style="float:right;">
+                    <span style="font-size:20px;color:white;margin-right:.7rem;">Welcome, {{ Auth::user()->name}}</span>
+                    <div class="dropdown" style="margin-right:50px;display:inline-block">
+                            <img src="{{ asset('assets/img/avatar/'.Auth::user()->avatar)}}" alt="hỏng" style="width:60px;height:60px;border-radius:50%;">
+                        <div class="dropdown-content" style="border-radius:5px;">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{ url('home/profile/'.Auth::user()->id) }}">
+                                Profile</a>
+                          {{--  @foreach($user_cvs as $usercv)
+                            @if($usercv->user_id== Auth::user()->id)
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{ url('home/ShowCV/'.$usercv->id) }}">
+                                Profile</a>
+                            @endif
+                            @endforeach--}}
 
-                        <a href="{{ route('home.logout') }}">Log Out</a>
+                            <a href="{{ route('home.logout') }}">Log Out</a>
+                        </div>
                     </div>
                 </div>
                 @endguest
             </div>
+
 
             <div class="container">
                 <div class="row">
